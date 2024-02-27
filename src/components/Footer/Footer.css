@@ -1,0 +1,227 @@
+.mainFooter {
+    display: flex;
+    flex-direction: column;
+    background-color: #008B8B;
+    color: aliceblue;
+    width: 100%;
+  }
+  
+  .container1Footer {
+    width: 20vw;
+  }
+  
+  .container2Footer {
+    border: 10px;
+    width: 21vw;
+  }
+  
+  .container3Footer {
+    border: 10px;
+    width: 19vw;
+  }
+  
+  .container4Footer {
+    border: 10px;
+    width: 20vw;
+  }
+  
+  .footerHr {
+    width: 80%;
+    margin-left: 110px;
+  }
+  
+  .headlinksFooter {
+    padding-right: 60px;
+  }
+  .headlinksFooter::after {
+    content: " | ";
+    padding-left: 30px;
+  }
+  
+  .mobilefooter {
+    text-align: center;
+    font-size: small;
+  }
+  
+  .subFooter {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .subcontainer1Footer {
+    display: flex;
+    flex-direction: row;
+    margin-left: 145px;
+    margin-right: auto;
+    padding-left: -10px;
+  }
+  
+  .subcontainer2Footer {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .subcontainer3Footer {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    font-size: medium;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: small;
+  }
+  
+  .subcontentFooter {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 53px;
+    display: flex;
+    flex-direction: row;
+    font-weight: 600;
+    
+  }
+
+  .T{
+    color:white;
+    align-items: center;
+  } 
+  
+  .subheadingFooter {
+    color: orange;
+    font-size: larger;
+    font-weight: 600;
+  }
+  
+  .sublinksFooter {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+  
+  .sublinksFooter:hover {
+    color: orange;
+  }
+  
+  .subFooter {
+    width: 250px;
+  }
+  
+  .BelowBar {
+    color: white;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    
+  }
+  
+  .BelowBar-links {
+    display: flex;
+    padding-left: 5px;
+    gap: 20px;
+  }
+  
+  .Below-Social-links {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .Below-Social-links:hover{
+    transform: scale(1.5);
+  }
+  
+  .belowbar-seconddiv {
+    gap: 10px;
+  }
+  
+  @media (max-width: 767px) {
+    .mainFooter {
+      /* width: 100%; */
+      overflow: hidden;
+      padding-left: 10px;
+    }
+    .subcontainer2Footer,
+    .subcontainer1Footer {
+      display: flex;
+      flex-direction: column;
+      width: auto;
+    }
+    .container1Footer,
+    .container2Footer,
+    .container3Footer,
+    .container4Footer {
+      min-width: 400px;
+    }
+    .headlinksFooter::after {
+      content: "  ";
+      padding-left: 30px;
+      padding-right: 15px;
+      padding-left: 20px;
+    }
+    .subcontainer1Footer {
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      /* margin-right: auto; */
+      /* padding-left: -10px; */
+    }
+    .subcontentFooter {
+      padding-left: 0%;
+      display: flex;
+      flex-direction: column;
+    }
+    .subcontainer3Footer {
+      display: flex;
+      flex-direction: column;
+    }
+    .footerHr {
+      margin-left: auto;
+      margin-right: auto;
+      width: 95%;
+    }
+    .subFooter {
+      width: 300px;
+    }
+  
+    @media (min-width: 768px) and (max-width: 1023px) {
+      /* Your tablet-specific styles go here */
+      .subcontainer2Footer,
+      .subcontainer1Footer {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+      }
+      .container1Footer,
+      .container2Footer,
+      .container3Footer,
+      .container4Footer {
+        min-width: 400px;
+      }
+      .headlinksFooter::after {
+        content: "  ";
+        padding-left: 30px;
+        padding-right: 15px;
+        padding-left: 20px;
+      }
+      .subcontainer1Footer {
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+      .subcontentFooter {
+        padding-left: 0%;
+        display: flex;
+        flex-direction: column;
+      }
+      .subcontainer3Footer {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+  
