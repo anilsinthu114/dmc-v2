@@ -1,7 +1,7 @@
 import "./Dropdown.css";
 import { Link, useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
- import GroupsIcon from "@mui/icons-material/Groups";
+import GroupsIcon from "@mui/icons-material/Groups";
 //import SchoolIcon from "@mui/icons-material/School";
 // import PersonIcon from "@mui/icons-material/Person";
 import DraftsIcon from "@mui/icons-material/Drafts";
@@ -34,15 +34,14 @@ const Dropdown = () => {
         MENU
       </div>
       <div className={menuState ? "menu-on-options" : "menu-off-options"}>
-        
-      <div className="dropdown">
-  <div className="dropbtn" onClick={homeHandler}>
-    <div className="drop-icon" style={{ verticalAlign: 'middle' }}>
-      <HomeIcon />
-    </div>
-    HOME
-  </div>
-</div>
+        <div className="dropdown">
+          <div className="dropbtn" onClick={homeHandler}>
+            <div className="drop-icon" style={{ verticalAlign: 'middle' }}>
+              <HomeIcon />
+            </div>
+            HOME
+          </div>
+        </div>
 
 
 
@@ -147,7 +146,7 @@ const Dropdown = () => {
             </div>
         </div>*/}
 
-<div className="dropdown">
+        <div className="dropdown">
           <div className="dropbtn">
             <DraftsIcon />
             <Link to="/programmes-offered" className="link-btn">
@@ -192,19 +191,19 @@ const Dropdown = () => {
           </div>
           </div> */}
 
-<div className="dropdown">
+        <div className="dropdown">
           <div className="dropbtn">
             <DraftsIcon />
             <Link to="/forms" className="link-btn">
-              FEEDBACK FORM 
+              FEEDBACK FORM
             </Link>
           </div>
         </div>
 
-      
-      
-      
-      
+
+
+
+
       </div>
     </nav>
   );

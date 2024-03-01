@@ -46,6 +46,8 @@ import AICTE from './components/Home/AICTE/AICTE';
 import MOU from './components/Home/Data/MOU';
 import Events from './components/Home/Data/Events';
 import Forms from './components/Header/Forms/Forms';
+import Dropdown from "./components/Header/Dropdown";
+
 
 function App() {
   // const location = useLocation();
@@ -56,9 +58,8 @@ function App() {
   return (
     <div>
       <Header />
-      <Home />
+      <Dropdown />
       <div>
-        <Header /><br />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutMain />}>
@@ -68,18 +69,11 @@ function App() {
             <Route path="about-coordinator" element={<Coordinator />} />
           </Route>
           <Route path="/reports" element={<Reports />} />
-
-
           <Route path="/about-course-details" element={<Coursedetails />}>
             <Route path="about-ug-syllabus" element={<UGsyllabus />} />
             <Route path="about-pg-syllabus" element={<PGsyllabus />} />
-
             {/* Add more nested routes as needed */}
           </Route>
-
-
-
-
           <Route path="/programmes-offered" element={<ProgrammesOffered />} />
           <Route path="/qat" element={<QAT />} />
           <Route path="/AQAR" element={<AQAR />} />
@@ -117,11 +111,6 @@ function App() {
           <Route path="/notifications" element={<Notifications />} />
 
         </Routes>
-
-
-
-
-        {/* {isHomePage && <Footer />} */}
         <Footer />
       </div>
 
