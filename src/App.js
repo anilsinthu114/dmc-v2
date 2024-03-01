@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import { Route, Routes } from 'react-router-dom';
@@ -47,80 +46,74 @@ import AICTE from './components/Home/AICTE/AICTE';
 import MOU from './components/Home/Data/MOU';
 import Events from './components/Home/Data/Events';
 import Forms from './components/Header/Forms/Forms';
+import Dropdown from "./components/Header/Dropdown";
+
 
 function App() {
- // const location = useLocation();
+  // const location = useLocation();
 
   // Check if the current route is the home page ("/")
   //const isHomePage = location.pathname === '/';
 
   return (
     <div>
-      <Header /><br />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about-us" element={<AboutMain />}>
-          <Route path="about-iqac" element={<IQAC />} />
-          <Route path="about-jntugv" element={<JNTUGV />} />
-          <Route path="about-director" element={<Director />} />
-          <Route path="about-coordinator" element={<Coordinator />} />
-        </Route>
-        <Route path="/reports" element={<Reports />} />
+      <Header />
+      <Dropdown />
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutMain />}>
+            <Route path="about-iqac" element={<IQAC />} />
+            <Route path="about-jntugv" element={<JNTUGV />} />
+            <Route path="about-director" element={<Director />} />
+            <Route path="about-coordinator" element={<Coordinator />} />
+          </Route>
+          <Route path="/reports" element={<Reports />} />
+          <Route path="/about-course-details" element={<Coursedetails />}>
+            <Route path="about-ug-syllabus" element={<UGsyllabus />} />
+            <Route path="about-pg-syllabus" element={<PGsyllabus />} />
+            {/* Add more nested routes as needed */}
+          </Route>
+          <Route path="/programmes-offered" element={<ProgrammesOffered />} />
+          <Route path="/qat" element={<QAT />} />
+          <Route path="/AQAR" element={<AQAR />} />
+          <Route path="/pdf-viewer/:path" element={<PdfViewer />} />
+          <Route path="/forms" element={<Forms />} />
 
-        
-  <Route path="/about-course-details" element={<Coursedetails />}>
-    <Route path="about-ug-syllabus" element={<UGsyllabus />} />
-    <Route path="about-pg-syllabus" element={<PGsyllabus />} />
+          <Route path="/feedbackforms" element={<FeedbackformsMain />}>
+            <Route path="faculty-form" element={<Faculty />} />
+            <Route path="student-form" element={<Student />} />
+            <Route path="alumni-form" element={<Alumni />} />
+          </Route>
 
-    {/* Add more nested routes as needed */}
-  </Route>
-
-
-
-        
-        <Route path="/programmes-offered" element={<ProgrammesOffered />} />
-         <Route path="/qat" element={<QAT />} /> 
-        <Route path="/AQAR" element={<AQAR />} />
-        <Route path="/pdf-viewer/:path" element={<PdfViewer />} />
-        <Route path="/forms" element={<Forms />} />
-      
-      <Route path="/feedbackforms" element={<FeedbackformsMain />}>
-          <Route path="faculty-form" element={<Faculty />} />
-          <Route path="student-form" element={<Student />} />
-          <Route path="alumni-form" element={<Alumni />} />
-        </Route>
-        
-        <Route path="/about-vision-mission" element={<VisionMission />} />
-        <Route path="/about-consulty-services" element={<CS />} />
-        <Route path="/about-iiqa" element={<IIQA />} /> 
-        <Route path="/about-naac-criteria" element={<NAAC />} /> 
-        <Route path="/about-naac-ssr" element={<NAACSSR />} /> 
-        <Route path="/about-faculty-awards" element={<FA />} />
-        <Route path="/about-strategies" element={<Strategies />} />
-        <Route path="/about-functions" element={<Functions />} />
-        <Route path="/about-benefits" element={<Benefits />} />
-        <Route path="/about-course-details/about-ug-syllabus" element={<UGsyllabus />} />
-        <Route path="/feedbackforms/faculty-form" element={<Faculty />} />
-        <Route path="/about-operational" element={<Operational />} />
-        <Route path="/about-monitoring" element={<Monitoring />} />
-        <Route path="/about-aicte-approvals" element={<AICTE />} />
-        <Route path="/about-pcoi" element={<PCOI />} />
-        <Route path="/about-mou" element={<MOU />} />
-        <Route path="/about-events" element={<Events />} />
-        <Route path="/about-outcomes" element={<Outcomes />} />
-        {/* <Route path="/news-and-events" element={<NewsandEvents />} /> 
+          <Route path="/about-vision-mission" element={<VisionMission />} />
+          <Route path="/about-consulty-services" element={<CS />} />
+          <Route path="/about-iiqa" element={<IIQA />} />
+          <Route path="/about-naac-criteria" element={<NAAC />} />
+          <Route path="/about-naac-ssr" element={<NAACSSR />} />
+          <Route path="/about-faculty-awards" element={<FA />} />
+          <Route path="/about-strategies" element={<Strategies />} />
+          <Route path="/about-functions" element={<Functions />} />
+          <Route path="/about-benefits" element={<Benefits />} />
+          <Route path="/about-course-details/about-ug-syllabus" element={<UGsyllabus />} />
+          <Route path="/feedbackforms/faculty-form" element={<Faculty />} />
+          <Route path="/about-operational" element={<Operational />} />
+          <Route path="/about-monitoring" element={<Monitoring />} />
+          <Route path="/about-aicte-approvals" element={<AICTE />} />
+          <Route path="/about-pcoi" element={<PCOI />} />
+          <Route path="/about-mou" element={<MOU />} />
+          <Route path="/about-events" element={<Events />} />
+          <Route path="/about-outcomes" element={<Outcomes />} />
+          {/* <Route path="/news-and-events" element={<NewsandEvents />} /> 
         <Route path="/scrolling-bar" element={<Scrollbar />} />
         <Route path="/update-panel" element={<UpdatePanel />} /> */}
 
-        <Route path="/notifications" element={<Notifications />} /> 
+          <Route path="/notifications" element={<Notifications />} />
 
         </Routes>
+        <Footer />
+      </div>
 
-        
-
-      
-      {/* {isHomePage && <Footer />} */}
-      <Footer />
     </div>
   );
 }
