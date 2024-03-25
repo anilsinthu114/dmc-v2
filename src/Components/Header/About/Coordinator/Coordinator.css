@@ -1,0 +1,82 @@
+/* Coordinator.css */
+
+.mainContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.allRightContentHeading {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #2e0669;
+}
+
+.allRightContentProfile {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.ADimg img {
+  width: 200px; /* Adjust the size as needed */
+  height: auto;
+}
+
+.profileName {
+  text-align: center;
+}
+
+.profileDesignation {
+  text-align: center;
+}
+
+/* Profile description */
+.allRightContent p {
+  margin: 10px 0;
+}
+
+/* Subheadings */
+.ADsub {
+  font-weight: bold;
+  color: #2e0669;
+  font-size: 20px;
+}
+
+/* List items */
+.ADlist {
+  margin-left: 20px;
+}
+
+/* Specific styles for h3 and h4 */
+.profileName .coh3 {
+  color: #2e0669; /* Blue color */
+  font-size: 24px; /* Adjust the font size as needed */
+  
+}
+
+.profileName .coh4 {
+  color: black; /* Black color */
+  font-size: 18px; /* Adjust the font size as needed */
+  font-weight: normal;
+}
+
+.profileDesignation .coh4 {
+  color: black; /* Black color */
+  font-size: 18px; /* Adjust the font size as needed */
+  font-weight: normal;
+}
+
+
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 600px) {
+  .mainContainer {
+    padding: 10px;
+  }
+
+  .ADimg img {
+    width: 150px;
+  }
+}

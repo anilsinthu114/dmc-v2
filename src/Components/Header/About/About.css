@@ -1,0 +1,66 @@
+/* Styles for the container */
+.ABOUT-Main {
+  display: flex;
+}
+
+/* Styles for the left menu */
+/* Styles for the left menu */
+.ABOUTallLeftMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  margin-right: 50px; /* Adjust the margin-right value */
+}
+
+
+/* Styles for menu buttons */
+.menuButton {
+  width: 240px;
+  height: 60px;
+  border-radius: 7px;
+  box-shadow: 0px 4px 22px 0px rgba(123, 124, 134, 0.36);
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #035a5a;
+  background: #fff;
+  color: black;
+}
+
+.menuButton:hover {
+  background-color: #035a5a;
+  color: #fff;
+}
+
+.menuButton.active {
+  background: #035a5a;
+  color: white;
+}
+
+/* Styles for the content */
+.allRightContent {
+  flex: 1;
+}
+
+.allRightContentProfile {
+  padding-left: 40px; /* Adjust as needed */
+}
+
+.allRightContentHeading {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #2e0669;
+}
+
+/* Additional styles for text content */
+.a {
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(20, 6, 63);
+}
