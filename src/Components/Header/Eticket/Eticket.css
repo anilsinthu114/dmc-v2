@@ -1,0 +1,14 @@
+.eticket-container {
+  text-align: center;
+  margin: auto;
+  max-width: 800px; /* Adjust as needed */
+}
+
+.eticket-container h2 {
+  color: #2e0669; /* Adjust color as needed */
+}
+
+.eticket-container p {
+  line-height: 1.6;
+  color: black; /* Adjust color as needed */
+}

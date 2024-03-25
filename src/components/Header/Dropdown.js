@@ -5,7 +5,7 @@ import GroupsIcon from "@mui/icons-material/Groups";
 //import SchoolIcon from "@mui/icons-material/School";
 // import PersonIcon from "@mui/icons-material/Person";
 import DraftsIcon from "@mui/icons-material/Drafts";
-import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
+//import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import DescriptionIcon from "@mui/icons-material/Description";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -18,6 +18,9 @@ import { useState } from "react";
 const Dropdown = () => {
   const navigate = useNavigate();
 
+
+
+  
   const [menuState, setMenuState] = useState(false);
 
   const homeHandler = () => {
@@ -53,26 +56,38 @@ const Dropdown = () => {
           <div class="dropdown-content" onClick={() => setMenuState(!menuState)}>
             <button >
               {" "}
-              <Link className="link-btn" to="/about-us/about-iqac">
-                About IQAC
+              <Link className="link-btn" to="/dmc/about-dmc">
+                About DMC Cell
               </Link>
             </button>
             <button>
               {" "}
-              <Link className="link-btn" to="/about-us/about-jntugv">
-                About JNTU-GV
+              <Link className="link-btn" to="/dmc/dmc-co-ordinator">
+                DMC Co-Ordinator
               </Link>
             </button>
             <button>
               {" "}
-              <Link className="link-btn" to="/about-us/about-director">
-                About Director
+              <Link className="link-btn" to="/dmc/dmc-activities">
+                DMC Activities
               </Link>
             </button>
             <button>
               {" "}
-              <Link className="link-btn" to="/about-us/about-coordinator">
-                About Co-Ordinator
+              <Link className="link-btn" to="/dmc/dmc-events">
+              DMC Events
+              </Link>
+            </button>
+            <button>
+              {" "}
+              <Link className="link-btn" to="/dmc/dmc-future-plans">
+              DMC Future Plans
+              </Link>
+            </button>
+            <button>
+              {" "}
+              <Link className="link-btn" to="/dmc/dmc-facilities">
+                DMC Facilities
               </Link>
             </button>
           </div>
@@ -81,8 +96,8 @@ const Dropdown = () => {
         <div className="dropdown">
           <div className="dropbtn">
             <GroupsIcon />
-            <Link to="/qat" className="link-btn">
-              QUALITY ASSURANCE TEAM
+            <Link to="/about-elearn" className="link-btn">
+              E-LEARN
             </Link>
           </div>
         </div>
@@ -90,8 +105,8 @@ const Dropdown = () => {
         <div className="dropdown">
           <div className="dropbtn">
             <CampaignIcon />
-            <Link to="/notifications" className="link-btn">
-              NOTIFICATIONS
+            <Link to="/about-surveillance" className="link-btn">
+              SURVEILLANCE
             </Link>
           </div>
         </div>
@@ -99,103 +114,37 @@ const Dropdown = () => {
         <div className="dropdown">
           <div className="dropbtn">
             <DescriptionIcon />
-            <Link to="/AQAR" className="link-btn">
-              REPORTS
+            <Link to="/about-gallery" className="link-btn">
+              GALLERY
             </Link>
           </div>
         </div>
-
-        <div class="dropdown">
-          <div class="dropbtn">
-            <GridViewRoundedIcon />&nbsp;  COURSE DETAILS
-          </div>
-          <div class="dropdown-content" onClick={() => setMenuState(!menuState)}>
-            <button >
-              {" "}
-              <Link className="link-btn" to="/about-course-details/about-ug-syllabus">
-                UG Syllabus
-              </Link>
-            </button>
-            <button>
-              {" "}
-              <Link className="link-btn" to="/about-course-details/about-pg-syllabus">
-                PG Syllabus
-              </Link>
-            </button>
-
-          </div>
-        </div>
-
-        {/*<div class="dropdown">
-          <div class="dropbtn">
-            <DescriptionIcon /> NAAC DATA FILES
-          </div>
-          <div
-            class="dropdown-content"
-            onClick={() => setMenuState(!menuState)}>
-            <button>
-              {" "}
-              <Link
-                className="link-btn"
-                to="https://results.jntugv.edu.in"
-                target="_blank"
-              >
-                Examination Results
-              </Link>
-            </button>
-            </div>
-        </div>*/}
 
         <div className="dropdown">
           <div className="dropbtn">
-            <DraftsIcon />
-            <Link to="/programmes-offered" className="link-btn">
-              PROGRAMMES OFFERED
+            <DescriptionIcon />
+            <Link to="/about-eticket" className="link-btn">
+              E-TICKET
             </Link>
           </div>
         </div>
 
-
-        {/* <div class="dropdown">
-          <div className="dropbtn">
-            <Link to="/reports" className="drop-icon" onClick={() => setMenuState(!menuState)}>
-              <DescriptionIcon /> REPORTS
-            </Link>
-          </div>
-        </div> */}
-
-
-        {/* <div class="dropdown">
-          <div class="dropbtn">
-            <DraftsIcon />&nbsp; FEEDBACK FORMS
-          </div>
-          <div class="dropdown-content" onClick={() => setMenuState(!menuState)}>
-            <button >
-              {" "}
-              <Link className="link-btn" to="/feedbackforms/faculty-form">
-                Faculty
-              </Link>
-            </button>
-            <button>
-              {" "}
-              <Link className="link-btn" to="/feedbackforms/student-form">
-                Student
-              </Link>
-            </button>
-            <button>
-              {" "}
-              <Link className="link-btn" to="/feedbackforms/alumni-form">
-                Alumni
-              </Link>
-            </button>
-          </div>
-          </div> */}
-
         <div className="dropdown">
           <div className="dropbtn">
+            <DescriptionIcon />
+            <Link to="/about-dmc-team" className="link-btn">
+              DMC TEAM
+            </Link>
+          </div>
+        </div>
+
+       
+
+      <div className="dropdown">
+          <div className="dropbtn">
             <DraftsIcon />
-            <Link to="/forms" className="link-btn">
-              FEEDBACK FORM
+            <Link to="/contact-us" className="link-btn">
+              CONTACT US
             </Link>
           </div>
         </div>

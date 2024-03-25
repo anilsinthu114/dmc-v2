@@ -1,0 +1,33 @@
+.elearn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    max-width: 800px; /* Adjust as needed */
+  }
+  
+  .image-container {
+    flex: 1;
+  }
+  
+  .text-container {
+    flex: 2;
+    padding: 0 20px; /* Adjust padding as needed */
+  }
+  
+  .surveillance-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .elearn-container h2 {
+    font-size: 24px;
+    color: #2e0669; /* Adjust color as needed */
+  }
+  
+  .elearn-container p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: black; /* Adjust color as needed */
+  }
+  

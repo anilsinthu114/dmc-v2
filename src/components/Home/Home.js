@@ -9,7 +9,7 @@ const Home = () => {
     <div>
       <div className="home-container">
         <div className="left-content">
-          <h2 className='heading'>JNTUGV <br /> Digital Monitoring Cell (DMC)</h2>
+          <h2 className='heading'>JNTU GV <br /> Digital Monitoring Cell (DMC)</h2>
           <p>JNTUGV Digital Monitoring Cell (DMC) Established to maintain and monitor the IT infrastructure of the University.
             DMC is mainly involved in University digitization.The Digital Monitoring Cell (DMC) serves as the cornerstone of
             organizations' digital operations, overseeing the management, maintenance, and security of their digital infrastructure.

@@ -1,0 +1,23 @@
+/* Gallery.css */
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Horizontally center the items */
+  }
+  
+  .gallery-item {
+    width: 200px; /* Set a fixed width for each item */
+    height: 200px; /* Set a fixed height for each item */
+    margin: 10px; /* Add margin between items */
+    display: flex;
+    align-items: center; /* Vertically center the items */
+    justify-content: center; /* Horizontally center the items */
+  }
+  
+  .gallery-item img {
+    max-width: 100%; /* Ensure images don't exceed their container's width */
+    max-height: 100%; /* Ensure images don't exceed their container's height */
+    object-fit: contain; /* Fit the image inside the container */
+  }
+  
