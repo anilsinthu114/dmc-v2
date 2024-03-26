@@ -19,6 +19,10 @@ import ContactUs from './Components/Header/ContactUs/ContactUs';
 import Team from './Components/Header/Team/Team';
 //import Coordinator from './Components/Header/About/Coordinator/Coordinator';
 
+import Hardware from './Components/Home/Hardware';
+import Network from './Components/Home/Network';
+import SurveillanceService from './Components/Home/SurveillanceService';
+import Software from './Components/Home/Software';
 
 function App() {
   // const location = useLocation();
@@ -48,9 +52,14 @@ function App() {
         <Route path='about-gallery' element={<Gallery />} />
         <Route path='contact-us' element={<ContactUs />} />
         <Route path='about-dmc-team' element={<Team />} />
-          
 
 
+
+
+        <Route path='Hardware' element={<Hardware />} />
+        <Route path='Network' element={<Network />} />
+        <Route path='SurveillanceService' element={<SurveillanceService />} />
+        <Route path='Software' element={<Software />} />
           
         </Routes>
         <Footer />

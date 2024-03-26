@@ -1,8 +1,8 @@
 // Home.js
 import React from 'react';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import dmcImage from './Images/1.jpg';
-import './Home.css'; // Assuming you have a CSS file for styling
+import './Home.css'; 
 
 const Home = () => {
   return (
@@ -37,7 +37,12 @@ const Home = () => {
             <p>
               DMC inspects the complaints received through JNTUK–eTicket and do all the minor repairs. DMC maintains systems and servers for various purposes.
             </p>
-            <button className="read-more-btn">Read More</button>
+            <button  className="read-more-btn">
+              {" "}
+              <Link className="link-btn" to="/Hardware">
+                Read More
+              </Link>
+            </button>
           </div>
 
           <div className="card">
@@ -45,7 +50,12 @@ const Home = () => {
             <p>
               DMC maintains the Campus Wide Network and campus Wi-Fi. DMC configures and maintains the University Firewall through this IP based
             </p>
-            <button className="read-more-btn">Read More</button>
+            <button  className="read-more-btn">
+              {" "}
+              <Link className="link-btn" to="/Network">
+                Read More
+              </Link>
+            </button>
           </div>
 
           <div className="card">
@@ -53,7 +63,12 @@ const Home = () => {
             <p>
               IP Cameras are installed at strategic locations in the campus and the monitoring unit is housed in the VC’s chamber to get a quick review of the activities in the University.
             </p>
-            <button className="read-more-btn">Read More</button>
+            <button  className="read-more-btn">
+              {" "}
+              <Link className="link-btn" to="/SurveillanceService">
+                Read More
+              </Link>
+            </button>
           </div>
 
           <div className="card">
@@ -61,7 +76,12 @@ const Home = () => {
             <p>
               All purchases of software must be supported by guarantee and/or warranty requirements and be compatible with the University’s server and/or hardware system.
             </p>
-            <button className="read-more-btn">Read More</button>
+            <button  className="read-more-btn">
+              {" "}
+              <Link className="link-btn" to="/SOftware">
+                Read More
+              </Link>
+            </button>
           </div>
 
 
