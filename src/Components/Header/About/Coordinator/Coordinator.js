@@ -1,5 +1,5 @@
 import React from "react";
-import "./Coordinator.css";
+import "../About.css";
 import directorImage from "./1.jpg";
 
 function Coordinator() {

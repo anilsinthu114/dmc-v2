@@ -12,6 +12,28 @@
   margin-top: 10px;
   margin-right: 50px; /* Adjust the margin-right value */
 }
+.ADsub {
+  font-weight: bold;
+  color: #2e0669;
+  font-size: 20px;
+}
+
+.ADimg img {
+  width: 200px; /* Adjust the size as needed */
+  height: auto;
+}
+.ADlist {
+  margin-left: 20px;
+}
+
+
+.profileName {
+  text-align: center;
+}
+
+.profileDesignation {
+  text-align: center;
+}
 
 
 /* Styles for menu buttons */
