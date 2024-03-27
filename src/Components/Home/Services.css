@@ -1,0 +1,14 @@
+.class-service {
+    text-align: center; /* Center align the content */
+  }
+  
+  .heading-service {
+    color: blue; /* Set text color to blue */
+  }
+  
+  .matter-service {
+    text-align: justify; /* Align text in a justified manner */
+    margin: 0 auto; /* Center the text horizontally */
+    max-width: 800px; /* Set maximum width for better readability */
+  }
+  
