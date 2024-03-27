@@ -1,6 +1,27 @@
 import React from "react";
+import "./Services.css";
 
 const SurveillanceService = () => {
-  return <div>IP Cameras are installed at strategic locations in the campus and the monitoring unit is housed in the VC’s chamber to get a quick review of the activities in the University</div>
-}
+  return (
+    <div>
+      <div className="class-service">
+        <h2 className="heading-service">Surveillance</h2>
+        <p className="matter-service">
+          Surveillance involves systematic monitoring of individuals, groups, or
+          activities to gather information, maintain security, or exert control.
+          It spans various methods, including physical observation, electronic
+          monitoring, and cyber surveillance. Purpose-wise, it enhances security
+          by preventing crime, monitoring public spaces for safety, aiding law
+          enforcement investigations, and gathering intelligence for
+          governments. Technological advancements like high-definition cameras,
+          facial recognition, and predictive analytics have bolstered
+          surveillance capabilities but raised concerns about privacy and
+          ethics. Legal frameworks and ethical considerations strive to balance
+          security needs with individual rights, while debates persist over
+          issues like mass surveillance, data privacy, and societal impact.
+        </p>
+      </div>
+    </div>
+  );
+};
 export default SurveillanceService;
