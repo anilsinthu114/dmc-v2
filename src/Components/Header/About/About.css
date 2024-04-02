@@ -1,6 +1,7 @@
 /* Styles for the container */
 .ABOUT-Main {
   display: flex;
+  justify-content: center; 
 }
 
 /* Styles for the left menu */
@@ -37,32 +38,37 @@
 
 
 /* Styles for menu buttons */
+/* Styles for menu buttons */
 .menuButton {
-  width: 240px;
-  height: 60px;
+  width: 200px; /* Adjust width */
+  height: 50px; /* Adjust height */
   border-radius: 7px;
   box-shadow: 0px 4px 22px 0px rgba(123, 124, 134, 0.36);
-  padding: 10px;
+  padding: 5px; /* Adjust padding */
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #035a5a;
+  border: 1px solid #555555;
   background: #fff;
   color: black;
+  font-size: 14px; /* Adjust font size */
+  font-weight: bold; 
+  margin-left: 20px;
 }
 
 .menuButton:hover {
-  background-color: #035a5a;
+  background-color: #555555;
   color: #fff;
 }
 
 .menuButton.active {
-  background: #035a5a;
+  background: #555555;
   color: white;
 }
+
 
 /* Styles for the content */
 .allRightContent {
@@ -85,4 +91,8 @@
   font-weight: bold;
   font-size: 15px;
   color: rgb(20, 6, 63);
+}
+
+.coh3{
+  color: #2e0669;
 }

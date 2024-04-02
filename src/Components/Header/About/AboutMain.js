@@ -35,14 +35,14 @@ const AboutMain = () => {
           DMC Activities
         </Link>
 
-        <Link
+        {/* <Link
           to="/dmc/dmc-events"
           className={`menuButton ${
             location.pathname === "/dmc/dmc-events" ? "active" : ""
           }`}
         >
           DMC Events
-        </Link>
+        </Link> */}
 
         <Link
           to="/dmc/dmc-future-plans"

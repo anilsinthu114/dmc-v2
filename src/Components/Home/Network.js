@@ -17,7 +17,7 @@ const Network = () => {
           Ethernet, Wi-Fi, and cellular networks, facilitate communication
           between devices, supporting a wide range of applications and services
           essential for modern computing and communication.
-        </p>
+        </p><br />
       </div>
     </div>
   );

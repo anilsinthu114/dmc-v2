@@ -1,6 +1,6 @@
 import React from "react";
 import "../About.css";
-import directorImage from "./1.jpg";
+import directorImage from "./2.jpg";
 
 function Coordinator() {
   return (
@@ -14,7 +14,7 @@ function Coordinator() {
             <center>
               <img
                 src={directorImage}
-                alt="Profile"/>
+                alt="Profile" style={{ height: '300px', width: '250px' }}/>
             </center>
           </div>
         </div>

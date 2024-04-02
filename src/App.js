@@ -8,21 +8,32 @@ import Dropdown from "./Components/Header/Dropdown";
 import AboutMain from "./Components/Header/About/AboutMain";
 import Activities from "./Components/Header/About/Activities/Activities";
 import Dmc from "./Components/Header/About/Dmc/Dmc";
-import Events from "./Components/Header/About/Events/Events";
+//import Events from "./Components/Header/About/Events/Events";
 import Facilities from "./Components/Header/About/Facilities/Facilities";
 import Futureplans from "./Components/Header/About/Futureplans/Futureplans";
-import Elearn from "./Components/Header/Elearn/Elearn";
+//import Elearn from "./Components/Header/Elearn/Elearn";
 import Surveillance from "./Components/Header/Surveillance/Surveillance";
 import Eticket from "./Components/Header/Eticket/Eticket";
 import Gallery from "./Components/Header/Gallery/Gallery";
 import ContactUs from "./Components/Header/ContactUs/ContactUs";
-import Team from "./Components/Header/Team/Team";
+//import Team from "./Components/Header/Team/Team";
 import Coordinator from './Components/Header/About/Coordinator/Coordinator';
 
 import Hardware from "./Components/Home/Hardware";
 import Network from "./Components/Home/Network";
 import SurveillanceService from "./Components/Home/SurveillanceService";
 import Software from "./Components/Home/Software";
+import Notifications from "./Components/Header/Notifications/Notifications";
+
+import Website from "./Components/Header/Web_development_team/Website/Website";
+import WebDevelopmenTeam from "./Components/Header/Web_development_team/WebDevelopmenTeam";
+import Iqac from "./Components/Header/Web_development_team/Iqac/Iqac";
+import Placement from "./Components/Header/Web_development_team/Placement/Placement";
+import DigitalMonitoringCell from "./Components/Header/Web_development_team/Dmc/Dmc";
+import ResearchAndDevelopment from "./Components/Header/Web_development_team/ResearchAndDevelopment/ResearchAndDevelopment";
+import Examination from "./Components/Header/Web_development_team/Examinations/Examination";
+import Nss from "./Components/Header/Web_development_team/Nss/Nss";
+import Sports from "./Components/Header/Web_development_team/Sports/Sports";
 
 function App() {
   // const location = useLocation();
@@ -41,17 +52,32 @@ function App() {
             <Route path="about-dmc" element={<Dmc />} />
             <Route path="dmc-co-ordinator" element={<Coordinator />} />
             <Route path="dmc-activities" element={<Activities />} />
-            <Route path="dmc-events" element={<Events />} />
+            {/* <Route path="dmc-events" element={<Events />} /> */}
             <Route path="dmc-future-plans" element={<Futureplans />} />
             <Route path="dmc-facilities" element={<Facilities />} />
           </Route>
 
-          <Route path="about-elearn" element={<Elearn />} />
+          {/* <Route path="about-elearn" element={<Elearn />} /> */}
+          <Route path="about-notifications" element={<Notifications />} />
           <Route path="about-surveillance" element={<Surveillance />} />
           <Route path="about-eticket" element={<Eticket />} />
           <Route path="about-gallery" element={<Gallery />} />
           <Route path="contact-us" element={<ContactUs />} />
-          <Route path="about-dmc-team" element={<Team />} />
+          {/* <Route path="about-dmc-team" element={<Team />} /> */}
+
+
+          <Route path="/wdt" element={<WebDevelopmenTeam />}>
+            <Route path="website-team" element={<Website />} />
+            <Route path="iqac-team" element={<Iqac />} />
+            <Route path="placement-team" element={<Placement />} />
+            <Route path="dmc-team" element={<DigitalMonitoringCell />} />
+            <Route path="research-and-development-team" element={<ResearchAndDevelopment />} />
+            <Route path="examination-team" element={<Examination />} />
+            <Route path="nss-team" element={<Nss />} />
+            <Route path="sports-team" element={<Sports />} />
+           
+
+          </Route>
 
           <Route path="Hardware" element={<Hardware />} />
           <Route path="Network" element={<Network />} />

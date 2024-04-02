@@ -1,7 +1,7 @@
 .mainFooter {
     display: flex;
     flex-direction: column;
-    background-color: #008B8B;
+    background-color: #555555;
     color: aliceblue;
     width: 100%;
   }

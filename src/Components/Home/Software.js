@@ -19,7 +19,7 @@ const Software = () => {
           copyright and licensing. Software plays a vital role across
           industries, driving innovation, productivity, and the delivery of
           services in the digital age.
-        </p>
+        </p><br />
       </div>
     </div>
   );
