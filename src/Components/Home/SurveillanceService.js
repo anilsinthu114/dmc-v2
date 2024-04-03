@@ -19,7 +19,7 @@ const SurveillanceService = () => {
           ethics. Legal frameworks and ethical considerations strive to balance
           security needs with individual rights, while debates persist over
           issues like mass surveillance, data privacy, and societal impact.
-        </p>
+        </p><br />
       </div>
     </div>
   );

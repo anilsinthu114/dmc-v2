@@ -1,52 +1,51 @@
 table {
-    border-collapse: collapse;
-    width: 80%; /* Adjust the width based on your requirement */
-    margin: 0 auto;
-  }
-  
-  th, td {
-    border: 1px solid #ddd;
-    padding: 12px; /* Increase padding for better spacing */
-    text-align: left;
-  }
-  
-  th {
-    background-color: #daefef;
-  }
-  
-  .SP {
-    color: #2e0669;
-    text-align: center;
-    margin-bottom: 20px;
-  }
+  border-collapse: collapse;
+  width: 80%; /* Adjust the width based on your requirement */
+  margin: 0 auto;
+}
 
-  label {
-    margin-right: 5px; /* Optional: add margin between label and input */
-  }
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px; /* Increase padding for better spacing */
+  text-align: left;
+}
 
-  .search-container {
-    display: flex;
-    justify-content: right;
-    margin-bottom: 10px; /* Optional: add margin for spacing */
-  }
+th {
+  background-color: #daefef;
+}
 
-  .pagination-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 10px;
-  }
-  
-  .pagination-container button {
-    margin-left: 5px;
-    background-color: #035a5a; /* Change to your desired background color */
-    color: #fff; /* Change to your desired text color */
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .pagination-container button:disabled {
-    background-color: #bdc3c7; /* Change to your desired background color for disabled state */
-    color: #181818; /* Change to your desired text color for disabled state */
-  }
-  
+.SP {
+  color: #2e0669;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-right: 5px; /* Optional: add margin between label and input */
+}
+
+.search-container {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 10px; /* Optional: add margin for spacing */
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.pagination-container button {
+  margin-left: 5px;
+  background-color: #035a5a; /* Change to your desired background color */
+  color: #fff; /* Change to your desired text color */
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pagination-container button:disabled {
+  background-color: #bdc3c7; /* Change to your desired background color for disabled state */
+  color: #181818; /* Change to your desired text color for disabled state */
+}

@@ -10,7 +10,7 @@ const Home = () => {
       <div className="home-container">
         <div className="left-content">
           <h2 className="heading">
-            JNTU GV <br /> Digital Monitoring Cell (DMC)
+            JNTU-GV <br /> Digital Monitoring Cell (DMC)
           </h2>
           <p>
             JNTUGV Digital Monitoring Cell (DMC) Established to maintain and
@@ -46,7 +46,7 @@ const Home = () => {
           <div className="card">
             <h3>Hardware</h3>
             <p>
-              DMC inspects the complaints received through JNTUK–eTicket and do
+              DMC inspects the complaints received through JNTUGV–eTicket and do
               all the minor repairs. DMC maintains systems and servers for
               various purposes.
             </p>

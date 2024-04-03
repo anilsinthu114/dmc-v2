@@ -11,6 +11,7 @@ const Team = () => {
         <td>{index + 1}</td> {/* S.No */}
         <td>{member.name}</td> {/* Name */}
         <td>{member.rollNumber}</td> {/* Roll Number */}
+        <td>{member.year}</td> {/* Year */}
       </tr>
     ));
   };
@@ -24,6 +25,7 @@ const Team = () => {
             <th>S.No</th>
             <th>Name</th>
             <th>Roll Number</th>
+            <th>Year</th>
           </tr>
         </thead>
         <tbody>{renderTableRows()}</tbody>

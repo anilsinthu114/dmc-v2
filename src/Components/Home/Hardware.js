@@ -18,7 +18,7 @@ const Hardware = () => {
           interaction with users. Advances in hardware technology drive
           innovation, efficiency, and performance improvements in computing
           systems across diverse applications and industries.
-        </p>
+        </p><br />
       </div>
     </div>
   );
