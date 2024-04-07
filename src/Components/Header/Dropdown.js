@@ -73,6 +73,12 @@ const Dropdown = () => {
             </button>
             <button>
               {" "}
+              <Link className="link-btn" to="/dmc/dmc-supporting-staff">
+                DMC Supporting Staff
+              </Link>
+            </button>
+            <button>
+              {" "}
               <Link className="link-btn" to="/dmc/dmc-activities">
                 DMC Activities
               </Link>
@@ -173,6 +179,12 @@ const Dropdown = () => {
               {" "}
               <Link className="link-btn" to="/wdt/website-team">
                 JNTUGV Website  
+              </Link>
+            </button>
+            <button >
+              {" "}
+              <Link className="link-btn" to="/wdt/admin-panel">
+                Admin Panel  
               </Link>
             </button>
             <button>

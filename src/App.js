@@ -34,6 +34,8 @@ import ResearchAndDevelopment from "./Components/Header/Web_development_team/Res
 import Examination from "./Components/Header/Web_development_team/Examinations/Examination";
 import Nss from "./Components/Header/Web_development_team/Nss/Nss";
 import Sports from "./Components/Header/Web_development_team/Sports/Sports";
+import Supportingstaff from "./Components/Header/About/Supportingstaff/Supportingstaff";
+import Adminpanel from "./Components/Header/Web_development_team/Adminpanel/Adminpanel";
 
 function App() {
   // const location = useLocation();
@@ -51,6 +53,7 @@ function App() {
           <Route path="/dmc" element={<AboutMain />}>
             <Route path="about-dmc" element={<Dmc />} />
             <Route path="dmc-co-ordinator" element={<Coordinator />} />
+            <Route path="dmc-supporting-staff" element={<Supportingstaff />} />
             <Route path="dmc-activities" element={<Activities />} />
             {/* <Route path="dmc-events" element={<Events />} /> */}
             <Route path="dmc-future-plans" element={<Futureplans />} />
@@ -68,6 +71,7 @@ function App() {
 
           <Route path="/wdt" element={<WebDevelopmenTeam />}>
             <Route path="website-team" element={<Website />} />
+            <Route path="admin-panel" element={<Adminpanel />} />
             <Route path="iqac-team" element={<Iqac />} />
             <Route path="placement-team" element={<Placement />} />
             <Route path="dmc-team" element={<DigitalMonitoringCell />} />
