@@ -18,6 +18,15 @@ const WebDevelopmenTeam = () => {
         </Link>
 
         <Link
+          to="/wdt/admin-panel"
+          className={`menuButton ${
+            location.pathname ==="/wdt/admin-panel" ? "active" : ""
+          }`}
+        >
+          Admin Panel 
+        </Link>
+
+        <Link
           to="/wdt/iqac-team"
           className={`menuButton ${
             location.pathname ==="/wdt/iqac-team" ? "active" : ""
@@ -81,7 +90,7 @@ const WebDevelopmenTeam = () => {
           }`}
         >
           Sports Cell
-        </Link>
+        </Link><br /><br />
 
 
 

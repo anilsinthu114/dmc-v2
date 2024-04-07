@@ -27,6 +27,15 @@ const AboutMain = () => {
         </Link>
 
         <Link
+          to="/dmc/dmc-supporting-staff"
+          className={`menuButton ${
+            location.pathname ==="/dmc/dmc-supporting-staff" ? "active" : ""
+          }`}
+        >
+          DMC Supporting Staff
+        </Link>
+
+        <Link
           to="/dmc/dmc-activities"
           className={`menuButton ${
             location.pathname === "/dmc/dmc-activities" ? "active" : ""
