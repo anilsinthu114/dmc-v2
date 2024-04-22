@@ -63,3 +63,21 @@
 .read-more-btn:hover {
   background-color: #0c0c0c;
 }
+
+/* In Home.css or any appropriate CSS file */
+.centered-image-container {
+  position: relative;
+  width: 100%; /* Adjust width as needed */
+  height: auto; /* Remove fixed height */
+}
+
+.additional-image {
+  display: block; /* Ensures proper layout */
+  margin: 0 auto 8px; /* Adjust the margin to remove space below the image */
+  width: 800px; /* Adjust the width as needed */
+  height: 400px; /* Adjust the height as needed, maintaining aspect ratio */
+}
+
+.heading {
+  margin-bottom: 0; /* Remove default margin */
+}

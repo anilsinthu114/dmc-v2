@@ -8,6 +8,16 @@ const WebDevelopmenTeam = () => {
   return (
     <div className="ABOUT-Main">
       <div className="ABOUTallLeftMenu">
+
+      <Link
+          to="/wdt/lead-contributors"
+          className={`menuButton ${
+            location.pathname ==="/wdt/lead-contributors" ? "active" : ""
+          }`}
+        >
+          Lead Contributors 
+        </Link>
+
         <Link
           to="/wdt/website-team"
           className={`menuButton ${

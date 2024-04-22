@@ -23,7 +23,7 @@ import Hardware from "./Components/Home/Hardware";
 import Network from "./Components/Home/Network";
 import SurveillanceService from "./Components/Home/SurveillanceService";
 import Software from "./Components/Home/Software";
-import Notifications from "./Components/Header/Notifications/Notifications";
+//import Notifications from "./Components/Header/Notifications/Notifications";
 
 import Website from "./Components/Header/Web_development_team/Website/Website";
 import WebDevelopmenTeam from "./Components/Header/Web_development_team/WebDevelopmenTeam";
@@ -36,6 +36,7 @@ import Nss from "./Components/Header/Web_development_team/Nss/Nss";
 import Sports from "./Components/Header/Web_development_team/Sports/Sports";
 import Supportingstaff from "./Components/Header/About/Supportingstaff/Supportingstaff";
 import Adminpanel from "./Components/Header/Web_development_team/Adminpanel/Adminpanel";
+import Leadcontributors from "./Components/Header/Web_development_team/Leadcontributors/Leadcontributors";
 
 function App() {
   // const location = useLocation();
@@ -61,7 +62,7 @@ function App() {
           </Route>
 
           {/* <Route path="about-elearn" element={<Elearn />} /> */}
-          <Route path="about-notifications" element={<Notifications />} />
+          {/* <Route path="about-notifications" element={<Notifications />} /> */}
           <Route path="about-surveillance" element={<Surveillance />} />
           <Route path="about-eticket" element={<Eticket />} />
           <Route path="about-gallery" element={<Gallery />} />
@@ -70,6 +71,7 @@ function App() {
 
 
           <Route path="/wdt" element={<WebDevelopmenTeam />}>
+          <Route path="lead-contributors" element={<Leadcontributors />} />
             <Route path="website-team" element={<Website />} />
             <Route path="admin-panel" element={<Adminpanel />} />
             <Route path="iqac-team" element={<Iqac />} />

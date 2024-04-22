@@ -6,7 +6,7 @@ function Supportingstaff() {
   return (
     <div className="mainContainer">
       <div className="allRightContent"><br/>
-        <div className="allRightContentHeading">Supporting Staff of Digital Monitoring Cell</div>
+        <div className="allRightContentHeading">Assistant Staff of Digital Monitoring Cell</div>
         <br></br>
         <div className="allRightContentProfile">
           {/* Profile information */}
@@ -21,7 +21,7 @@ function Supportingstaff() {
         <center>
           <div className="profileName">
             <h3 className="coh3">Dr.K.Srikanth</h3>
-            <h4 className="coh4">Supporting Staff of Digital Monitoring Cell</h4>
+            <h4 className="coh4">Assistant Staff of Digital Monitoring Cell</h4>
           </div>
           <div className="profileDesignation">
             <h4 className="coh4">
