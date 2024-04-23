@@ -32,7 +32,7 @@ const AboutMain = () => {
             location.pathname ==="/dmc/dmc-supporting-staff" ? "active" : ""
           }`}
         >
-          DMC Supporting Staff
+          DMC Staff
         </Link>
 
         <Link

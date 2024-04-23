@@ -9,7 +9,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 //import DescriptionIcon from "@mui/icons-material/Description";
 import MenuIcon from "@mui/icons-material/Menu";
-import CampaignIcon from '@mui/icons-material/Campaign';
+//import CampaignIcon from '@mui/icons-material/Campaign';
 import PhotoCameraFrontIcon from '@mui/icons-material/PhotoCameraFront';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import QrCodeIcon from '@mui/icons-material/QrCode';
@@ -74,7 +74,7 @@ const Dropdown = () => {
             <button>
               {" "}
               <Link className="link-btn" to="/dmc/dmc-supporting-staff">
-                DMC Supporting Staff
+                DMC Staff
               </Link>
             </button>
             <button>
@@ -123,14 +123,14 @@ const Dropdown = () => {
         </div> */}
 
 
-<div className="dropdown">
+{/* <div className="dropdown">
           <div className="dropbtn">
             <CampaignIcon />
             <Link to="/about-notifications" className="link-btn">
               NOTIFICATIONS
             </Link>
           </div>
-        </div>
+        </div> */}
 
         <div className="dropdown">
           <div className="dropbtn">
@@ -175,6 +175,12 @@ const Dropdown = () => {
             WEB DEVELOPMENT TEAM
           </div>
           <div class="dropdown-content" onClick={() => setMenuState(!menuState)}>
+          <button >
+              {" "}
+              <Link className="link-btn" to="/wdt/lead-contributors">
+                Lead Contributors  
+              </Link>
+            </button>
             <button >
               {" "}
               <Link className="link-btn" to="/wdt/website-team">

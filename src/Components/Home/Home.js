@@ -2,11 +2,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import dmcImage from "./Images/1.jpg";
+import additionalImage from "./Images/4.jpg";
+import NotificationsScrolling from "./NotificationsScrolling/NotificationsScrolling";
 import "./Home.css";
 
 const Home = () => {
   return (
     <div>
+       <div className="centered-image-container">
+  <img src={additionalImage} alt="AdditionalImage" className="additional-image" />
+</div>
+
+
       <div className="home-container">
         <div className="left-content">
           <h2 className="heading">
@@ -34,11 +41,14 @@ const Home = () => {
             within the organization.
           </p>
         </div>
+        
 
         <div className="right-content">
           <img src={dmcImage} alt="DMC" />
         </div>
       </div>
+
+      <NotificationsScrolling />
 
       <div className="services-container">
         <h2 className="services">Services</h2>
