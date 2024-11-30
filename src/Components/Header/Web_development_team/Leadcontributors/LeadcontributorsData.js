@@ -22,7 +22,7 @@ const teamData = [
   },
   {
     name: 'Harshavivek Gangadahar',
-    rollNumber: '22VV5A1274', // Example roll number, update as needed
+    rollNumber: '21VV1A1203',
     year: '2024-2025',
     role: 'Frontend Developer',
   },
