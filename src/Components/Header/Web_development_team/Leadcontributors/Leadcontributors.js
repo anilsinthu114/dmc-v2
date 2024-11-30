@@ -30,7 +30,10 @@ const Leadcontributors = () => {
   };
 
   const renderTables = () => {
-    return Object.entries(groupedData).map(([year, members]) => (
+    // Sort years in descending order
+    const sortedYears = Object.keys(groupedData).sort((a, b) => b.localeCompare(a));
+
+    return sortedYears.map((year) => (
       <div key={year} className="year-section">
         <h4 className="year-title">Year: {year}</h4>
         <table>
@@ -42,7 +45,7 @@ const Leadcontributors = () => {
               <th>Role</th>
             </tr>
           </thead>
-          <tbody>{renderTableRows(members)}</tbody>
+          <tbody>{renderTableRows(groupedData[year])}</tbody>
         </table>
         <br />
       </div>
