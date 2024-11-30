@@ -13,7 +13,6 @@ const teamData = [
         year: '2023-2024',
     },
     
-     
       {
         name: 'Shaik Vali Basha',
         rollNumber: '20VV1A1257',
@@ -25,12 +24,12 @@ const teamData = [
         rollNumber: '20VV1A1261',
         year: '2023-2024',
       },
-     
-      
 
-
-
+      {
+        name: 'Anil Sinthu',
+        rollNumber: '22VV5A1273',
+        year: '2024-2025'
+      }
   ];
   
   export default teamData;
-  

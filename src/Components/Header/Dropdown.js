@@ -150,14 +150,14 @@ const Dropdown = () => {
           </div>
         </div>
 
-        <div className="dropdown">
+        {/* <div className="dropdown">
           <div className="dropbtn">
             <QrCodeIcon />
             <Link to="/about-eticket" className="link-btn">
               E-TICKET
             </Link>
           </div>
-        </div>
+        </div> */}
 
         {/* <div className="dropdown">
           <div className="dropbtn">

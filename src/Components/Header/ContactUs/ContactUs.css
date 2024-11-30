@@ -1,19 +1,19 @@
 .contact-card {
-    /* height: 30vh; */
-    width: 25vw;
+    width: 100%;
+    max-width: 25vw;
     background-color: whitesmoke;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* padding-inline: 20px; */
     padding-top: 20px;
-    margin-left: 30px;
-    /* margin-left: 10px; */
+    margin-left: 10px;
+    margin-right: 10px;
   }
   .contact-card-place {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    flex-wrap: wrap;
   }
   
   /* ContactUs.css */
@@ -25,44 +25,53 @@
     padding: 20px;
     width: 100%;
     gap: 20px;
-  
+    box-sizing: border-box;
   }
   
   .map-container {
-    flex: content; 
-    margin-left: 20px;
+    flex: 1; 
+    margin-left: 10px;
+    margin-right: 10px;
     height: 40vh;
+    max-width: 100%;
   }
   
   .contact-details {
-    /* flex: 1; Takes up 50% of the screen width */
-    /* margin: 16px; */
     display: flex;
     flex-direction: row;
     padding-left: 10px;
-   
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
   
   /* Styles for contact details elements */
   .contact-details h2 {
     font-size: 20px;
+    margin-bottom: 10px;
   }
   
   .contact-details p {
     font-size: 16px;
+    margin-bottom: 10px;
   }
   
   .additional-contact-details {
     margin-bottom: 20px;
+    display: flex;
     flex-direction: row;
-    grid-template-columns: repeat(3,1fr);
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
   
   .additional-details{
     height: 20vh;
+    width: 100%;
+    max-width: 33.333%;
+    margin: 10px;
   }
   .additional-contact-details {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
   }
   
   /* .fade-in {
@@ -85,15 +94,17 @@
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
+    justify-content: space-between;
   }
   
   .member {
     border: 1px solid #ddd;
     cursor: pointer;
-    /* transition: transform 0.2s ease; */
     height: 40vh;
     padding: 20px;
-    
+    width: 100%;
+    max-width: 33.333%;
+    margin: 10px;
   }
   /* 
   .member:hover {
@@ -110,6 +121,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
+    margin: 10px;
   }
   
   

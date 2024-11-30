@@ -8,11 +8,10 @@ import "./Home.css";
 
 const Home = () => {
   return (
-    <div>
-       <div className="centered-image-container">
-  <img src={additionalImage} alt="AdditionalImage" className="additional-image" />
-</div>
-
+    <div className="home-page-container">
+      <div className="centered-image-container">
+        <img src={additionalImage} alt="AdditionalImage" className="additional-image" />
+      </div>
 
       <div className="home-container">
         <div className="left-content">
@@ -41,7 +40,6 @@ const Home = () => {
             within the organization.
           </p>
         </div>
-        
 
         <div className="right-content">
           <img src={dmcImage} alt="DMC" />

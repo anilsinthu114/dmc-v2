@@ -4,30 +4,48 @@
     justify-content: center;
     margin: auto;
     max-width: 800px; /* Adjust as needed */
+    flex-direction: column; /* Changed for responsiveness */
   }
   
   .image-container {
     flex: 1;
+    order: 2; /* Changed for responsiveness */
   }
   
   .text-container {
     flex: 2;
     padding: 0 20px; /* Adjust padding as needed */
+    order: 1; /* Changed for responsiveness */
   }
   
   .surveillance-image {
     max-width: 100%;
     height: auto;
+    margin: 20px 0; /* Added for spacing */
   }
   
   .elearn-container h2 {
     font-size: 24px;
     color: #2e0669; /* Adjust color as needed */
+    margin-bottom: 10px; /* Added for spacing */
   }
   
   .elearn-container p {
     font-size: 16px;
     line-height: 1.6;
     color: black; /* Adjust color as needed */
+    margin-bottom: 20px; /* Added for spacing */
   }
   
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .elearn-container {
+      flex-direction: column;
+    }
+    .image-container {
+      order: 2;
+    }
+    .text-container {
+      order: 1;
+    }
+  }

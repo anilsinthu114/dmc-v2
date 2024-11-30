@@ -1,10 +1,35 @@
 // NotificationsScrolling.js
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./NotificationsScrolling.css";
-import { getNotifications } from "./NotificationsData"; // Assuming getNotifications is exported from NotificationsData.js
 
 const NotificationsScrolling = () => {
-  const notifications = getNotifications();
+  const [notifications, setNotifications] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://api.jntugv.edu.in/api/updates/allnotifications');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        // Filter notifications that contain category 'dmc'
+        const filteredNotifications = data.filter(notification => notification.update_type.includes('dmc'));
+        if (filteredNotifications.length > 0) {
+          setNotifications(filteredNotifications);
+        } else {
+          setNotifications([{ description: 'NO Notifications' }]);
+        }
+        
+      } catch (error) {
+        console.error('No notifications are launched:', error);
+        setNotifications([]);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const duplicatedNotifications = [...notifications, ...notifications];
 
   return (

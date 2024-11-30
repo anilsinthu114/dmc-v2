@@ -21,7 +21,7 @@ const teamData = [
     role: 'Full Stack Developer',
   },
   {
-    name: 'Harshavivek Gangadahar',
+    name: 'Harsha Vivek Gangadhar',
     rollNumber: '21VV1A1203',
     year: '2024-2025',
     role: 'Frontend Developer',

@@ -13,7 +13,7 @@ import Facilities from "./Components/Header/About/Facilities/Facilities";
 import Futureplans from "./Components/Header/About/Futureplans/Futureplans";
 //import Elearn from "./Components/Header/Elearn/Elearn";
 import Surveillance from "./Components/Header/Surveillance/Surveillance";
-import Eticket from "./Components/Header/Eticket/Eticket";
+// import Eticket from "./Components/Header/Eticket/Eticket";
 import Gallery from "./Components/Header/Gallery/Gallery";
 import ContactUs from "./Components/Header/ContactUs/ContactUs";
 //import Team from "./Components/Header/Team/Team";
@@ -64,7 +64,7 @@ function App() {
           {/* <Route path="about-elearn" element={<Elearn />} /> */}
           {/* <Route path="about-notifications" element={<Notifications />} /> */}
           <Route path="about-surveillance" element={<Surveillance />} />
-          <Route path="about-eticket" element={<Eticket />} />
+          {/* <Route path="about-eticket" element={<Eticket />} /> */}
           <Route path="about-gallery" element={<Gallery />} />
           <Route path="contact-us" element={<ContactUs />} />
           {/* <Route path="about-dmc-team" element={<Team />} /> */}

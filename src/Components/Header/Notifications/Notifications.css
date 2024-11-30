@@ -1,17 +1,23 @@
 /* Component level styles */
 .notificationsComponent {
     padding: 20px;
+    background-color: #f9f9f9; /* Added background color for a clean look */
+    border-radius: 5px; /* Added border-radius for rounded corners */
   }
   
   /* Container level styles */
   .notificationsContainer {
     display: flex;
     flex-direction: column;
+    gap: 10px; /* Added gap for spacing between items */
   }
   
   /* Notification item styles */
   .notificationItem {
     margin-bottom: 15px;
+    padding: 10px; /* Added padding for spacing */
+    border: 1px solid #ddd; /* Added border for definition */
+    border-radius: 5px; /* Added border-radius for rounded corners */
   }
   
   /* Notification box styles */
@@ -21,6 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 5px; /* Added border-radius for rounded corners */
   }
   
   /* Date-time container styles */
@@ -28,18 +35,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px; /* Added padding for spacing */
   }
   
   /* Date, month, and year styles */
   .dateDiv, .monthDiv, .yearDiv {
     font-weight: bold;
+    color: #2e0669; /* Changed text color to blue for consistency */
   }
   
   /* Notification description styles */
   .updateDescription {
     flex: 1;
     margin: 0 15px;
-    color: #2e0669; /* Change text color to blue */
+    color: #2e0669; /* Changed text color to blue for consistency */
+    font-size: 16px; /* Adjusted font size for readability */
   }
   
   /* Notification button styles */
@@ -51,6 +61,7 @@
     cursor: pointer;
     border-radius: 5px;
     text-decoration: none;
+    font-weight: bold; /* Added font-weight for emphasis */
   }
   
   /* Notification link styles */
@@ -58,28 +69,32 @@
     color: #2e0669;
     text-decoration: none;
     font-weight: bold;
+    font-size: 16px; /* Adjusted font size for readability */
   }
   
   /* Non-link content styles */
   .nonLinkContent {
-    /* Add styles for non-link content */
     color: #333;
+    font-size: 16px; /* Adjusted font size for readability */
   }
   
   /* "New" indicator image styles */
   .newIndicator {
     width: 30px;
     height: 30px;
+    border-radius: 50%; /* Added border-radius for a circular shape */
   }
   
   /* Separator styles */
   .updateDivSeparator {
     border-top: 1px solid #ddd;
     margin-top: 10px;
+    width: 100%; /* Added width for full width separator */
   }
 
   .dateWrapper {
     border: 2px solid #2e0669; /* Set the border color (blue) and width */
     padding: 20px; /* Add padding to give some space around the date */
     border-radius: 5px; /* Optional: Add border-radius for rounded corners */
+    background-color: #f9f9f9; /* Added background color for a clean look */
   }

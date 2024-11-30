@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { getNotifications } from './NotificationsData'; // Adjust the import path
 import './Notifications.css';
+import axios from 'axios'; // Import axios for API calls
 
 const Notifications = () => {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    // Fetch notifications using the provided function
-    setNotifications(getNotifications());
+    // Fetch notifications from API
+    const fetchNotifications = async () => {
+      try {
+        const response = await axios.get('https://api.jntugv.edu.in/api/allnotifications'); // Adjust the API endpoint
+        setNotifications(response.data);
+      } catch (error) {
+        console.error('Error fetching notifications:', error);
+      }
+    };
+
+    fetchNotifications();
   }, []);
 
   const handleNotificationClick = (link) => {

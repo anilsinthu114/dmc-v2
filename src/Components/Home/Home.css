@@ -1,54 +1,76 @@
 /* Home.css */
+
+.home-page-container {
+  display: flex;
+  flex-direction: column; /* Change to column layout */
+  gap: 20px; /* Add gap between containers */
+}
 .home-container {
   display: flex;
   justify-content: space-between;
+  align-items: center; /* Align items vertically */
+  padding: 20px; /* Add padding to the container */
+  flex-wrap: wrap; /* Allow elements to wrap to the next line for responsiveness */
 }
 
 .left-content {
-  width: 70%;
+  width: 100%; /* Adjust width for responsiveness */
   padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  margin-bottom: 20px; /* Add margin bottom for spacing */
 }
 
 .right-content {
-  width: 30%;
+  width: 100%; /* Adjust width for responsiveness */
   padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  margin-bottom: 20px; /* Add margin bottom for spacing */
 }
 
 .right-content img {
-  width: 400px; /* Set the width of the image */
+  width: 100%; /* Set the width to be responsive */
   height: auto; /* Let the height adjust automatically to maintain aspect ratio */
   margin-top: 90px;
+  border-radius: 10px; /* Add border radius for a modern look */
 }
-
 
 .heading {
   font-size: 40px;
   color: black;
+  margin-bottom: 20px; /* Add margin bottom for spacing */
 }
 
 .services {
   font-size: 30px;
   color: black;
+  margin-bottom: 20px; /* Add margin bottom for spacing */
 }
 
 .services-container {
   text-align: center; /* Center the content horizontally */
+  padding: 20px; /* Add padding for spacing */
 }
 
 .cards-wrapper {
   display: flex;
   justify-content: space-around; /* Distribute cards evenly */
   flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  gap: 20px; /* Add gap between cards */
 }
 
 .card {
   flex: 0 1 calc(20% - 20px); /* Decreased the width to 20% */
   background-color: #f9f9f9;
   border: 1px solid black; /* Added black border */
-  border-radius: 5px;
+  border-radius: 10px; /* Increased border radius for a modern look */
   padding: 20px;
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease; /* Add transition for hover effect */
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Add hover effect */
 }
 
 .read-more-btn {
@@ -58,6 +80,7 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Add transition for hover effect */
 }
 
 .read-more-btn:hover {
@@ -69,15 +92,25 @@
   position: relative;
   width: 100%; /* Adjust width as needed */
   height: auto; /* Remove fixed height */
+  margin-bottom: 20px; /* Add margin bottom for spacing */
 }
 
 .additional-image {
   display: block; /* Ensures proper layout */
   margin: 0 auto 8px; /* Adjust the margin to remove space below the image */
-  width: 800px; /* Adjust the width as needed */
-  height: 400px; /* Adjust the height as needed, maintaining aspect ratio */
+  width: 100%; /* Adjust the width to be responsive */
+  height: auto; /* Adjust the height to be responsive */
+  border-radius: 10px; /* Add border radius for a modern look */
 }
 
 .heading {
   margin-bottom: 0; /* Remove default margin */
+}
+
+/* Footer styles */
+.footer {
+  font-size: 50px; /* Increase font size for footer */
+  color: red; /* Change color to red */
+  background-color: black; /* Change background color to black */
+  padding: 50px; /* Add more padding for footer */
 }
