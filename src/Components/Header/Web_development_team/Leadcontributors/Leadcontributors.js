@@ -5,31 +5,54 @@ import './Leadcontributors.css';
 import teamData from './LeadcontributorsData'; // Adjust the path based on your project structure
 
 const Leadcontributors = () => {
-  const renderTableRows = () => {
-    return teamData.map((member, index) => (
+  // Group team members by year
+  const groupByYear = (data) => {
+    return data.reduce((groups, member) => {
+      if (!groups[member.year]) {
+        groups[member.year] = [];
+      }
+      groups[member.year].push(member);
+      return groups;
+    }, {});
+  };
+
+  const groupedData = groupByYear(teamData);
+
+  const renderTableRows = (members) => {
+    return members.map((member, index) => (
       <tr key={index}>
         <td>{index + 1}</td> {/* S.No */}
         <td>{member.name}</td> {/* Name */}
         <td>{member.rollNumber}</td> {/* Roll Number */}
-        <td>{member.year}</td> {/* Year */}
+        <td>{member.role || 'Contributor'}</td> {/* Role */}
       </tr>
+    ));
+  };
+
+  const renderTables = () => {
+    return Object.entries(groupedData).map(([year, members]) => (
+      <div key={year} className="year-section">
+        <h4 className="year-title">Year: {year}</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Name</th>
+              <th>Roll Number</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>{renderTableRows(members)}</tbody>
+        </table>
+        <br />
+      </div>
     ));
   };
 
   return (
     <div>
-      <h3 className='SP'>Lead Contributors</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>S.No</th>
-            <th>Name</th>
-            <th>Roll Number</th>
-            <th>Year</th>
-          </tr>
-        </thead>
-        <tbody>{renderTableRows()}</tbody>
-      </table><br/><br />
+      <h3 className="SP">Lead Contributors</h3>
+      {renderTables()}
     </div>
   );
 };
