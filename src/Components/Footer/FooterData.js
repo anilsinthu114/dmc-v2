@@ -35,7 +35,7 @@ export const Administration_Wing = [
   
     {
       title: "National Service Scheme (NSS)",
-      link: "/",
+      link: "https://nss.jntugv.edu.in",
     },
     {
       title: "Anti Ragging Committee",
@@ -66,7 +66,7 @@ export const Administration_Wing = [
     },
     {
       title:"JNTU-GV Tribal College of Engineering, Kurupam",
-      link:"http://jntugvk.ucev.in/"
+      link:"https://teck.jntugv.edu.in",
     }
   ];
   
@@ -96,7 +96,7 @@ export const Administration_Wing = [
     },
     {
       title: "IQAC",
-      link: "/",
+      link: "https://iqac.jntugv.edu.in",
     },
     {
       title: "Sports",

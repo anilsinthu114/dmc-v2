@@ -1,6 +1,6 @@
-import "./Dropdown.css";
-import { Link, useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
+import { Link, useNavigate } from "react-router-dom";
+import "./Dropdown.css";
 //import GroupsIcon from "@mui/icons-material/Groups";
 //import SchoolIcon from "@mui/icons-material/School";
 // import PersonIcon from "@mui/icons-material/Person";
@@ -10,11 +10,10 @@ import ApartmentIcon from "@mui/icons-material/Apartment";
 //import DescriptionIcon from "@mui/icons-material/Description";
 import MenuIcon from "@mui/icons-material/Menu";
 //import CampaignIcon from '@mui/icons-material/Campaign';
-import PhotoCameraFrontIcon from '@mui/icons-material/PhotoCameraFront';
-import CollectionsIcon from '@mui/icons-material/Collections';
-import QrCodeIcon from '@mui/icons-material/QrCode';
-import GroupsIcon from '@mui/icons-material/Groups';
 import CallIcon from '@mui/icons-material/Call';
+import CollectionsIcon from '@mui/icons-material/Collections';
+import GroupsIcon from '@mui/icons-material/Groups';
+import PhotoCameraFrontIcon from '@mui/icons-material/PhotoCameraFront';
 
 
 import { useState } from "react";
@@ -73,8 +72,8 @@ const Dropdown = () => {
             </button>
             <button>
               {" "}
-              <Link className="link-btn" to="/dmc/dmc-supporting-staff">
-                DMC Staff
+              <Link className="link-btn" to="/dmc/dmc-designer">
+                DMC Designer
               </Link>
             </button>
             <button>

@@ -20,7 +20,7 @@ const Adminpanel = () => {
   const uniqueYears = [...new Set(teamData.map(member => member.year))].sort((a, b) => new Date(b) - new Date(a)).reverse();
 
   return (
-    <div>
+    <div className='wdtRight'>
       <h3 className='SP'>Admin Panel Team</h3>
       {uniqueYears.map((year) => (
         <div key={year}>

@@ -5,6 +5,7 @@ import image5 from "../../../Components/Header/Gallery/5.jpg";
 import image6 from "../../../Components/Header/Gallery/6.jpg";
 import image7 from "../../../Components/Header/Gallery/7.jpg";
 import image8 from "../../../Components/Header/Gallery/8.jpg";
+import image9 from "../../../Components/Header/Gallery/team 3.jpg";
 
 
 
@@ -19,6 +20,7 @@ export const skillsData = [
     { name: '', image: image6 },
     { name: '', image: image7 },
     { name: '', image: image8 },
+    {name:"Certificates issued to the Team", image:image9}
     
 
 ];

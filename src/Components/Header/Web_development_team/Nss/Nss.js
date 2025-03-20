@@ -17,7 +17,7 @@ const Nss = () => {
   };
 
   return (
-    <div>
+    <div className='wdtRight'>
       <h3 className='SP'>National service scheme Cell Team</h3>
       <table>
         <thead>

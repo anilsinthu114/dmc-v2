@@ -1,64 +1,137 @@
+/* General container styling */
 .gallery-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; /* Adjust as needed */
-  padding: 20px; /* Adjust the padding around the container */
-  margin-bottom: 20px;
-  justify-content: center;
+  justify-content: center; /* Center items consistently */
+  gap: 15px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
+/* Individual gallery card styling */
 .gallery-card {
-  flex: 0 0 22%; /* Adjust the width as needed */
-  margin: 10px; /* Adjust the margin as needed */
+  flex: 0 1 calc(20% - 20px); /* Responsive width with gap compensation */
+  margin: 10px;
   text-align: center;
-  overflow: hidden; /* Hide overflow for images with different aspect ratios */
-  border-radius: 8px; /* Add border-radius for rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
-  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 220px;
 }
 
+.gallery-card:hover {
+  transform: translateY(-5px); /* Subtle lift effect on hover */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
 .gallery-image {
-  width: 100%; /* Adjust the width as needed */
+  width: 100%;
   height: 100%;
-  border-radius: 8px; /* Add border-radius for rounded corners */
-  object-fit: scale-down;
+  object-fit: cover; /* Ensures uniform scaling */
+  border-radius: 12px;
 }
 
+/* Card title styling */
 .gallery-card h4 {
-  margin-top: 10px; /* Adjust the margin for the name */
+  margin-top: 8px;
+  font-size: 1rem;
+  color: #333;
 }
 
+/* Modal styling */
 .modal {
-  display: flex;
+  display: none; /* Hide by default */
   align-items: center;
   justify-content: center;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
-  max-width: 60%;
-  max-height: 60%;
+  max-width: 90%; /* Adjust width for responsiveness */
+  max-height: 80%;
   overflow: hidden;
   position: relative;
+  border-radius: 12px;
 }
 
 .modal-image {
   width: 100%;
   height: auto;
+  object-fit: contain;
 }
 
 .close {
   color: #fff;
   position: absolute;
   top: 15px;
-  right: 15px;
-  font-size: 30px;
+  right: 20px;
+  font-size: 28px;
   cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close:hover {
+  color: #ff5757;
+}
+
+/* ✅ Responsive Styling */
+@media (max-width: 1200px) {
+  .gallery-card {
+    flex: 0 1 calc(25% - 20px); /* Adjust for tablets and small desktops */
+    height: 200px;
+  }
+}
+
+@media (max-width: 992px) {
+  .gallery-card {
+    flex: 0 1 calc(33.33% - 20px); /* Adjust for smaller tablets */
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-card {
+    flex: 0 1 calc(50% - 20px); /* Two columns on mobile */
+    height: 160px;
+  }
+
+  .modal-content {
+    max-width: 95%; /* Max width for small screens */
+    max-height: 70%;
+  }
+
+  .close {
+    font-size: 24px;
+    top: 10px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-card {
+    flex: 0 1 calc(100% - 20px); /* Single column for very small screens */
+    height: 140px;
+  }
+
+  .modal-content {
+    max-width: 100%; /* Full width on very small screens */
+    max-height: 60%;
+  }
+
+  .gallery-card h4 {
+    font-size: 0.9rem;
+  }
+
+  .close {
+    font-size: 20px;
+  }
 }

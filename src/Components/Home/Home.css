@@ -1,116 +1,294 @@
-/* Home.css */
-
+/* Home Page Container */
 .home-page-container {
   display: flex;
-  flex-direction: column; /* Change to column layout */
-  gap: 20px; /* Add gap between containers */
+  flex-direction: column;
+  gap: 20px;
 }
+
+/* Main Content Container */
 .home-container {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Align items vertically */
-  padding: 20px; /* Add padding to the container */
-  flex-wrap: wrap; /* Allow elements to wrap to the next line for responsiveness */
+  align-items: flex-start;
+  padding: 20px;
+  flex-wrap: wrap;
 }
 
+/* Left Content */
 .left-content {
-  width: 100%; /* Adjust width for responsiveness */
-  padding: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-  margin-bottom: 20px; /* Add margin bottom for spacing */
+  flex: 1;
+  min-width: 280px;
+  max-width: 55%;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  background-color: #fafafa;
+  box-sizing: border-box;
 }
 
+/* Right Content */
 .right-content {
-  width: 100%; /* Adjust width for responsiveness */
-  padding: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-  margin-bottom: 20px; /* Add margin bottom for spacing */
+  flex: 1;
+  min-width: 280px;
+  max-width: 45%;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  background-color: #fafafa;
+  box-sizing: border-box;
 }
 
 .right-content img {
-  width: 100%; /* Set the width to be responsive */
-  height: auto; /* Let the height adjust automatically to maintain aspect ratio */
-  margin-top: 90px;
-  border-radius: 10px; /* Add border radius for a modern look */
+  width: 100%; /* Adjust for full container width */
+  height: auto;
+  margin-top: 20px;
+  display: block;
+  border-radius: 1em;
 }
 
+/* Heading */
 .heading {
-  font-size: 40px;
-  color: black;
-  margin-bottom: 20px; /* Add margin bottom for spacing */
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-align: center;
 }
 
+/* ✅ Notifications Container */
+.notifications-Container {
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.notificationsheading {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2e0669;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* Notifications Scrolling Container */
+.notifications a {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+  overflow-x: hidden;
+  text-decoration: none;
+}
+
+/* Smooth scrolling for scrollbar */
+.notifications::-webkit-scrollbar {
+  width: 8px;
+}
+
+.notifications::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.notifications::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 8px;
+}
+
+.notifications::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* ✅ Services Section */
 .services {
-  font-size: 30px;
-  color: black;
-  margin-bottom: 20px; /* Add margin bottom for spacing */
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .services-container {
-  text-align: center; /* Center the content horizontally */
-  padding: 20px; /* Add padding for spacing */
+  padding: 40px 20px;
+  background-color: #f5f5f5;
 }
 
 .cards-wrapper {
-  display: flex;
-  justify-content: space-around; /* Distribute cards evenly */
-  flex-wrap: wrap; /* Allow cards to wrap to the next line */
-  gap: 20px; /* Add gap between cards */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
 }
 
 .card {
-  flex: 0 1 calc(20% - 20px); /* Decreased the width to 20% */
-  background-color: #f9f9f9;
-  border: 1px solid black; /* Added black border */
-  border-radius: 10px; /* Increased border radius for a modern look */
-  padding: 20px;
-  margin: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease; /* Add transition for hover effect */
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 0.5em;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-10px); /* Add hover effect */
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+.card h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.card p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* ✅ Read More Button */
 .read-more-btn {
-  background-color: #555555;
+  display: inline-block;
+  background-color: #444;
   color: white;
-  border: none;
+  text-decoration: none;
   padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* Add transition for hover effect */
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
 }
 
 .read-more-btn:hover {
-  background-color: #0c0c0c;
+  background-color: #222;
 }
 
-/* In Home.css or any appropriate CSS file */
+/* ✅ Scrolling Image Container */
 .centered-image-container {
-  position: relative;
-  width: 100%; /* Adjust width as needed */
-  height: auto; /* Remove fixed height */
-  margin-bottom: 20px; /* Add margin bottom for spacing */
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30px;
 }
 
-.additional-image {
-  display: block; /* Ensures proper layout */
-  margin: 0 auto 8px; /* Adjust the margin to remove space below the image */
-  width: 100%; /* Adjust the width to be responsive */
-  height: auto; /* Adjust the height to be responsive */
-  border-radius: 10px; /* Add border radius for a modern look */
+.scrolling-images {
+  display: flex;
+  animation: scroll 20s linear infinite;
 }
 
-.heading {
-  margin-bottom: 0; /* Remove default margin */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
-/* Footer styles */
-.footer {
-  font-size: 50px; /* Increase font size for footer */
-  color: red; /* Change color to red */
-  background-color: black; /* Change background color to black */
-  padding: 50px; /* Add more padding for footer */
+.home-scroll-images {
+  min-width: 25%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 0.5em;
+  margin: 0 10px;
+}
+
+/* ✅ Responsive Adjustments */
+@media (max-width: 1024px) {
+  .notifications-Container {
+    padding: 16px;
+  }
+
+  .notificationsheading {
+    font-size: 22px;
+  }
+
+  .left-content,
+  .right-content {
+    max-width: 100%; /* Adjust to full width */
+  }
+
+  .home-scroll-images {
+    min-width: 40%;
+    height: 250px;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .services {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .left-content,
+  .right-content {
+    width: 100%;
+  }
+
+  .notifications {
+    gap: 10px;
+  }
+
+  .home-scroll-images {
+    min-width: 50%;
+    height: 200px;
+  }
+
+  .heading {
+    font-size: 1.75rem;
+  }
+
+  .services {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .notifications-Container {
+    padding: 10px;
+  }
+
+  .notificationsheading {
+    font-size: 18px;
+  }
+
+  .notifications {
+    gap: 8px;
+    max-height: 300px;
+  }
+
+  .home-scroll-images {
+    min-width: 80%;
+    height: 150px;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .services {
+    font-size: 1.25rem;
+  }
+
+  .card h3 {
+    font-size: 1.25rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
 }

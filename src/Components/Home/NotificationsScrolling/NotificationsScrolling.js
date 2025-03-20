@@ -1,4 +1,3 @@
-// NotificationsScrolling.js
 import React, { useEffect, useState } from "react";
 import "./NotificationsScrolling.css";
 
@@ -13,38 +12,46 @@ const NotificationsScrolling = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        // Filter notifications that contain category 'dmc'
-        const filteredNotifications = data.filter(notification => notification.update_type.includes('dmc'));
+
+        // Filter for specific update types and scrolling enabled
+        const filteredNotifications = data.filter(
+          (notification) =>
+            ["dmc", "tender", "events"].includes(notification.update_type)
+        );
+
         if (filteredNotifications.length > 0) {
           setNotifications(filteredNotifications);
         } else {
-          setNotifications([{ description: 'NO Notifications' }]);
+          setNotifications([{ title: '🚫 No Notifications Available' }]);
         }
-        
       } catch (error) {
-        console.error('No notifications are launched:', error);
-        setNotifications([]);
+        console.error('Failed to fetch notifications:', error);
+        setNotifications([{ title: '🚫 Failed to load notifications' }]);
       }
     };
 
     fetchData();
+
+    // Poll for new notifications every 30 seconds
+    const interval = setInterval(fetchData, 30000);
+    return () => clearInterval(interval);
   }, []);
 
+  // Duplicate for smooth scrolling effect
   const duplicatedNotifications = [...notifications, ...notifications];
 
   return (
-    <div className="notifications-box"> {/* Add container for scrolling notifications */}
-   
+    <div className="notifications-box">
       <div className="notifications-container">
         <div className="notification-scroll">
           {duplicatedNotifications.map((notification, index) => (
             <div className="notification" key={index}>
-              {notification.isLink ? (
-                <a href={notification.link} target="_blank" rel="noopener noreferrer">
-                  {notification.description}
+              {notification.file_link ? (
+                <a href={notification.external_link || notification.file_link} target="_blank" rel="noopener noreferrer">
+                  {notification.title}
                 </a>
               ) : (
-                notification.description
+                notification.title
               )}
             </div>
           ))}
@@ -53,4 +60,5 @@ const NotificationsScrolling = () => {
     </div>
   );
 };
+
 export default NotificationsScrolling;

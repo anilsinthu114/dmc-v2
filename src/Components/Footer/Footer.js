@@ -1,15 +1,5 @@
 import "./Footer.css";
 
-import { Link } from "react-router-dom";
-import {
-  Administration_Wing,
-  Central_Facilites,
-  Online_Courses,
-  University_Hostels,
-  Constituent_Colleges,
-  JntuGv_Units,
-  Grievance,
-} from "./FooterData.js";
 import {
   FaFacebook,
   FaInstagram,
@@ -17,6 +7,16 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import {
+  Administration_Wing,
+  Central_Facilites,
+  Constituent_Colleges,
+  Grievance,
+  JntuGv_Units,
+  Online_Courses,
+  University_Hostels,
+} from "./FooterData.js";
 
 function Footer() {
   return (
@@ -169,62 +169,66 @@ function Footer() {
         <p className="subheadingFooter">Contact Us :</p>
         <p className="T">
           JAWAHARLAL NEHRU TECHNOLOGICAL UNIVERSITY-GURAJADA
-          VIZIANAGARAM,DWARAPUDI, VIZIANAGARAM, ANDHRA PRADESH - 535 003, Andhra
-          Pradesh, INDIA.
+          VIZIANAGARAM,
+          DWARAPUDI, VIZIANAGARAM, ANDHRA PRADESH - 535 003, INDIA.
         </p>
         <br></br>
       </div>
       <div className="BelowBar">
-          <div className="BelowBar-links">
-            <a
-              href="https://www.facebook.com/JNTUGurajada"
-              className="Below-Social-links"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaFacebook />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/jntugurajada/"
-              className="Below-Social-links"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaLinkedinIn />
-            </a>
-            <a
-              href="https://twitter.com/JNTU_Gurajada"
-              className="Below-Social-links"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaTwitter />
-            </a>
-            <a
-              href="https://www.instagram.com/jntu_gurajada/"
-              className="Below-Social-links"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {" "}
-              <FaInstagram />
-            </a>
-            <a
-              href="https://www.youtube.com/@JNTUGV"
-              className="Below-Social-links"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaYoutube />
-            </a>
-          </div>
+        <div className="BelowBar-links">
+          <a
+            href="https://www.facebook.com/JNTUGurajada"
+            className="Below-Social-links"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaFacebook />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jntugurajada/"
+            className="Below-Social-links"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaLinkedinIn />
+          </a>
+          <a
+            href="https://twitter.com/JNTU_Gurajada"
+            className="Below-Social-links"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaTwitter />
+          </a>
+          <a
+            href="https://www.instagram.com/jntu_gurajada/"
+            className="Below-Social-links"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {" "}
+            <FaInstagram />
+          </a>
+          <a
+            href="https://www.youtube.com/@JNTUGV"
+            className="Below-Social-links"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaYoutube />
+          </a>
         </div>
+      </div>
 
       {/* Copyright  */}
       <div className="mobilefooter">
-        <p className="T">© Copyright 2023 JNTU-GV Vizianagaram. All Rights Reserved.</p>
+        <p className="T">
+          © Copyright {new Date().getFullYear()} <a href="https://jntugv.edu.in" target="_blank" style={{ color: "#ffff", textDecoration: "none" }} rel="noreferrer">JNTU-GV Vizianagaram</a>. All Rights Reserved.
+        </p>
+        <p className="T"> Developed and  Maintained by <a href="https://dmc.jntugv.edu.in" target="_blank" rel="noreferrer" style={{ color: "#ffff", textDecoration: "none" }}>DMC Cell</a></p>
       </div>
     </div>
+
   );
 }
 export default Footer;

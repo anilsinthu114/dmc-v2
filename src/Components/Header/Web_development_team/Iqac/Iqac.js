@@ -17,7 +17,7 @@ const Iqac = () => {
   };
 
   return (
-    <div>
+    <div className='wdtRight'>
       <h3 className='SP'>Iqac Cell Team</h3>
       <table>
         <thead>

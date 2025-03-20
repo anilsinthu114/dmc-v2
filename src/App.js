@@ -1,42 +1,42 @@
 import React from "react";
-import "./App.css";
-import Header from "./Components/Header/Header";
-import Home from "./Components/Home/Home";
 import { Route, Routes } from "react-router-dom";
+import "./App.css";
 import Footer from "./Components/Footer/Footer";
-import Dropdown from "./Components/Header/Dropdown";
 import AboutMain from "./Components/Header/About/AboutMain";
 import Activities from "./Components/Header/About/Activities/Activities";
 import Dmc from "./Components/Header/About/Dmc/Dmc";
+import Dropdown from "./Components/Header/Dropdown";
+import Header from "./Components/Header/Header";
+import Home from "./Components/Home/Home";
 //import Events from "./Components/Header/About/Events/Events";
 import Facilities from "./Components/Header/About/Facilities/Facilities";
 import Futureplans from "./Components/Header/About/Futureplans/Futureplans";
 //import Elearn from "./Components/Header/Elearn/Elearn";
 import Surveillance from "./Components/Header/Surveillance/Surveillance";
 // import Eticket from "./Components/Header/Eticket/Eticket";
-import Gallery from "./Components/Header/Gallery/Gallery";
 import ContactUs from "./Components/Header/ContactUs/ContactUs";
+import Gallery from "./Components/Header/Gallery/Gallery";
 //import Team from "./Components/Header/Team/Team";
 import Coordinator from './Components/Header/About/Coordinator/Coordinator';
 
 import Hardware from "./Components/Home/Hardware";
 import Network from "./Components/Home/Network";
-import SurveillanceService from "./Components/Home/SurveillanceService";
 import Software from "./Components/Home/Software";
+import SurveillanceService from "./Components/Home/SurveillanceService";
 //import Notifications from "./Components/Header/Notifications/Notifications";
 
-import Website from "./Components/Header/Web_development_team/Website/Website";
-import WebDevelopmenTeam from "./Components/Header/Web_development_team/WebDevelopmenTeam";
-import Iqac from "./Components/Header/Web_development_team/Iqac/Iqac";
-import Placement from "./Components/Header/Web_development_team/Placement/Placement";
-import DigitalMonitoringCell from "./Components/Header/Web_development_team/Dmc/Dmc";
-import ResearchAndDevelopment from "./Components/Header/Web_development_team/ResearchAndDevelopment/ResearchAndDevelopment";
-import Examination from "./Components/Header/Web_development_team/Examinations/Examination";
-import Nss from "./Components/Header/Web_development_team/Nss/Nss";
-import Sports from "./Components/Header/Web_development_team/Sports/Sports";
 import Supportingstaff from "./Components/Header/About/Supportingstaff/Supportingstaff";
 import Adminpanel from "./Components/Header/Web_development_team/Adminpanel/Adminpanel";
+import DigitalMonitoringCell from "./Components/Header/Web_development_team/Dmc/Dmc";
+import Examination from "./Components/Header/Web_development_team/Examinations/Examination";
+import Iqac from "./Components/Header/Web_development_team/Iqac/Iqac";
 import Leadcontributors from "./Components/Header/Web_development_team/Leadcontributors/Leadcontributors";
+import Nss from "./Components/Header/Web_development_team/Nss/Nss";
+import Placement from "./Components/Header/Web_development_team/Placement/Placement";
+import ResearchAndDevelopment from "./Components/Header/Web_development_team/ResearchAndDevelopment/ResearchAndDevelopment";
+import Sports from "./Components/Header/Web_development_team/Sports/Sports";
+import WebDevelopmenTeam from "./Components/Header/Web_development_team/WebDevelopmenTeam";
+import Website from "./Components/Header/Web_development_team/Website/Website";
 
 function App() {
   // const location = useLocation();
@@ -54,7 +54,7 @@ function App() {
           <Route path="/dmc" element={<AboutMain />}>
             <Route path="about-dmc" element={<Dmc />} />
             <Route path="dmc-co-ordinator" element={<Coordinator />} />
-            <Route path="dmc-supporting-staff" element={<Supportingstaff />} />
+            <Route path="dmc-designer" element={<Supportingstaff />} />
             <Route path="dmc-activities" element={<Activities />} />
             {/* <Route path="dmc-events" element={<Events />} /> */}
             <Route path="dmc-future-plans" element={<Futureplans />} />

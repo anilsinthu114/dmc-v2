@@ -17,7 +17,7 @@ const Sports = () => {
   };
 
   return (
-    <div>
+    <div className='wdtRight'>
       <h3 className='SP'>Sports Cell Team</h3>
       <table>
         <thead>

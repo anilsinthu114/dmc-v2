@@ -1,135 +1,106 @@
-.contact-card {
-    width: 100%;
-    max-width: 25vw;
-    background-color: whitesmoke;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  .contact-card-place {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-  }
+/* General Styling */
+.contact-page {
+  /* padding: 0px; */
+  background-color: #f9fafb;
+  font-family: "Arial", sans-serif;
+}
+
+/* Heading */
+.cd {
+  font-size: 2.4rem;
+  color: #1e3a8a;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* Contact Section */
+.contact-section {
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 30px;
+  align-items: center;
   
-  /* ContactUs.css */
-  
-  .contact-page {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-    width: 100%;
-    gap: 20px;
-    box-sizing: border-box;
-  }
-  
-  .map-container {
-    flex: 1; 
-    margin-left: 10px;
-    margin-right: 10px;
-    height: 40vh;
-    max-width: 100%;
-  }
-  
-  .contact-details {
-    display: flex;
-    flex-direction: row;
-    padding-left: 10px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  /* Styles for contact details elements */
-  .contact-details h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .contact-details p {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .additional-contact-details {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .additional-details{
-    height: 20vh;
-    width: 100%;
-    max-width: 33.333%;
-    margin: 10px;
-  }
-  .additional-contact-details {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  /* .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  } */
-  
-  /* .visible {
-    opacity: 1;
-    transform: translateY(0);
-  } */
-  
-  .college-section,
-  .additional-contact-section {
-    margin-bottom: 20px;
-  }
-  
-  .contact-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: space-between;
-  }
-  
-  .member {
-    border: 1px solid #ddd;
-    cursor: pointer;
-    height: 40vh;
-    padding: 20px;
-    width: 100%;
-    max-width: 33.333%;
-    margin: 10px;
-  }
-  /* 
-  .member:hover {
-    transform: scale(1.05);
-  } */
-  
-  .member h3 {
-    margin-bottom: 12px;
-  }
-  
-  .paper-details{
-    height: 20vh;
-    width: max-content;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-  }
-  
-  
-  .cd{
-    color: rgb(20, 6, 63);
-    text-align: center; 
+}
+
+.contact-item {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Icons */
+.icon {
+  font-size: 1.5rem;
+  color: #1e40af;
+  margin-right: 8px;
+}
+
+/* Text Styling */
+h3 {
+  font-size: 1.3rem;
+  color: #1e3a8a;
+  margin-bottom: 6px;
+}
+
+h4 {
+  font-size: 1.1rem;
+  color: #1e40af;
+  margin-bottom: 6px;
+}
+
+p {
+  font-size: 1rem;
+  color: #555;
+  margin: 4px 0;
+}
+
+/* Map Container */
+.map-container {
+  flex: 1;
+  width: auto;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Links */
+a {
+  color: #000001;
+  text-decoration: none;
+
+  /* text-decoration-color: #000001; */
+
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-section {
+    grid-template-columns: 1fr;
   }
 
-  .contact-details p:last-child {
-  margin-bottom: 0; /* Remove margin from the last paragraph element */
+  .map-container {
+    height: 250px;
+  }
 }

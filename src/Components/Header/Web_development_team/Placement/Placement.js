@@ -17,7 +17,7 @@ const Placement = () => {
   };
 
   return (
-    <div>
+    <div className='wdtRight'>
       <h3 className='SP'>Placement Cell Team</h3>
       <table>
         <thead>

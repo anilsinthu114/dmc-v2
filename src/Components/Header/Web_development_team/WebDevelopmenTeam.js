@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import "./WebDevelopmenTeam.css"; 
+import "./WebDevelopmenTeam.css";
 
 const WebDevelopmenTeam = () => {
   const location = useLocation();
 
   return (
     <div className="ABOUT-Main">
-      <div className="ABOUTallLeftMenu">
+      <div className="ABOUTallLeft">
 
       <Link
           to="/wdt/lead-contributors"

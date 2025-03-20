@@ -53,7 +53,7 @@ const Leadcontributors = () => {
   };
 
   return (
-    <div>
+    <div className='wdtRight'>
       <h3 className="SP">Lead Contributors</h3>
       {renderTables()}
     </div>

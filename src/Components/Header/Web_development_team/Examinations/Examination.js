@@ -17,7 +17,7 @@ const Examination = () => {
   };
 
   return (
-    <div>
+    <div className='wdtRight'>
       <h3 className='SP'>Examination Cell Team</h3>
       <table>
         <thead>

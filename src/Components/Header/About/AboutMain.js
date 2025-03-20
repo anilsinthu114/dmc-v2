@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import "./About.css"; 
+import "./About.css";
 
 const AboutMain = () => {
   const location = useLocation();
@@ -27,12 +27,12 @@ const AboutMain = () => {
         </Link>
 
         <Link
-          to="/dmc/dmc-supporting-staff"
+          to="/dmc/dmc-designer"
           className={`menuButton ${
-            location.pathname ==="/dmc/dmc-supporting-staff" ? "active" : ""
+            location.pathname ==="/dmc/dmc-designer" ? "active" : ""
           }`}
         >
-          DMC Staff
+          DMC Designer
         </Link>
 
         <Link

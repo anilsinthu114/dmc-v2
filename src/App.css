@@ -3,8 +3,8 @@
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  height: 40%; /* More predictable scaling */
+  /* pointer-events: none; */ /* Remove if the logo needs to be interactive */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -15,12 +15,12 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 100dvh; /* Use dynamic viewport height */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 2vmin); /* Can keep for responsive font size */
   color: white;
 }
 

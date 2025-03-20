@@ -1,50 +1,149 @@
+/* General container styling */
 .container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   align-items: center;
+  padding: 10px;
+  gap: 20px;
+  width: 100%; /* Ensure it fits the screen width */
+  box-sizing: border-box;
 }
 
-.container-item {
-  flex: 1;
-  margin: 10px;
-  padding: 1px;
-  text-align-last: right;
-}
-
+/* Logo container styling */
 .logo-container {
   display: flex;
   align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 .logo {
-  width: 130px;
+  max-width: 120px;
   height: auto;
-  margin-right: 10px;
 }
 
 .logo-text {
-  font-size: x-large;
+  font-size: 1.5rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Content area styling */
+.container-item {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* DMC logo positioning */
+.dmc-logo {
+  max-width: 120px;
+  height: auto;
+  margin-left: auto;
+}
+
+/* Heading styling */
+.heading {
+  color: orange;
+  font-size: 1.8rem;
+  font-weight: bold;
   text-align: center;
 }
 
-.item {
-  align-items: center;
-  font-size: small;
-  
-}
-
-.heading{
-color: orange;
-}
-
-@media (max-width: 767px) {
+/* ✅ Improved Responsive Styling */
+@media (max-width: 1200px) {
   .container {
-    display: flex;
-    flex-direction: column;
+    gap: 15px;
+    padding: 8px;
   }
+
+  .logo {
+    max-width: 100px;
+  }
+
+  .logo-text {
+    font-size: 1.4rem;
+  }
+
+  .dmc-logo {
+    max-width: 100px;
+  }
+
+  .heading {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center;
+  }
+
   .logo-container {
-    display: flex;
+    justify-content: center;
+  }
+
+  .container-item {
+    width: 100%; /* Make content take full width */
+    margin-top: 10px;
+  }
+
+  .dmc-logo {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
     flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .logo-container {
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .logo {
+    max-width: 80px;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  .dmc-logo {
+    max-width: 80px;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 5px;
+    gap: 8px;
+  }
+
+  .logo {
+    max-width: 60px;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+  }
+
+  .dmc-logo {
+    max-width: 60px;
+  }
+
+  .heading {
+    font-size: 1.2rem;
   }
 }

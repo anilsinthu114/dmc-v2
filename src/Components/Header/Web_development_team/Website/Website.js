@@ -1,6 +1,6 @@
 import React from 'react';
-import './Website.css';
 import Table from 'react-bootstrap/Table';
+import './Website.css';
 
 // Import data directly
 import teamData from './WebsiteData'; // Adjust the path based on your project structure
@@ -27,7 +27,7 @@ const Website = () => {
   };
 
   return (
-    <div className='website-container'>
+    <div className='website-container wdtRight'>
       <h3 className='SP'>Website Development Team</h3>
       {modifiedUniqueYears.map((year) => (
         <div key={year} className='year-container'>

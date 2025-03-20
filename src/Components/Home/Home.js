@@ -1,27 +1,32 @@
 // Home.js
 import React from "react";
 import { Link } from "react-router-dom";
+import certificatesImage from "../Header/Gallery/team 3.jpg";
+import "./Home.css";
 import dmcImage from "./Images/1.jpg";
 import additionalImage from "./Images/4.jpg";
 import NotificationsScrolling from "./NotificationsScrolling/NotificationsScrolling";
-import "./Home.css";
 
 const Home = () => {
   return (
     <div className="home-page-container">
       <div className="centered-image-container">
-        <img src={additionalImage} alt="AdditionalImage" className="additional-image" />
+        <div className="scrolling-images">
+          <img src={additionalImage} alt="AdditionalImage" className="home-scroll-images" />
+          <img src={certificatesImage} alt="CertificatesImage" className="home-scroll-images" />
+          <img src={additionalImage} alt="AdditionalImage" className="home-scroll-images" />
+          <img src={certificatesImage} alt="CertificatesImage" className="home-scroll-images" />
+        </div>
       </div>
-
       <div className="home-container">
         <div className="left-content">
           <h2 className="heading">
-            JNTU-GV <br /> Digital Monitoring Cell (DMC)
+            Digital Monitoring Cell (DMC) - JNTUGV
           </h2>
           <p>
             JNTUGV Digital Monitoring Cell (DMC) Established to maintain and
             monitor the IT infrastructure of the University. DMC is mainly
-            involved in University digitization.The Digital Monitoring Cell
+            involved in University digitization. The Digital Monitoring Cell
             (DMC) serves as the cornerstone of organizations' digital
             operations, overseeing the management, maintenance, and security of
             their digital infrastructure. Established with the primary objective
@@ -45,8 +50,11 @@ const Home = () => {
           <img src={dmcImage} alt="DMC" />
         </div>
       </div>
-
-      <NotificationsScrolling />
+      <div className="notifications-Container">
+        <h3 className="notificationsheading"> Latest Notifications </h3>
+        <div className="notifications" ><NotificationsScrolling /></div>
+      </div>
+      
 
       <div className="services-container">
         <h2 className="services">Services</h2>
@@ -58,12 +66,9 @@ const Home = () => {
               all the minor repairs. DMC maintains systems and servers for
               various purposes.
             </p>
-            <button className="read-more-btn">
-              {" "}
-              <Link className="link-btn" to="/Hardware">
-                Read More
-              </Link>
-            </button>
+            <Link to="/Hardware" className="read-more-btn">
+              Read More
+            </Link>
           </div>
 
           <div className="card">
@@ -73,42 +78,33 @@ const Home = () => {
               configures and maintains the University Firewall through this IP
               based
             </p>
-            <button className="read-more-btn">
-              {" "}
-              <Link className="link-btn" to="/Network">
-                Read More
-              </Link>
-            </button>
+            <Link to="/Network" className="read-more-btn">
+              Read More
+            </Link>
           </div>
 
           <div className="card">
             <h3>Surveillance</h3>
             <p>
               IP Cameras are installed at strategic locations in the campus and
-              the monitoring unit is housed in the VC’s chamber to get a quick
+              the monitoring unit is housed in the VC's chamber to get a quick
               review of the activities in the University.
             </p>
-            <button className="read-more-btn">
-              {" "}
-              <Link className="link-btn" to="/SurveillanceService">
-                Read More
-              </Link>
-            </button>
+            <Link to="/SurveillanceService" className="read-more-btn">
+              Read More
+            </Link>
           </div>
 
           <div className="card">
             <h3>Software</h3>
             <p>
               All purchases of software must be supported by guarantee and/or
-              warranty requirements and be compatible with the University’s
+              warranty requirements and be compatible with the University's
               server and/or hardware system.
             </p>
-            <button className="read-more-btn">
-              {" "}
-              <Link className="link-btn" to="/Software">
-                Read More
-              </Link>
-            </button>
+            <Link to="/Software" className="read-more-btn">
+              Read More
+            </Link>
           </div>
         </div>
       </div>

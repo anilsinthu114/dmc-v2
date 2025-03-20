@@ -1,154 +1,139 @@
-/* Dropdown.css */
+/* General Styling */
 .topnav {
-  background-image: linear-gradient(to right, 	#555555, #A9A9A9);
+  background-image: linear-gradient(to right, #555555, #A9A9A9);
   text-align: center;
   font-size: 20px;
   height: 50px;
-  /* width: 90vw; */
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
-  
- 
+
+/* Remove default button styles */
 button {
-  border-style: none;
-  /* background-color: #690001; */
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
-
-
+/* Icon Styling */
 .digitali-icon {
-  color: "white"
-  
+  color: white;
+  font-size: 24px;
+  margin-right: 8px;
 }
-  
+
+/* Navbar Link Styling */
 .topnav a {
-  display: block;
+  display: inline-block;
   color: white;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 10px 15px;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 400;
-  padding-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
 }
-  
-.a:hover {
+
+.topnav a:hover {
   color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
 }
-  
+
 .active {
-  /* background-color: #690001; */
-  color: white;
+  color: #ffffff;
+  font-weight: bold;
 }
-  
-.result-icon {
-  height: 30px;
-}
-  
+
+/* Dropdown Button */
 .dropbtn {
-  /* background-color: #690001; */
   color: white;
   padding: 10px;
   font-size: 16px;
-  border: none;
-  text-align: center;
-  display: flex; /* Make the button a flex container */
+  display: flex;
   align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease;
 }
-  
+
 .dropbtn:hover {
-  background-color: #555555;
+  background-color: #444444;
   color: #ffffff;
 }
-  
+
+/* Dropdown Wrapper */
 .dropdown {
   position: relative;
   display: inline-block;
-  /* background-color: #035a5a; */
 }
 
 .drop-icon {
-  height: 30px;
-  margin-right: 5px;
+  height: 24px;
+  width: 24px;
 }
-  
- .dropdown-content {
+
+/* Dropdown Content */
+.dropdown-content {
   display: none;
   position: absolute;
   background-color: #555555;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 3;
-  min-width: 200px;
-  width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  width: 250px;
   overflow: hidden;
-} 
-
-
-  
-.dropdown-content:hover {
-  color: #555555;
+  border-radius: 4px;
 }
- 
+
 .dropdown-content button {
-  color: rgb(165, 221, 141);
-  text-decoration: none;
-  display: block;
-  padding: 10px;
-  text-align: center;
-  height: auto;
-  
-}
-  
-.dropbtn:hover .dropdown-content {
-  background-color: #101010;
-}
-  
-.dropdown-content button {
-
-  background-color: #555555;
+  background-color: transparent;
+  color: #ffffff;
+  padding: 12px;
+  text-align: left;
   width: 100%;
+  border: none;
+  transition: background-color 0.2s ease;
 }
-  
-.dropdown-content:hover button:hover {
-  background-color: #5e6868;
-  color: rgb(255, 255, 255);
+
+.dropdown-content button:hover {
+  background-color: #444444;
+  color: #ffffff;
 }
-  
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Link Button */
 .link-btn {
   text-align: left;
   color: #ffffff;
-  width: 100%;
   font-weight: 500;
-}
-  
-.link-btn:hover {
-  color: #ffffff;
-}
-
-button:hover {
-  color: #ffffff;
-}
-  
-.dropdown:hover .dropdown-content {
+  padding: 10px;
+  width: 100%;
   display: block;
-  width: 200px;
 }
 
-.drop-icon {
-  height: 30px;
+.link-btn:hover {
+  background-color: #444444;
+  color: #ffffff;
 }
 
+/* Responsive Design */
 .menu-icon {
   display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
 }
-  
-  
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: 768px) {
+  /* Show menu icon on smaller screens */
   .menu-icon {
     display: flex;
-    color: #ffffff;
-    justify-content: flex-start;
+    align-items: center;
   }
 
   .menu-off-options {
@@ -158,9 +143,52 @@ button:hover {
   .menu-on-options {
     display: flex;
     flex-direction: column;
+    background-color: #555555;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    z-index: 10;
   }
 
   .topnav {
+    flex-direction: row;
+    justify-content: space-between;
     height: auto;
+    padding: 10px;
+  }
+
+  .topnav a,
+  .dropbtn {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    background-color: #444444;
+  }
+
+  .dropdown-content button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .topnav {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .dropbtn {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .dropdown-content button {
+    font-size: 14px;
   }
 }

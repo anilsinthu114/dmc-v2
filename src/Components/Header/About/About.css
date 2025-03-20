@@ -1,7 +1,8 @@
 /* Styles for the container */
 .ABOUT-Main {
-  display: flex;
-  justify-content: center; 
+display:flex;
+width: auto;
+
 }
 
 /* Styles for the left menu */
@@ -11,7 +12,13 @@
   flex-direction: column;
   gap: 10px;
   margin-top: 10px;
-  margin-right: 50px; /* Adjust the margin-right value */
+  margin-right: 20px; /* Adjust the margin-right value */
+  position: relative;
+  left:2rem;
+}
+.allRightContent{
+  position:relative;
+  left:5rem;
 }
 .ADsub {
   font-weight: bold;
@@ -25,6 +32,7 @@
 }
 .ADlist {
   margin-left: 20px;
+  margin-right: 20px;
 }
 
 
@@ -69,10 +77,15 @@
   color: white;
 }
 
+.mainContainer{
+  min-width: 70%;
+}
+
 
 /* Styles for the content */
 .allRightContent {
   flex: 1;
+  width: 70%;
 }
 
 .allRightContentProfile {

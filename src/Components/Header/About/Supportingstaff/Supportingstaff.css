@@ -109,5 +109,9 @@
     .ABOUT-allLeftMenu .menuButton {
       width: 110px;
     }
+    .websitesList{
+      padding: 20px;
+      margin: 10px 0;
+    }
   }
   

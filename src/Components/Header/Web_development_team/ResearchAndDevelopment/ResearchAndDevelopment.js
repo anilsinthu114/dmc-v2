@@ -17,7 +17,7 @@ const ResearchAndDevelopment = () => {
   };
 
   return (
-    <div>
+    <div className='wdtRight'>
       <h3 className='SP'>Research and Development Cell Team</h3>
       <table>
         <thead>
