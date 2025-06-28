@@ -1,108 +1,161 @@
+/* Mobile-first styles */
+
 /* Styles for the container */
 .ABOUT-Main {
-   display: flex;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Styles for the left menu */
+.ABOUTallLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  margin-right: 0;
+  position: static;
+  left: 0;
+  width: 100%;
+  align-items: center;
+}
+
+.wdtRight {
+  position: static;
+  left: 0;
+  width: 100%;
+}
+
+.ADsub {
+  font-weight: bold;
+  color: #2e0669;
+  font-size: 20px;
+}
+
+.ADimg img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.ADlist {
+  margin-left: 10px;
+}
+
+.profileName {
+  text-align: center;
+}
+
+.profileDesignation {
+  text-align: center;
+}
+
+/* Styles for menu buttons */
+.menuButton {
+  width: 90vw;
+  max-width: 300px;
+  min-width: 160px;
+  height: 44px;
+  border-radius: 7px;
+  box-shadow: 0px 4px 22px 0px rgba(123, 124, 134, 0.36);
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #555555;
+  background: #fff;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 0;
+  margin-bottom: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.menuButton:hover {
+  background-color: #555555;
+  color: #fff;
+}
+
+.menuButton.active {
+  background: #555555;
+  color: white;
+}
+
+/* Styles for the content */
+.allRightContent {
+  flex: 1;
+  width: 100%;
+}
+
+.allRightContentProfile {
+  padding-left: 0;
+  padding-top: 20px;
+}
+
+.allRightContentHeading {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  color: #2e0669;
+}
+
+/* Additional styles for text content */
+.a {
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(20, 6, 63);
+}
+
+.coh3 {
+  color: #2e0669;
+}
+
+/* Responsive styles for tablet and up */
+@media (min-width: 600px) {
+  .ABOUT-Main {
+    flex-direction: row;
+    align-items: flex-start;
   }
-  
-  /* Styles for the left menu */
-  /* Styles for the left menu */
   .ABOUTallLeft {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-    margin-right: 50px; /* Adjust the margin-right value */
-
+    width: auto;
+    align-items: flex-start;
+    margin-right: 40px;
     position: relative;
-    left:1rem;
-   
+    left: 1rem;
   }
-  .wdtRight{
-
+  .wdtRight {
     position: relative;
+    left: 5rem;
+    width: auto;
+  }
+  .menuButton {
+    width: 200px;
+    margin-left: 20px;
+    margin-bottom: 0;
+  }
+  .allRightContentProfile {
+    padding-left: 40px;
+    padding-top: 0;
+  }
+}
+
+/* Responsive styles for desktop */
+@media (min-width: 900px) {
+  .ABOUTallLeft {
+    margin-right: 50px;
+    left: 1rem;
+  }
+  .wdtRight {
     left: 15rem;
   }
-
-  .ADsub {
-    font-weight: bold;
-    color: #2e0669;
-    font-size: 20px;
-  }
-  
-  .ADimg img {
-    width: 200px; /* Adjust the size as needed */
-    height: auto;
-  }
-  .ADlist {
-    margin-left: 20px;
-  }
-  
-  
-  .profileName {
-    text-align: center;
-  }
-  
-  .profileDesignation {
-    text-align: center;
-  }
-  
-  
-  /* Styles for menu buttons */
-  /* Styles for menu buttons */
   .menuButton {
-    width: 200px; /* Adjust width */
-    height: 50px; /* Adjust height */
-    border-radius: 7px;
-    box-shadow: 0px 4px 22px 0px rgba(123, 124, 134, 0.36);
-    padding: 5px; /* Adjust padding */
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #555555;
-    background: #fff;
-    color: black;
-    font-size: 14px; /* Adjust font size */
-    font-weight: bold; 
-    margin-left: 20px;
+    width: 200px;
+    font-size: 14px;
   }
-  
-  .menuButton:hover {
-    background-color: #555555;
-    color: #fff;
-  }
-  
-  .menuButton.active {
-    background: #555555;
-    color: white;
-  }
-  
-  
-  /* Styles for the content */
-  .allRightContent {
-    flex: 1;
-  }
-  
-  .allRightContentProfile {
-    padding-left: 40px; /* Adjust as needed */
-  }
-  
-  .allRightContentHeading {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    color: #2e0669;
-  }
-  
-  /* Additional styles for text content */
-  .a {
-    font-weight: bold;
-    font-size: 15px;
-    color: rgb(20, 6, 63);
-  }
-  
-  .coh3{
-    color: #2e0669;
-  }
-  
+}

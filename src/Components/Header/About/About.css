@@ -1,111 +1,278 @@
-/* Styles for the container */
-.ABOUT-Main {
-display:flex;
-width: auto;
+/* DMC Cell About Section Styles */
 
+/* Main container for About section */
+.ABOUT-Main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background: #f8fafc;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 32px 0 32px 0;
 }
 
-/* Styles for the left menu */
-/* Styles for the left menu */
+/* Left menu styles */
 .ABOUTallLeftMenu {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-  margin-right: 20px; /* Adjust the margin-right value */
+  gap: 14px;
+  margin-top: 18px;
+  margin-right: 32px;
+  min-width: 220px;
+  max-width: 260px;
   position: relative;
-  left:2rem;
+  left: 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(44, 62, 80, 0.08);
+  padding: 24px 12px;
 }
-.allRightContent{
-  position:relative;
-  left:5rem;
+
+@media (max-width: 900px) {
+  .ABOUTallLeftMenu {
+    min-width: 160px;
+    max-width: 200px;
+    margin-right: 12px;
+    padding: 16px 6px;
+  }
 }
+
+@media (max-width: 600px) {
+  .ABOUT-Main {
+    flex-direction: column;
+    padding: 12px 0;
+  }
+  .ABOUTallLeftMenu {
+    flex-direction: row;
+    min-width: unset;
+    max-width: unset;
+    width: 100%;
+    margin: 0 0 18px 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 8px rgba(44, 62, 80, 0.08);
+    padding: 10px 2px;
+    overflow-x: auto;
+    gap: 8px;
+  }
+}
+
+/* Right content area */
+.allRightContent {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  position: relative;
+  left: 0;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(44, 62, 80, 0.07);
+  padding: 32px 32px 32px 32px;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .allRightContent {
+    padding: 18px 8px 18px 8px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .allRightContent {
+    padding: 10px 2vw;
+    border-radius: 8px;
+  }
+}
+
+/* Subheading style */
 .ADsub {
-  font-weight: bold;
-  color: #2e0669;
-  font-size: 20px;
+  font-weight: 700;
+  color: #2a3b4c;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
 }
 
+/* Profile image styling */
 .ADimg img {
-  width: 200px; /* Adjust the size as needed */
-  height: auto;
-}
-.ADlist {
-  margin-left: 20px;
-  margin-right: 20px;
+  width: 180px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+  border: 3px solid #e0e7ef;
+  background: #f8fafc;
+  display: block;
+  margin: 0 auto 12px auto;
 }
 
+@media (max-width: 900px) {
+  .ADimg img {
+    width: 120px;
+    height: 160px;
+    border-radius: 10px;
+    border-width: 2.5px;
+  }
+}
+@media (max-width: 600px) {
+  .ADimg img {
+    width: 100px;
+    height: 120px;
+    border-radius: 8px;
+    border-width: 2px;
+  }
+}
+
+/* List styling */
+.ADlist {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 18px;
+  font-size: 1rem;
+  color: #2a3b4c;
+  line-height: 1.6;
+}
+
+.ADlist li {
+  margin-bottom: 6px;
+  padding-left: 2px;
+}
+
+/* Profile name and designation */
+.profileName,
+.profileDesignation {
+  text-align: center;
+  font-weight: 600;
+  color: #2a3b4c;
+  margin: 0;
+  padding: 0;
+}
 
 .profileName {
-  text-align: center;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  margin-bottom: 2px;
 }
 
 .profileDesignation {
-  text-align: center;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: #4b5c6b;
+  margin-bottom: 8px;
 }
 
-
-/* Styles for menu buttons */
-/* Styles for menu buttons */
+/* Menu button styles */
 .menuButton {
-  width: 200px; /* Adjust width */
-  height: 50px; /* Adjust height */
+  width: 100%;
+  min-width: 120px;
+  max-width: 220px;
+  height: 44px;
   border-radius: 7px;
-  box-shadow: 0px 4px 22px 0px rgba(123, 124, 134, 0.36);
-  padding: 5px; /* Adjust padding */
+  box-shadow: 0px 2px 12px 0px rgba(123, 124, 134, 0.16);
+  padding: 0 10px;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #555555;
+  border: 1.5px solid #2a3b4c;
   background: #fff;
-  color: black;
-  font-size: 14px; /* Adjust font size */
-  font-weight: bold; 
-  margin-left: 20px;
+  color: #2a3b4c;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 auto;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+  outline: none;
 }
 
-.menuButton:hover {
-  background-color: #555555;
-  color: #fff;
-}
-
+.menuButton:hover,
 .menuButton.active {
-  background: #555555;
-  color: white;
+  background: #2a3b4c;
+  color: #fff;
+  border-color: #2a3b4c;
 }
 
-.mainContainer{
-  min-width: 70%;
+@media (max-width: 900px) {
+  .menuButton {
+    min-width: 90px;
+    max-width: 140px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 600px) {
+  .menuButton {
+    min-width: 80px;
+    max-width: 120px;
+    height: 34px;
+    font-size: 0.9rem;
+    padding: 0 4px;
+  }
 }
 
-
-/* Styles for the content */
-.allRightContent {
-  flex: 1;
-  width: 70%;
+/* Main content container */
+.mainContainer {
+  min-width: 0;
+  width: 100%;
 }
 
+/* Profile content area */
 .allRightContentProfile {
-  padding-left: 40px; /* Adjust as needed */
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0 auto;
+  max-width: 900px;
 }
 
+@media (max-width: 900px) {
+  .allRightContentProfile {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 540px;
+  }
+}
+@media (max-width: 600px) {
+  .allRightContentProfile {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 98vw;
+  }
+}
+
+/* Heading for right content */
 .allRightContentHeading {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  font-weight: 700;
   text-align: center;
-  color: #2e0669;
+  color: #2a3b4c;
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
 }
 
-/* Additional styles for text content */
+/* Additional text styles */
 .a {
-  font-weight: bold;
-  font-size: 15px;
-  color: rgb(20, 6, 63);
+  font-weight: 600;
+  font-size: 1rem;
+  color: #2a3b4c;
 }
 
-.coh3{
-  color: #2e0669;
+.coh3 {
+  color: #2a3b4c;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+/* Divider style for section separation */
+.dmc-divider {
+  border: none;
+  border-top: 1.5px solid #e0e7ef;
+  margin: 24px 0;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 600px) {
+  .dmc-divider {
+    margin: 14px 0;
+  }
 }

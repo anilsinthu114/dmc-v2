@@ -1,117 +1,226 @@
 .ABOUT-Main-VM {
-    display: flex;
-    padding-left: 40px;
-    padding-top: 10px;
-    margin-bottom: 50px;
-  }
-  
-  .ABOUTallLeftMenu {
-    margin-top: 10px;
-    margin-right: 60px;
-  }
-  
-  .ABOUTallLeftMenu a {
-    text-decoration: none;
-    color: white;
-    display: block;
-    font-weight: bold;
-  }
-  
-  /* .ABOUTmainContainer {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    
-    .ABOUT-allLeftMenu{
-      margin-top: 10px;
-      margin-right: 60px;
-    }
-  
-  
-    
-    .allRightContentHeading {
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-      color: #2e0669;
-    }
-    
-    /* Button structure */
-  .ABOUTallLeftMenu {
-    display: flex;
+  display: flex;
+  flex-direction: row;
+  padding-left: 40px;
+  padding-top: 20px;
+  margin-bottom: 50px;
+  background: #f8fafc;
+  min-height: 100vh;
+  box-sizing: border-box;
+  gap: 32px;
+}
+
+.ABOUTallLeftMenu {
+  margin-top: 10px;
+  margin-right: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ABOUTallLeftMenu a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+
+.ABOUTallLeftMenu .menuButton {
+  width: 240px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 0 rgba(3, 90, 90, 0.08);
+  padding: 12px 18px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid #035a5a;
+  background: #fff;
+  color: #035a5a;
+  font-size: 1.08rem;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.ABOUTallLeftMenu .menuButton:hover,
+.ABOUTallLeftMenu .menuButton:focus {
+  background-color: #035a5a;
+  color: #fff;
+  box-shadow: 0 4px 22px 0 rgba(3, 90, 90, 0.18);
+}
+
+.ABOUTallLeftMenu .menuButton.active {
+  background: linear-gradient(90deg, #035a5a 60%, #0b3d91 100%);
+  color: #fff;
+  border-color: #0b3d91;
+  font-weight: 700;
+}
+
+.allRightContentHeading {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #0b3d91;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+
+.allRightContentProfile {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px 0 rgba(3, 90, 90, 0.06);
+  margin-bottom: 18px;
+}
+
+.ADimg img {
+  border-radius: 10px;
+  border: 2px solid #0b3d91;
+  box-shadow: 0 2px 10px 0 rgba(11, 61, 145, 0.08);
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+}
+
+.profileName h3,
+.profileDesignation h4 {
+  margin: 0;
+  color: #035a5a;
+}
+
+.profileDesignation h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #0b3d91;
+}
+
+.coh4 {
+  font-size: 1rem;
+  color: #333;
+  margin: 8px 0;
+}
+
+.ADsub {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #035a5a;
+  margin: 18px 0 8px 0;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+.websitesList {
+  padding: 24px 32px;
+  margin: 0 auto 24px auto;
+  background: #f4f8fb;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px 0 rgba(3, 90, 90, 0.06);
+  max-width: 700px;
+}
+
+.websitesList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.websitesList li {
+  margin-bottom: 22px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e7ef;
+}
+
+.websitesList li:last-child {
+  border-bottom: none;
+}
+
+.websitesList a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  word-break: break-all;
+}
+
+.websitesList a:hover,
+.websitesList a:focus {
+  color: #0b3d91;
+  text-decoration: underline;
+}
+
+.websitesList p {
+  margin: 6px 0 0 24px;
+  color: #444;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.a {
+  font-weight: bold;
+  font-size: 15px;
+  color: #14063f;
+}
+
+@media screen and (max-width: 900px) {
+  .ABOUT-Main-VM {
     flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 18px;
+  }
+  .ABOUTallLeftMenu {
+    flex-direction: row;
+    margin-right: 0;
+    gap: 10px;
+    justify-content: center;
+  }
+  .ABOUTallLeftMenu .menuButton {
+    width: 140px;
+    font-size: 0.98rem;
+    padding: 10px 8px;
+  }
+  .websitesList {
+    padding: 16px 8px;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .ABOUT-Main-VM {
+    flex-direction: column;
+    padding-left: 4px;
+    padding-right: 4px;
     gap: 10px;
   }
-  
-  /* Default button style */
+  .ABOUTallLeftMenu {
+    flex-direction: row;
+    margin-right: 0;
+    gap: 6px;
+    justify-content: center;
+  }
   .ABOUTallLeftMenu .menuButton {
-    width: 240px !important;
-    height: 60px !important;
-    flex-shrink: 0;
-    border-radius: 7px !important;
-    box-shadow: 0px 4px 22px 0px rgba(123, 124, 134, 0.36) !important;
-    padding: 10px !important;
-    text-align: center !important;
-    text-decoration: none !important;
-    cursor: pointer !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    border: 1px solid #035a5a !important;
-    background: #fff !important;
-    color: black !important;
+    width: 100px;
+    font-size: 0.92rem;
+    padding: 8px 4px;
+    height: 44px;
   }
-  
-  
-  /* Hover state */
-  .ABOUTallLeftMenu .menuButton:hover {
-    background-color: #035a5a !important;
-    color: #fff !important;
+  .websitesList {
+    padding: 10px 2px;
+    margin: 8px 0;
+    font-size: 0.95rem;
   }
-  
-  /* Selected state */
-  .ABOUTallLeftMenu .menuButton.active {
-    background: #035a5a !important;
-    color: white !important;
+  .allRightContentHeading {
+    font-size: 1.3rem;
   }
-  
-  .allRight-ContentProfile {
-    margin-top: 0px;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 20px;
-  }
-  
-  
-  
-  .a {
-    font-weight: bold;
-    font-size: 15px;
-    color: rgb(20, 6, 63);
-  }
-  
-  @media screen and (max-width: 600px) {
-    .ABOUT-Main-VM {
-      display: flex;
-      flex-direction: column;
-      padding-left: 5px;
-    }
-  
-    .ABOUT-allLeftMenu {
-      flex-direction: row;
-    }
-  
-    .ABOUT-allLeftMenu .menuButton {
-      width: 110px;
-    }
-    .websitesList{
-      padding: 20px;
-      margin: 10px 0;
-    }
-  }
-  
+}

@@ -1,21 +1,16 @@
-import React from "react";
 import Typography from "@mui/material/Typography";
+import React from "react";
 import "../About.css";
 
 function Events() {
   return (
     <div className="allRightContent">
-      <div className="allRightContentProfile"><br />
-        <div className="allRightContentHeading">DMC Events</div><hr></hr>
-
-        <Typography>
-        DMC Events will be updated soon. 
-        </Typography><br />
-        
-        
-        <Typography>
-        
-        </Typography><br /><br />
+      <div className="allRightContentProfile">
+        <div className="allRightContentHeading">DMC Events</div>
+        <hr />
+        <Typography className="Text" paragraph>
+          DMC Events will be updated soon.
+        </Typography>
       </div>
     </div>
   );

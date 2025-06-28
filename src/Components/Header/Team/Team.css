@@ -11,7 +11,7 @@ th, td {
 }
 
 th {
-  background-color: #daefef;
+  background-color: #2e0669;
 }
 
 .SP {
@@ -38,7 +38,7 @@ label {
 
 .pagination-container button {
   margin-left: 5px;
-  background-color: #035a5a; /* Change to your desired background color */
+  background-color: #2e0669; /* Change to your desired background color */
   color: #fff; /* Change to your desired text color */
   border: none;
   padding: 5px 10px;
@@ -46,6 +46,6 @@ label {
 }
 
 .pagination-container button:disabled {
-  background-color: #bdc3c7; /* Change to your desired background color for disabled state */
+  background-color: #2e0669; /* Change to your desired background color for disabled state */
   color: #181818; /* Change to your desired text color for disabled state */
 }

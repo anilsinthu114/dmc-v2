@@ -1,149 +1,111 @@
-/* General container styling */
-.container {
+.header-container {
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  gap: 20px;
-  width: 100%; /* Ensure it fits the screen width */
-  box-sizing: border-box;
+  flex-wrap: wrap;
+  background-color: white;
+  /* padding: 0.5rem; */
+  transition: all 0.1s ease-in;
+  z-index: 1000;
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
-/* Logo container styling */
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
+.header-container.scrolled {
+  padding: 0.5rem 1rem;
+  transition: all 0.1s ease-in;
 }
 
-.logo {
-  max-width: 120px;
+.logo{  
+  width: 10rem;
   height: auto;
+  transition: width 0.3s ease;
 }
 
-.logo-text {
-  font-size: 1.5rem;
-  font-weight: bold;
-  white-space: nowrap;
+.header-container.scrolled .logo {
+  width: 6rem;
+   /* align-self: left; */
 }
 
-/* Content area styling */
-.container-item {
-  flex-grow: 1;
+.header-text {
+  flex: 1;
   text-align: center;
-  font-size: 1rem;
+  /* order: 3; */
+  transition: opacity 0.3s ease;
+}
+.ragging{
+  text-align: right;
+  background-color: #55b2e7;
+  color: white;
+}
+.header-container.scrolled .header-text h1 {
+  font-size: 1.4rem;
 }
 
-/* DMC logo positioning */
-.dmc-logo {
-  max-width: 120px;
-  height: auto;
-  margin-left: auto;
+.header-container.scrolled .header-text h5 {
+  display: none;
 }
 
-/* Heading styling */
-.heading {
-  color: orange;
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-align: center;
+.header-container.scrolled .header-text h6 {
+  display: none;
 }
 
-/* ✅ Improved Responsive Styling */
-@media (max-width: 1200px) {
-  .container {
-    gap: 15px;
-    padding: 8px;
-  }
+.university-name {
 
-  .logo {
-    max-width: 100px;
-  }
-
-  .logo-text {
-    font-size: 1.4rem;
-  }
-
-  .dmc-logo {
-    max-width: 100px;
-  }
-
-  .heading {
-    font-size: 1.6rem;
-  }
+  font-size: 1.25rem;
+  /* margin: 0; */
 }
 
-@media (max-width: 1024px) {
-  .container {
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    justify-content: center;
-  }
-
-  .logo-container {
-    justify-content: center;
-  }
-
-  .container-item {
-    width: 100%; /* Make content take full width */
-    margin-top: 10px;
-  }
-
-  .dmc-logo {
-    margin-left: 0;
-  }
+.dmc-title{
+  padding-top:  25px;
+  font-size: large;
+  margin: 0;
 }
 
-@media (max-width: 768px) {
-  .container {
+.location {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+@media screen and (min-width: 767px) and (max-width: 1010px) {
+  .header-container.scrolled .header-text h1 {
+    font-size: 1.15rem;
+  }
+  
+}
+@media (max-width: 767px) {
+  .header-container {
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
+    text-align: center;
   }
-
-  .logo-container {
-    justify-content: center;
-    gap: 5px;
+  .university-name {
+    font-size: 1rem;
+    margin: 0;
   }
-
+  .location {
+    font-size: 0.7rem;
+    margin: 5px 0;
+  }
   .logo {
-    max-width: 80px;
+    width: 4rem;
+    flex-direction: column;
+  }
+  .header-text{
+    order:3;
   }
 
-  .logo-text {
-    font-size: 1.2rem;
+  .header-container.scrolled .logo {
+    width: 3rem;
   }
 
-  .dmc-logo {
-    max-width: 80px;
-  }
-
-  .heading {
-    font-size: 1.5rem;
+  .header-container.scrolled .header-text h1 {
+    font-size: 0.7rem;
   }
 }
-
-@media (max-width: 480px) {
-  .container {
-    padding: 5px;
-    gap: 8px;
-  }
-
-  .logo {
-    max-width: 60px;
-  }
-
-  .logo-text {
-    font-size: 1rem;
-  }
-
-  .dmc-logo {
-    max-width: 60px;
-  }
-
-  .heading {
-    font-size: 1.2rem;
+@media (max-width: 449px){
+  .header-container.scrolled .header-text h1 {
+    font-size: 0.55rem;
   }
 }

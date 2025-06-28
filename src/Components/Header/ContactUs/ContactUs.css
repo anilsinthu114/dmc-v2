@@ -60,8 +60,12 @@ h4 {
 
 p {
   font-size: 1rem;
-  color: #555;
+  color: #000001;
   margin: 4px 0;
+}
+
+a {
+  color: #1e3a8a;
 }
 
 /* Map Container */

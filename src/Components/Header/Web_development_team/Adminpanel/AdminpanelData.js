@@ -48,8 +48,4 @@ const teamData = [
         year:'2024-2025',
       }
   ];
-  
-  /**
-   * Export the official team data.
-   */
   export default teamData;

@@ -1,100 +1,209 @@
-/* Component level styles */
+/* Mobile-first base styles */
 .notificationsComponent {
-    padding: 20px;
-    background-color: #f9f9f9; /* Added background color for a clean look */
-    border-radius: 5px; /* Added border-radius for rounded corners */
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 0.5rem;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.notificationsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.notificationItem {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.notificationItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notificationBox {
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.dateTimeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem;
+  min-width: 80px;
+}
+
+.dateDiv, .monthDiv, .yearDiv {
+  font-weight: 600;
+  color: #2e0669;
+  font-size: 0.875rem;
+  line-height: 1.2;
+}
+
+.updateDescription {
+  color: #2e0669;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+  flex: 1;
+}
+
+.notificationButton {
+  background-color: #f7f1f2;
+  color: #2e0669;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: background-color 0.2s ease;
+}
+
+.notificationButton:hover {
+  background-color: #e8e0e2;
+}
+
+.notificationLink {
+  color: #2e0669;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+
+.notificationLink:hover {
+  color: #1a0440;
+}
+
+.nonLinkContent {
+  color: #333;
+  font-size: 0.875rem;
+}
+
+.newIndicator {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.updateDivSeparator {
+  border-top: 1px solid #e0e0e0;
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+.dateWrapper {
+  border: 1px solid #2e0669;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  background-color: #f9f9f9;
+  box-shadow: 0 1px 3px rgba(46, 6, 105, 0.1);
+}
+
+/* Tablet and larger screens */
+@media screen and (min-width: 768px) {
+  .notificationsComponent {
+    padding: 1.5rem;
   }
-  
-  /* Container level styles */
+
   .notificationsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Added gap for spacing between items */
+    gap: 1.25rem;
   }
-  
-  /* Notification item styles */
+
   .notificationItem {
-    margin-bottom: 15px;
-    padding: 10px; /* Added padding for spacing */
-    border: 1px solid #ddd; /* Added border for definition */
-    border-radius: 5px; /* Added border-radius for rounded corners */
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
   }
-  
-  /* Notification box styles */
+
   .notificationBox {
-    border: 1px solid #ddd;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
+    padding: 1.25rem;
+    flex-direction: row;
     align-items: center;
-    border-radius: 5px; /* Added border-radius for rounded corners */
+    gap: 1.25rem;
   }
-  
-  /* Date-time container styles */
+
   .dateTimeContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px; /* Added padding for spacing */
+    padding: 1rem;
   }
-  
-  /* Date, month, and year styles */
+
   .dateDiv, .monthDiv, .yearDiv {
-    font-weight: bold;
-    color: #2e0669; /* Changed text color to blue for consistency */
+    font-size: 1rem;
   }
-  
-  /* Notification description styles */
+
   .updateDescription {
-    flex: 1;
-    margin: 0 15px;
-    color: #2e0669; /* Changed text color to blue for consistency */
-    font-size: 16px; /* Adjusted font size for readability */
+    font-size: 1rem;
+    margin: 0 1rem;
   }
-  
-  /* Notification button styles */
+
   .notificationButton {
-    background-color: #f7f1f2;
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold; /* Added font-weight for emphasis */
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
   }
-  
-  /* Notification link styles */
+
   .notificationLink {
-    color: #2e0669;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px; /* Adjusted font size for readability */
+    font-size: 1rem;
   }
-  
-  /* Non-link content styles */
+
   .nonLinkContent {
-    color: #333;
-    font-size: 16px; /* Adjusted font size for readability */
+    font-size: 1rem;
   }
-  
-  /* "New" indicator image styles */
+
   .newIndicator {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%; /* Added border-radius for a circular shape */
-  }
-  
-  /* Separator styles */
-  .updateDivSeparator {
-    border-top: 1px solid #ddd;
-    margin-top: 10px;
-    width: 100%; /* Added width for full width separator */
+    width: 2rem;
+    height: 2rem;
   }
 
   .dateWrapper {
-    border: 2px solid #2e0669; /* Set the border color (blue) and width */
-    padding: 20px; /* Add padding to give some space around the date */
-    border-radius: 5px; /* Optional: Add border-radius for rounded corners */
-    background-color: #f9f9f9; /* Added background color for a clean look */
+    padding: 1rem;
+    border-width: 2px;
   }
+}
+
+/* Desktop screens */
+@media screen and (min-width: 1024px) {
+  .notificationsComponent {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .notificationBox {
+    padding: 1.5rem;
+  }
+
+  .dateDiv, .monthDiv, .yearDiv {
+    font-size: 1.125rem;
+  }
+
+  .updateDescription {
+    font-size: 1.125rem;
+  }
+
+  .notificationButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 1.125rem;
+  }
+
+  .notificationLink {
+    font-size: 1.125rem;
+  }
+
+  .nonLinkContent {
+    font-size: 1.125rem;
+  }
+}

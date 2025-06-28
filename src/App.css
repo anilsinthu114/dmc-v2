@@ -1,38 +1,142 @@
-.App {
-  text-align: center;
+/** 
+  App-wide styles and enhancements
+*/
+
+/* Reset some default browser styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  background: #f7f8fc;
+  color: #222;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40%; /* More predictable scaling */
-  /* pointer-events: none; */ /* Remove if the logo needs to be interactive */
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100dvh; /* Use dynamic viewport height */
+/* Main container for the app */
+#root, .App {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin); /* Can keep for responsive font size */
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Ensure footer sticks to bottom if content is short */
+.App > div {
+  flex: 1 0 auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Scrollbar styling for consistency */
+::-webkit-scrollbar {
+  width: 10px;
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #bdbdbd;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Links */
+a {
+  color: #1976d2;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover, a:focus {
+  color: #0d47a1;
+  text-decoration: underline;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #2e0669;
+  font-family: inherit;
+  margin-top: 0;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+.mt-2 { margin-top: 1rem; }
+.mb-2 { margin-bottom: 1rem; }
+.p-2 { padding: 1rem; }
+
+/* Responsive enhancements */
+@media (max-width: 900px) {
+  .App, #root {
+    font-size: 15px;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (max-width: 600px) {
+  .App, #root {
+    font-size: 14px;
+  }
+  h1, h2, h3 {
+    font-size: 1.2em;
+  }
+}
+
+/* Fade-in animation for page transitions */
+.fade-in {
+  animation: fadeIn 0.7s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Button base style */
+button, .btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6em 1.2em;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover, .btn:hover, button:focus, .btn:focus {
+  background: #1565c0;
+  outline: none;
+}
+
+/* Card style for general use */
+.card {
+  background: #fff;
+  border-radius: 1em;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  padding: 1.5em;
+  margin: 1em 0;
+  transition: box-shadow 0.2s;
+}
+.card:hover, .card:focus-within {
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.16);
+}
+
+/* Accessibility: focus outlines */
+:focus-visible {
+  outline: 2px solid #ffd86b;
+  outline-offset: 2px;
+}
+
+/* Miscellaneous enhancements */
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 2em 0;
+}
+
+/* Hide scrollbars for horizontal overflow on mobile */
+@media (max-width: 600px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

@@ -1,77 +1,89 @@
+* {
+  box-sizing: border-box;
+}
+
 .ABOUT-Main-VM {
-    display: flex;
-    padding-left: 40px;
-    padding-top: 10px;
-    margin-bottom: 50px;
-  }
-  
-  
+  display: flex;
+  padding-left: 40px;
+  padding-top: 10px;
+  margin-bottom: 50px;
+}
+
+.Text {
+  color: black;
+}
+
 .ABOUTallLeftMenu {
-    margin-top: 10px;
-    margin-right: 60px;
-  }
-  
-  .ABOUTallLeftMenu a {
-    text-decoration: none;
-    color: white;
-    display: block;
-    font-weight: bold;
-  }
-  
-  .ABOUTallLeftMenu .menuButton {
-    width: 240px !important;
-    height: 60px !important;
-    flex-shrink: 0;
-    border-radius: 7px !important;
-    box-shadow: 0px 4px 22px 0px rgba(123, 124, 134, 0.36) !important;
-    padding: 10px !important;
-    text-align: center !important;
-    text-decoration: none !important;
-    cursor: pointer !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    border: 1px solid #035a5a !important;
-    background: #fff !important;
-    color: black !important;
-  }
-  
-  .ABOUTallLeftMenu .menuButton:hover {
-    background-color: #035a5a !important;
-    color: #fff !important;
-  }
-  
-  .ABOUTallLeftMenu .menuButton.active {
-    background: #035a5a !important;
-    color: white !important;
-  }
-  
-  .allRight-ContentProfile {
-    margin-top: 0px;
-    display: flex;
+  margin-top: 10px;
+  margin-right: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ABOUTallLeftMenu a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  font-weight: bold;
+}
+
+.ABOUTallLeftMenu .menuButton {
+  width: 240px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  box-shadow: 0px 4px 22px 0px rgba(123, 124, 134, 0.36);
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #035a5a;
+  background: #fff;
+  color: black;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ABOUTallLeftMenu .menuButton:hover,
+.ABOUTallLeftMenu .menuButton.active {
+  background: #035a5a;
+  color: #fff;
+}
+
+.allRight-ContentProfile {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.a {
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(20, 6, 63);
+}
+
+@media screen and (max-width: 600px) {
+  .ABOUT-Main-VM {
     flex-direction: column;
-    padding-bottom: 20px;
+    padding-left: 5px;
   }
-  
-  .a {
-    font-weight: bold; /* Added font-weight: bold; */
-    font-size: 15px;
-    color: rgb(20, 6, 63);
+
+  .ABOUTallLeftMenu {
+    flex-direction: row;
+    gap: 5px;
+    margin-right: 0;
+    margin-top: 10px;
   }
-  
-  @media screen and (max-width: 600px) {
-    .ABOUT-Main-VM {
-      display: flex;
-      flex-direction: column;
-      padding-left: 5px;
-    }
-  
-    .ABOUT-allLeftMenu {
-      flex-direction: row;
-    }
-  
-    .ABOUT-allLeftMenu .menuButton {
-      width: 110px;
-    }
+
+  .ABOUTallLeftMenu .menuButton {
+    width: 110px;
+    height: 40px;
+    font-size: 0.95rem;
+    padding: 6px;
   }
-  
+}
