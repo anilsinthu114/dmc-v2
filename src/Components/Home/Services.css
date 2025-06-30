@@ -12,3 +12,32 @@
     max-width: 800px; /* Set maximum width for better readability */
   }
   
+  .read-more-btn:hover {
+    background-color: #125ea4;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  }
+  
+  .read-more-btn:hover {
+    background-color: #125ea4;
+  }
+  
+  /* Optional: Padding adjustment on very small screens */
+  @media screen and (max-width: 480px) {
+    .services-container {
+      padding: 0.5rem;
+    }
+  
+    .read-more-btn {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+  

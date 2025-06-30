@@ -37,28 +37,28 @@ const NotificationsScrolling = () => {
   }, []);
 
   // Duplicate for smooth scrolling effect
-  const duplicatedNotifications = [...notifications, ...notifications];
+  // const duplicatedNotifications = [...notifications, ...notifications];
 
   // Internal CSS for enhanced UI, text wrap, and responsiveness
   const styles = `
-    .notifications-box {
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-      background: #f5f8fd;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(30,64,175,0.07);
-      padding: 0;
-      overflow: hidden;
-      position: relative;
-    }
-    .notifications-container {
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-      background: transparent;
-      padding: 0;
-    }
+    // .notifications-box {
+    //   width: 100%;
+    //   max-width: 900px;
+    //   margin: 0 auto;
+    //   background: #f5f8fd;
+    //   border-radius: 10px;
+    //   box-shadow: 0 2px 8px rgba(30,64,175,0.07);
+    //   padding: 0;
+    //   overflow: hidden;
+    //   position: relative;
+    // }
+    // .notifications-container {
+    //   width: 100%;
+    //   overflow: hidden;
+    //   position: relative;
+    //   // background: transparent;
+    //   padding: 0;
+    // }
     .notification-scroll {
       display: flex;
       flex-direction: column;
@@ -69,7 +69,7 @@ const NotificationsScrolling = () => {
       padding: 12px 18px;
       font-size: 1.04rem;
       color: black;
-      background: #fff;
+      background: #e3e8f0;
       border-bottom: 1px solid #e3e8f0;
       word-break: break-word;
       white-space: pre-line;
@@ -123,13 +123,13 @@ const NotificationsScrolling = () => {
   return (
     <div className="notifications-box">
       <style>{styles}</style>
-      <div className="notifications-container">
-        <div className="notification-scroll">
-          {duplicatedNotifications.map((notification, index) => (
+      {/* <div className="notifications-container"> */}
+        {/* <div className="notification-scroll"> */}
+          {notifications.map((notification, index) => (
             <div className="notification" key={index}>
               {notification.file_link ? (
                 <a
-                  href={notification.external_link || notification.file_link}
+                  href={notification.file_link || notification.external_link}
                   target="_blank"
                   rel="noopener noreferrer"
                   tabIndex={0}
@@ -143,8 +143,6 @@ const NotificationsScrolling = () => {
             </div>
           ))}
         </div>
-      </div>
-    </div>
   );
 };
 

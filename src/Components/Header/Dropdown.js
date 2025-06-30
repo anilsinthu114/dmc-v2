@@ -1,245 +1,286 @@
 import ApartmentIcon from "@mui/icons-material/Apartment";
-import CallIcon from '@mui/icons-material/Call';
-import CollectionsIcon from '@mui/icons-material/Collections';
-import GroupsIcon from '@mui/icons-material/Groups';
+import CallIcon from "@mui/icons-material/Call";
+import CollectionsIcon from "@mui/icons-material/Collections";
+import GroupsIcon from "@mui/icons-material/Groups";
 import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
-import PhotoCameraFrontIcon from '@mui/icons-material/PhotoCameraFront';
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./Dropdown.css";
+import PhotoCameraFrontIcon from "@mui/icons-material/PhotoCameraFront";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const menuItems = [
-  {
-    label: "HOME",
-    icon: <HomeIcon />,
-    onClick: (navigate, setMenuState) => {
-      navigate("/");
-      setMenuState(false);
-    },
-    link: null,
-    dropdown: null,
-  },
+  { label: "HOME", icon: <HomeIcon />, path: "/" },
   {
     label: "ABOUT",
     icon: <ApartmentIcon />,
     dropdown: [
-      { label: "About DMC Cell", to: "/dmc/about-dmc" },
-      { label: "DMC Co-Ordinator", to: "/dmc/dmc-co-ordinator" },
-      { label: "DMC Designer", to: "/dmc/dmc-designer" },
-      { label: "DMC Activities", to: "/dmc/dmc-activities" },
-      // { label: "DMC Events", to: "/dmc/dmc-events" },
-      { label: "DMC Future Plans", to: "/dmc/dmc-future-plans" },
-      { label: "DMC Facilities", to: "/dmc/dmc-facilities" },
+      { label: "About DMC Cell", path: "/dmc/about-dmc" },
+      { label: "DMC Co-Ordinator", path: "/dmc/dmc-co-ordinator" },
+      { label: "DMC Designer", path: "/dmc/dmc-designer" },
+      { label: "DMC Activities", path: "/dmc/dmc-activities" },
+      { label: "DMC Future Plans", path: "/dmc/dmc-future-plans" },
+      { label: "DMC Facilities", path: "/dmc/dmc-facilities" },
     ],
   },
-  {
-    label: "SURVEILLANCE",
-    icon: <PhotoCameraFrontIcon />,
-    link: "/about-surveillance",
-  },
-  {
-    label: "GALLERY",
-    icon: <CollectionsIcon />,
-    link: "/about-gallery",
-  },
+  { label: "SURVEILLANCE", icon: <PhotoCameraFrontIcon />, path: "/about-surveillance" },
+  { label: "GALLERY", icon: <CollectionsIcon />, path: "/about-gallery" },
   {
     label: "WEB DEVELOPMENT TEAM",
     icon: <GroupsIcon />,
     dropdown: [
-      { label: "Lead Contributors", to: "/wdt/lead-contributors" },
-      { label: "JNTUGV Website", to: "/wdt/website-team" },
-      { label: "Admin Panel", to: "/wdt/admin-panel" },
-      { label: "Iqac Cell", to: "/wdt/iqac-team" },
-      { label: "Placement Cell", to: "/wdt/placement-team" },
-      { label: "Dmc Cell", to: "/wdt/dmc-team" },
-      { label: "Research and Development Cell", to: "/wdt/research-and-development-team" },
-      { label: "Examination Cell", to: "/wdt/examination-team" },
-      { label: "Nss Cell", to: "/wdt/nss-team" },
-      { label: "Sports Cell", to: "/wdt/sports-team" },
+      { label: "Lead Contributors", path: "/wdt/lead-contributors" },
+      { label: "JNTUGV Website", path: "/wdt/website-team" },
+      { label: "Admin Panel", path: "/wdt/admin-panel" },
+      { label: "Iqac Cell", path: "/wdt/iqac-team" },
+      { label: "Placement Cell", path: "/wdt/placement-team" },
+      { label: "Dmc Cell", path: "/wdt/dmc-team" },
+      { label: "Research and Development Cell", path: "/wdt/research-and-development-team" },
+      { label: "Examination Cell", path: "/wdt/examination-team" },
+      { label: "Nss Cell", path: "/wdt/nss-team" },
+      { label: "Sports Cell", path: "/wdt/sports-team" },
     ],
   },
-  {
-    label: "CONTACT US",
-    icon: <CallIcon />,
-    link: "/contact-us",
-  },
+  { label: "CONTACT US", icon: <CallIcon />, path: "/contact-us" },
 ];
 
 const Dropdown = () => {
   const navigate = useNavigate();
-  const [menuState, setMenuState] = useState(false);
+  const location = useLocation();
+  const dropdownRefs = useRef([]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [isSticky, setIsSticky] = useState(false);
 
-  // For accessibility: close menu on navigation
-  const handleMenuClick = (item, idx) => {
-    if (item.onClick) {
-      item.onClick(navigate, setMenuState);
-    } else if (item.link) {
-      setMenuState(false);
-      setOpenDropdown(null);
-    } else if (item.dropdown) {
-      setOpenDropdown(openDropdown === idx ? null : idx);
-    }
-  };
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  // For keyboard navigation
-  const handleKeyDown = (e, item, idx) => {
-    if (e.key === "Enter" || e.key === " ") {
-      handleMenuClick(item, idx);
+  useEffect(() => {
+    setMenuOpen(false);
+    setOpenDropdown(null);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 64); // Assume Header is 64px
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile && openDropdown !== null) {
+      const handleClickOutside = (event) => {
+        if (
+          dropdownRefs.current[openDropdown] &&
+          !dropdownRefs.current[openDropdown].contains(event.target)
+        ) {
+          setOpenDropdown(null);
+        }
+      };
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
     }
+  }, [openDropdown, isMobile]);
+
+  const toggleMenu = () => setMenuOpen(prev => !prev);
+  const navigateTo = (path) => {
+    navigate(path);
+    setMenuOpen(false);
+    setOpenDropdown(null);
   };
+  const toggleDropdown = (index) => setOpenDropdown(openDropdown === index ? null : index);
+  const handleMouseEnter = (idx) => !isMobile && setOpenDropdown(idx);
+  const handleMouseLeave = (idx) => !isMobile && setOpenDropdown(null);
 
   return (
-    <nav className="topnav" aria-label="Main Navigation">
+    <nav
+      className="topnav"
+      style={{
+        ...styles.navbar(isSticky),
+        ...(isMobile && {
+          flexDirection: "column",
+          alignItems: "stretch",
+          padding: "0.5rem",
+          borderRadius: 0,
+          top: isSticky ? "64px" : 0,
+        }),
+      }}
+    >
       <div
-        className="menu-icon"
+        style={styles.menuButton(isMobile, menuOpen)}
         tabIndex={0}
-        role="button"
-        aria-label={menuState ? "Close menu" : "Open menu"}
-        onClick={() => setMenuState(!menuState)}
-        onKeyDown={e => (e.key === "Enter" || e.key === " ") && setMenuState(!menuState)}
-        style={{
-          outline: "none",
-          boxShadow: menuState ? "0 0 0 2px #f8f8f8" : "none",
-          transition: "box-shadow 0.2s"
-        }}
+        onClick={toggleMenu}
+        onKeyDown={(e) => ["Enter", " "].includes(e.key) && toggleMenu()}
       >
-        <MenuIcon style={{ marginRight: 8 }} />
-        <span style={{ fontWeight: 700, letterSpacing: 1 }}>MENU</span>
+        <MenuIcon style={{ marginRight: 8 }} /> MENU
       </div>
-      <div className={menuState ? "menu-on-options" : "menu-off-options"}>
-        {menuItems.map((item, idx) => (
-          <div
-            className="dropdown"
-            key={item.label}
-            tabIndex={0}
-            onMouseEnter={() => item.dropdown && setOpenDropdown(idx)}
-            onMouseLeave={() => item.dropdown && setOpenDropdown(null)}
-            onFocus={() => item.dropdown && setOpenDropdown(idx)}
-            onBlur={() => item.dropdown && setOpenDropdown(null)}
-            style={{
-              margin: "0.2rem 0",
-              borderRadius: 8,
-              boxShadow: openDropdown === idx ? "0 2px 12px rgba(44,62,80,0.10)" : "none",
-              background: openDropdown === idx ? "rgba(255,255,255,0.04)" : "none",
-              transition: "background 0.2s, box-shadow 0.2s"
-            }}
-          >
+
+      <div style={styles.menuContainer(isMobile, menuOpen)}>
+        {menuItems.map((item, idx) => {
+          const hasDropdown = !!item.dropdown;
+          return (
             <div
-              className="dropbtn"
-              tabIndex={0}
-              role="button"
-              aria-haspopup={!!item.dropdown}
-              aria-expanded={openDropdown === idx}
-              onClick={() => handleMenuClick(item, idx)}
-              onKeyDown={e => handleKeyDown(e, item, idx)}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 10,
-                fontWeight: 600,
-                fontSize: "1rem",
-                color: "#f8f8f8",
-                background: openDropdown === idx ? "rgba(255,255,255,0.08)" : "none",
-                border: "none",
-                cursor: "pointer",
-                borderRadius: 8,
-                padding: "10px 18px",
-                transition: "background 0.2s, color 0.2s"
-              }}
+              key={item.label}
+              style={styles.menuItemContainer(isMobile)}
+              ref={el => (dropdownRefs.current[idx] = el)}
+              onMouseEnter={() => handleMouseEnter(idx)}
+              onMouseLeave={() => handleMouseLeave(idx)}
             >
-              <span style={{ display: "flex", alignItems: "center" }}>{item.icon}</span>
-              {item.link ? (
-                <Link
-                  to={item.link}
-                  className="link-btn"
-                  style={{
-                    color: "#f8f8f8",
-                    textDecoration: "none",
-                    fontWeight: 600,
-                    marginLeft: 8,
-                    fontSize: "1rem"
-                  }}
-                  onClick={() => setMenuState(false)}
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <span style={{ marginLeft: 8 }}>{item.label}</span>
-              )}
-              {item.dropdown && (
-                <span
-                  style={{
-                    marginLeft: "auto",
-                    fontSize: 18,
-                    color: "#f8f8f8",
-                    transform: openDropdown === idx ? "rotate(90deg)" : "rotate(0deg)",
-                    transition: "transform 0.2s"
-                  }}
-                  aria-hidden="true"
-                >
-                  ▶
-                </span>
-              )}
-            </div>
-            {item.dropdown && (
               <div
-                className="dropdown-content"
                 style={{
-                  display: openDropdown === idx ? "block" : "none",
-                  opacity: openDropdown === idx ? 1 : 0,
-                  pointerEvents: openDropdown === idx ? "auto" : "none",
-                  transition: "opacity 0.2s",
-                  background: "linear-gradient(120deg, #2e0669 60%,rgb(78, 113, 200) 100%)",
-                  borderRadius: 8,
-                  marginTop: 2,
-                  boxShadow: "0 4px 16px rgba(44,62,80,0.13)",
-                  zIndex: 10,
-                  minWidth: 220,
-                  padding: "0.5rem 0"
+                  ...styles.dropdownButton(openDropdown === idx, isMobile, hasDropdown),
+                  ...(location.pathname === item.path && !hasDropdown ? styles.activeMenuItem : {}),
                 }}
-                onClick={() => setMenuState(false)}
+                onClick={() => hasDropdown ? toggleDropdown(idx) : navigateTo(item.path)}
+                onKeyDown={(e) => e.key === "Enter" && (hasDropdown ? toggleDropdown(idx) : navigateTo(item.path))}
+                tabIndex={0}
+                role="button"
               >
-                {item.dropdown.map(sub => (
-                  <button
-                    key={sub.to}
-                    style={{
-                      width: "100%",
-                      background: "none",
-                      border: "none",
-                      textAlign: "left",
-                      padding: "10px 24px",
-                      color: "#fff",
-                      fontSize: "1rem",
-                      fontWeight: 500,
-                      borderRadius: 6,
-                      cursor: "pointer",
-                      transition: "background 0.2s, color 0.2s"
-                    }}
-                    onClick={() => setMenuState(false)}
-                  >
+                {item.icon}
+                <span style={{ marginLeft: 10, fontWeight: 600 }}>{item.label}</span>
+                {hasDropdown && (
+                  <span style={styles.arrow(openDropdown === idx, isMobile)}>
+                    {isMobile ? (openDropdown === idx ? "▼" : "▶") : "▼"}
+                  </span>
+                )}
+              </div>
+
+              {hasDropdown && openDropdown === idx && (
+                <div style={styles.submenu(isMobile)}>
+                  {item.dropdown.map((sub) => (
                     <Link
-                      className="link-btn"
-                      to={sub.to}
+                      key={sub.path}
+                      to={sub.path}
+                      onClick={() => setMenuOpen(false)}
                       style={{
-                        color: "#f8f8f8",
-                        textDecoration: "none",
-                        fontWeight: 500,
-                        fontSize: "1rem"
+                        ...styles.submenuItem,
+                        ...(location.pathname === sub.path ? styles.activeSubmenuItem : {}),
                       }}
                     >
                       {sub.label}
                     </Link>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </nav>
   );
+};
+
+const styles = {
+  navbar: (isSticky) => ({
+    display: "flex",
+    Height: "30px",
+    position: isSticky ? "sticky" : "relative",
+    top: isSticky ? "64px" : "unset",
+    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    zIndex: 999,
+    color: "#fff",
+    padding: "0.75rem 3rem",
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    boxShadow: isSticky ? "0 8px 32px rgba(0, 0, 0, 0.12)" : "none",
+    transition: "all 0.3s ease",
+    alignItems: "space-between",
+    width: "100%",
+    gap: "1.3rem",
+    boxSizing: "border-box",
+  }),
+  menuButton: (isMobile, menuOpen) => ({
+    display: isMobile ? "flex" : "none",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    padding: "12px 18px",
+    borderRadius: 0,
+    color: "#fff",
+    cursor: "pointer",
+    fontWeight: 600,
+    boxShadow: menuOpen ? "0 4px 12px rgba(0,0,0,0.2)" : "0 2px 6px rgba(0,0,0,0.1)",
+    fontSize: 20,
+    width: "100%",
+    border: "none",
+    outline: "none",
+  }),
+  menuContainer: (isMobile, menuOpen) => ({
+    display: isMobile ? (menuOpen ? "flex" : "none") : "flex",
+    flexDirection: isMobile ? "column" : "row",
+    alignItems: isMobile ? "stretch" : "center",
+    gap: isMobile ? 0 : "0.75rem",
+    width: isMobile ? "100%" : "auto",
+  }),
+  menuItemContainer: (isMobile) => ({
+    position: "relative",
+    width: isMobile ? "100%" : "auto",
+  }),
+  dropdownButton: (isOpen, isMobile, hasDropdown) => ({
+    display: "flex",
+    alignItems: "center",
+    padding: isMobile ? "16px 18px" : "10px 20px",
+    background: isOpen ? "rgba(255,255,255,0.10)" : "transparent",
+    borderRadius: isMobile ? 0 : 8,
+    color: "#fff",
+    fontWeight: 600,
+    fontSize: isMobile ? 18 : 15,
+    justifyContent: "flex-start",
+    width: "100%",
+    gap: "0.75rem",
+    borderBottom: isMobile ? "1px solid rgba(255,255,255,0.08)" : "none",
+    cursor: "pointer",
+  }),
+  arrow: (isOpen, isMobile) => ({
+    marginLeft: "auto",
+    fontSize: isMobile ? 22 : 14,
+    transform: isMobile
+      ? isOpen
+        ? "rotate(90deg)"
+        : "rotate(0deg)"
+      : isOpen
+      ? "rotate(180deg)"
+      : "rotate(0deg)",
+    transition: "transform 0.2s",
+    color: "#ffd86b",
+    fontWeight: 700,
+  }),
+  submenu: (isMobile) => ({
+    position: isMobile ? "static" : "absolute",
+    top: "100%",
+    background: isMobile ? "rgba(118,75,162,0.12)" : "#1e3c72",
+    borderRadius: 8,
+    padding: isMobile ? 0 : "8px 0",
+    zIndex: 1000,
+    minWidth: isMobile ? "100%" : 220,
+    boxShadow: isMobile ? "none" : "0 4px 16px rgba(0,0,0,0.13)",
+    display: "flex",
+    flexDirection: "column",
+  }),
+  submenuItem: {
+    display: "block",
+    padding: "10px 24px",
+    color: "#fff",
+    textDecoration: "none",
+    fontWeight: 500,
+    fontSize: 15,
+    border: "none",
+    background: "none",
+    transition: "background 0.2s",
+    borderRadius: 6,
+    cursor: "pointer",
+  },
+  activeMenuItem: {
+    background: "rgba(255,255,255,0.18)",
+    color: "#ffd86b",
+  },
+  activeSubmenuItem: {
+    background: "rgba(255,255,255,0.12)",
+    color: "#ffd86b",
+  },
 };
 
 export default Dropdown;

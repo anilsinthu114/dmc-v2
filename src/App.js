@@ -4,7 +4,7 @@ import "./App.css";
 import Footer from "./Components/Footer/Footer";
 import AboutMain from "./Components/Header/About/AboutMain";
 import Activities from "./Components/Header/About/Activities/Activities";
-import Coordinator from './Components/Header/About/Coordinator/Coordinator';
+import Coordinator from "./Components/Header/About/Coordinator/Coordinator";
 import Dmc from "./Components/Header/About/Dmc/Dmc";
 import Facilities from "./Components/Header/About/Facilities/Facilities";
 import Futureplans from "./Components/Header/About/Futureplans/Futureplans";
@@ -31,14 +31,19 @@ import Placement from "./Components/Header/Web_development_team/Placement/Placem
 import ResearchAndDevelopment from "./Components/Header/Web_development_team/ResearchAndDevelopment/ResearchAndDevelopment";
 import Sports from "./Components/Header/Web_development_team/Sports/Sports";
 import WebDevelopmenTeam from "./Components/Header/Web_development_team/WebDevelopmenTeam";
-import Website from "./Components/Header/Web_development_team/Website/Website";
+import WebsiteTeam from "./Components/Header/Web_development_team/Website/Website";
 
 function App() {
   return (
-    <div>
+    <div className="App">
+      {/* Sticky Header */}
       <Header />
+
+      {/* Navbar that becomes sticky after scroll */}
       <Dropdown />
-      <div>
+
+      {/* Main Content Area */}
+      <main style={{ marginTop: "1rem", padding: "0 1rem" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dmc" element={<AboutMain />}>
@@ -49,12 +54,12 @@ function App() {
             <Route path="dmc-future-plans" element={<Futureplans />} />
             <Route path="dmc-facilities" element={<Facilities />} />
           </Route>
-          <Route path="about-surveillance" element={<Surveillance />} />
-          <Route path="about-gallery" element={<Gallery />} />
-          <Route path="contact-us" element={<ContactUs />} />
+          <Route path="/about-surveillance" element={<Surveillance />} />
+          <Route path="/about-gallery" element={<Gallery />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/wdt" element={<WebDevelopmenTeam />}>
             <Route path="lead-contributors" element={<Leadcontributors />} />
-            <Route path="website-team" element={<Website />} />
+            <Route path="website-team" element={<WebsiteTeam />} />
             <Route path="admin-panel" element={<Adminpanel />} />
             <Route path="iqac-team" element={<Iqac />} />
             <Route path="placement-team" element={<Placement />} />
@@ -64,13 +69,15 @@ function App() {
             <Route path="nss-team" element={<Nss />} />
             <Route path="sports-team" element={<Sports />} />
           </Route>
-          <Route path="Hardware" element={<Hardware />} />
-          <Route path="Network" element={<Network />} />
-          <Route path="SurveillanceService" element={<SurveillanceService />} />
-          <Route path="Software" element={<Software />} />
+          <Route path="/Hardware" element={<Hardware />} />
+          <Route path="/Network" element={<Network />} />
+          <Route path="/SurveillanceService" element={<SurveillanceService />} />
+          <Route path="/Software" element={<Software />} />
         </Routes>
-        <Footer />
-      </div>
+      </main>
+
+      {/* Footer at the bottom */}
+      <Footer />
     </div>
   );
 }

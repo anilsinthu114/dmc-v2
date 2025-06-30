@@ -21,25 +21,23 @@ const Header = () => {
     };
   }, []);
 
-  // Header background color (fix: use valid color)
   const getHeaderStyle = () => ({
     display: "flex",
     flexDirection: windowWidth <= 767 ? "column" : "row",
     justifyContent: "space-between",
     alignItems: "center",
     flexWrap: "wrap",
-    background: isScrolled ? "#fff" : "#fff",
-    transition: "background 0.3s cubic-bezier(.4,0,.2,1), padding 0.1s ease-in",
+    background: "#fff",
+    transition: "background 0.3s ease, padding 0.1s ease-in",
     zIndex: 1000,
     width: "100%",
     position: "sticky",
     top: 0,
-    padding:
-      isScrolled
-        ? "0.5rem 1rem"
-        : windowWidth <= 767
-        ? "0.5rem 0.2rem"
-        : "0.5rem 2rem",
+    padding: isScrolled
+      ? "0.5rem 1rem"
+      : windowWidth <= 767
+      ? "0.5rem 0.2rem"
+      : "0.5rem 2rem",
     boxSizing: "border-box",
     boxShadow: isScrolled
       ? "0 2px 8px rgba(25, 118, 210, 0.10)"
@@ -48,14 +46,13 @@ const Header = () => {
 
   const getLogoStyle = () => {
     let width;
-    if (windowWidth <= 767) width = isScrolled ? "4.5rem" : "7rem";
-    else if (windowWidth <= 1010) width = isScrolled ? "5.5rem" : "8rem";
-    else width = isScrolled ? "6rem" : "10rem";
+    if (windowWidth <= 767) width = isScrolled ? "4.5rem" : "6rem";
+    else if (windowWidth <= 1010) width = isScrolled ? "5.5rem" : "6rem";
+    else width = isScrolled ? "3.5rem" : "6rem";
     return {
       width,
       height: "auto",
-      transition:
-        "width 0.3s ease, box-shadow 0.3s cubic-bezier(.4,0,.2,1), border 0.3s cubic-bezier(.4,0,.2,1)",
+      transition: "width 0.3s ease, box-shadow 0.3s ease, border 0.3s ease",
       boxShadow: isScrolled
         ? "0 2px 8px rgba(25, 118, 210, 0.10)"
         : "0 4px 16px rgba(19, 123, 226, 0.18)",
@@ -77,76 +74,60 @@ const Header = () => {
     alignItems: "center",
   });
 
-  // Fix: set color to #1976d2 when scrolled, #fff when not scrolled
   const getDmcTitleStyle = () => ({
-    color: isScrolled ? "#1976d2" : "#1976d2",
+    color: "#1976d2",
     textShadow: isScrolled
       ? "0 2px 8px rgba(25, 118, 210, 0.10)"
       : "0 2px 8px rgba(25, 118, 210, 0.18)",
     fontSize:
       windowWidth <= 767
-        ? "1.15rem"
+        ? isScrolled ? "1rem" : "1.15rem"
         : windowWidth <= 1010
-        ? "1.4rem"
-        : "2.2rem",
+        ? isScrolled ? "1.2rem" : "1.4rem"
+        : isScrolled ? "1.4rem" : "1.6rem",
     letterSpacing: "2px",
     fontWeight: 700,
     margin: 0,
     textTransform: "uppercase",
-    transition: "all 0.3s cubic-bezier(.4,0,.2,1)",
+    transition: "all 0.3s ease",
     paddingTop: windowWidth <= 767 ? "10px" : "25px",
   });
 
-  // Fix: use dark color when scrolled, light color when not
   const getUniversityNameStyle = () => ({
-    color: isScrolled ? "#1976d2" : "#1976d2",
+    color: "#1976d2",
     fontSize:
       windowWidth <= 767
         ? "1rem"
         : windowWidth <= 1010
-        ? "1.1rem"
-        : "1.25rem",
+        ? "1rem"
+        : "1rem",
     fontWeight: 500,
     margin: "10px 0 0 0",
     letterSpacing: "1px",
     textTransform: "uppercase",
-    transition: "all 0.3s cubic-bezier(.4,0,.2,1)",
+    transition: "all 0.3s ease",
   });
 
-  // Fix: always show location, color and background based on scroll
   const getLocationStyle = () => ({
-    color:
-      windowWidth <= 1010
-        ? isScrolled
-          ? "#1976d2"
-          : "#1976d2"
-        : isScrolled
-        ? "#1976d2"
-        : "#0000",
-    background:
-      windowWidth <= 1010
-        ? isScrolled
-          ? "#fff"
-          : "#fff": "transparent",
+    color: "#1976d2",
+    background: windowWidth <= 1010 ? "#fff" : "#fff",
     fontSize:
       windowWidth <= 767
         ? "0.7rem"
         : windowWidth <= 1010
-        ? "1rem"
-        : "1.2rem",
+        ? "0.6rem"
+        : "0.8rem",
     margin: windowWidth <= 767 ? "5px 0 0 0" : "10px 0 0 0",
     letterSpacing: "0.5px",
     display: "block",
     borderRadius: windowWidth <= 1010 ? "6px" : "0",
-    padding: windowWidth <= 1010 ? "2px 8px" : "0",
-    transition: "all 0.3s cubic-bezier(.4,0,.2,1)",
+    padding: windowWidth <= 1010 ? "2px 6px" : "0",
+    transition: "all 0.3s ease",
   });
 
-  // --- Main Render ---
   return (
     <header style={getHeaderStyle()}>
       {windowWidth <= 767 ? (
-        // On small screens, show both logos side by side at the top
         <div
           style={{
             display: "flex",
@@ -165,7 +146,7 @@ const Header = () => {
             loading="lazy"
             style={{
               ...getLogoStyle(),
-              width: isScrolled ? "4.5rem" : "7rem",
+              width: isScrolled ? "3.5rem" : "4rem",
               margin: "0.5rem 0.2rem",
             }}
           />
@@ -176,34 +157,36 @@ const Header = () => {
             loading="lazy"
             style={{
               ...getLogoStyle(),
-              width: isScrolled ? "3.5rem" : "7rem",
+              width: isScrolled ? "3.5rem" : "4rem",
               margin: "0.5rem 0.2rem",
             }}
           />
         </div>
       ) : (
-        // On large screens, show JNTUGV logo left, DMC logo right
-        <>
-          <img
-            src={jntugv_logo}
-            alt="JNTUGV_LOGO"
-            draggable={false}
-            loading="lazy"
-            style={getLogoStyle()}
-          />
-        </>
+        <img
+          src={jntugv_logo}
+          alt="JNTUGV_LOGO"
+          draggable={false}
+          loading="lazy"
+          style={getLogoStyle()}
+        />
       )}
+
       <div style={getHeaderTextStyle()}>
-        <h1 style={getDmcTitleStyle()}>
-          DIGITAL MONITORING CELL
-        </h1>
-        <h2 style={getUniversityNameStyle()}>
-          JAWAHARLAL NEHRU TECHNOLOGICAL UNIVERSITY GURAJADA VIZIANAGARAM
-        </h2>
-        <h6 style={getLocationStyle()}>
-          Vizianagaram, Andhra Pradesh, India
-        </h6>
+        <h1 style={getDmcTitleStyle()}>DIGITAL MONITORING CELL</h1>
+
+        {!isScrolled && (
+          <>
+            <h2 style={getUniversityNameStyle()}>
+              JAWAHARLAL NEHRU TECHNOLOGICAL UNIVERSITY GURAJADA VIZIANAGARAM
+            </h2>
+            <h6 style={getLocationStyle()}>
+              Vizianagaram, Andhra Pradesh, India
+            </h6>
+          </>
+        )}
       </div>
+
       {windowWidth > 767 && (
         <img
           src={dmcLogo}
