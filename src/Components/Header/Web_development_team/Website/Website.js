@@ -1,52 +1,386 @@
 import React from 'react';
-import Table from 'react-bootstrap/Table';
-import './Website.css';
+import { FaEnvelope, FaGithub, FaGlobe, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import teamData from './WebsiteData';
 
-// Import data directly
-import teamData from './WebsiteData'; // Adjust the path based on your project structure
+// Dummy profile images (public domain avatars)
+const DUMMY_MALE = 'https://randomuser.me/api/portraits/men/75.jpg';
+const DUMMY_FEMALE = 'https://randomuser.me/api/portraits/women/65.jpg';
+
+// Improved gender guessing: match full words, avoid false positives, and refine logic
+function guessGender(name) {
+  if (!name || typeof name !== "string") return "male";
+  const femaleNames = [
+    "sumasri", "suma", "lalitha", "gayathri", "anusha", "bhavani", "deekshika", "durga", "kirtana", "priyanka", "kavya", "sindhu", "sindhura", "sindhuja", "anusha", "aditya", "anusha", "bhavani", "deekshika", "gayathri", "durga", "kirtana"
+  ];
+  const lower = name.trim().toLowerCase();
+  const words = lower.split(/\s+/);
+  for (let word of words) {
+    if (femaleNames.includes(word)) return "female";
+  }
+  const last = words[words.length - 1];
+  if (last.match(/(a|i|ya)$/)) return "female";
+  return "male";
+}
+
+const getSocialLabel = (type, name) => {
+  const labels = {
+    linkedin: `LinkedIn profile of ${name}`,
+    github: `GitHub profile of ${name}`,
+    instagram: `Instagram profile of ${name}`,
+    email: `Email ${name}`,
+    website: `Website of ${name}`
+  };
+  return labels[type] || '';
+};
+
+const groupByYear = (data) => {
+  return data.reduce((acc, item) => {
+    acc[item.year] = acc[item.year] || [];
+    acc[item.year].push(item);
+    return acc;
+  }, {});
+};
+
+// Default/fallback values for social links
+const DEFAULT_LINKEDIN = "#";
+const DEFAULT_GITHUB = "#";
+const DEFAULT_INSTAGRAM = "#";
+const DEFAULT_EMAIL = "mailto:info@example.com";
+const DEFAULT_WEBSITE = "#";
 
 const Website = () => {
-  const uniqueYears = [...new Set(teamData.map(member => member.year))].sort((a, b) => new Date(b) - new Date(a));
-  const modifiedUniqueYears = uniqueYears.map(year => {
-    const yearRange = year.split('-');
-    const startYear = parseInt(yearRange[0], 10);
-    const endYear = parseInt(yearRange[1], 10);
-    if (startYear === 2024 && endYear === 2025) return '2023-2024';
-    if (startYear === 2023 && endYear === 2024) return '2024-2025';
-    return year;
+  const groupedData = groupByYear(teamData);
+  const sortedYears = Object.keys(groupedData).sort((a, b) => {
+    const startA = parseInt(a.split('-')[0], 10) || 0;
+    const startB = parseInt(b.split('-')[0], 10) || 0;
+    return startB - startA;
   });
-  const renderTableRows = (year) => {
-    return teamData.filter(member => member.year === year).map((member, index) => (
-      <tr key={index}>
-        <td>{index + 1}</td> {/* S.No */}
-        <td>{member.name}</td> {/* Name */}
-        <td>{member.rollNumber}</td> {/* Roll Number */}
-        {/* <td>{member.year}</td> Year  */}
-      </tr>
-    ));
-  };
 
   return (
-    <div className='website-container wdtRight'>
-      <h3 className='SP'>Website Development Team</h3>
-      {modifiedUniqueYears.map((year) => (
-        <div key={year} className='year-container'>
-          <h4 style={{textAlign: 'center'}}>{year}</h4>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>S.No</th>
-                <th>Name</th>
-                <th>Roll Number</th>
-                {/* <th>Year</th> */}
-              </tr>
-            </thead>
-            <tbody>
-              {renderTableRows(year)}
-            </tbody>
-          </Table>
-        </div>
-      ))}
+    <div className="lead-container">
+      <h2 className="lead-title">
+        <FaGlobe style={{ marginRight: 10, fontSize: 32 }} />
+        Website Development Team
+      </h2>
+      <div className="lead-wrapper">
+        {sortedYears.map((year) => (
+          <div className="year-section" key={year}>
+            <div className="year-header">
+              <span className="year-label">{year}</span>
+            </div>
+            <div className="card-grid">
+              {groupedData[year].map((member, idx) => {
+                let imgSrc = member.image && member.image.trim() ? member.image : null;
+                if (!imgSrc) {
+                  const gender = guessGender(member.name || '');
+                  imgSrc = gender === 'female' ? DUMMY_FEMALE : DUMMY_MALE;
+                }
+                // Always show all social links, use fallback if missing
+                const linkedin = member.linkedin && member.linkedin.trim() ? member.linkedin : DEFAULT_LINKEDIN;
+                const github = member.github && member.github.trim() ? member.github : DEFAULT_GITHUB;
+                const instagram = member.instagram && member.instagram.trim() ? member.instagram : DEFAULT_INSTAGRAM;
+                const email = member.email && member.email.trim() ? member.email : DEFAULT_EMAIL;
+                const website = member.website && member.website.trim() ? member.website : DEFAULT_WEBSITE;
+
+                return (
+                  <div className="card enhanced-card" tabIndex={0} key={member.rollNumber || idx}>
+                    <div className="enhanced-avatar">
+                      <img
+                        src={imgSrc}
+                        alt={`Profile of ${member.name}`}
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="info">
+                      <div className="name-row">
+                        <span className="name">{member.name}</span>
+                      </div>
+                      <div className="roll-branch-row">
+                        {member.rollNumber && (
+                          <span className="roll">{member.rollNumber}</span>
+                        )}
+                        </div>
+                        <div className="roll-branch-row">
+                        {/* Department always as Information Department */}
+                        <span className="branch">Information Department</span>
+                      </div>
+                      {/* Role always as Contributor */}
+                      <div className="role">
+                        <span className="badge">{member.position && member.position.trim() ? member.position : "Contributor"}</span>
+                      </div>
+                      <div className="social-row" style={{ marginTop: 8, display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
+                        <a
+                          href={linkedin}
+                          aria-label={getSocialLabel('linkedin', member.name)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="social-link linkedin"
+                        >
+                          <FaLinkedin />
+                        </a>
+                        <a
+                          href={github}
+                          aria-label={getSocialLabel('github', member.name)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="social-link github"
+                        >
+                          <FaGithub />
+                        </a>
+                        <a
+                          href={instagram}
+                          aria-label={getSocialLabel('instagram', member.name)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="social-link instagram"
+                        >
+                          <FaInstagram />
+                        </a>
+                        <a
+                          href={email}
+                          aria-label={getSocialLabel('email', member.name)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="social-link email"
+                        >
+                          <FaEnvelope />
+                        </a>
+                        <a
+                          href={website}
+                          aria-label={getSocialLabel('website', member.name)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="social-link globe"
+                        >
+                          <FaGlobe />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Enhanced Inline Responsive Styles */}
+      <style>{`
+        .lead-container {
+          padding: 2.5rem 1rem 2rem 1rem;
+          background: linear-gradient(120deg, #f8fafc 60%, #e3f0ff 100%);
+          min-height: 100vh;
+          position: relative;
+          z-index: 1;
+        }
+        .lead-title {
+          display: flex;
+          align-items: center;
+          font-size: 2.1rem;
+          font-weight: 800;
+          margin-bottom: 2.2rem;
+        }
+        .lead-wrapper {
+          width: 100%;
+        }
+        .year-section {
+          margin-bottom: 2.5rem;
+        }
+        .year-header {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 1.2rem;
+        }
+        .year-label {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: #035a5a;
+          background: #e0f7fa;
+          border-radius: 8px;
+          padding: 6px 22px;
+          box-shadow: 0 1px 6px #035a5a11;
+        }
+        .card-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.2rem;
+          justify-items: center;
+        }
+        @media (min-width: 1200px) {
+          .card-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.15rem;
+            justify-items:center;
+          }
+        }
+        .card.enhanced-card {
+          background: #f8fafc;
+          border-radius: 14px;
+          box-shadow: 0 2px 12px 0 #035a5a18;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          min-width: 0;
+          max-width: 270px;
+          width: 100%;
+          padding: 1.1rem 0.8rem 1rem 0.8rem;
+          margin: 0;
+          position: relative;
+          border: 2px solid transparent;
+          animation: fadeInUp 0.5s;
+        }
+        .card.enhanced-card:focus-within,
+        .card.enhanced-card:focus {
+          outline: none;
+          border: 2px solid #4D96FF;
+          box-shadow: 0 8px 32px 0 #4D96FF33;
+        }
+        .enhanced-avatar {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: #eaf6f6;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 0.7rem;
+          box-shadow: 0 2px 10px #035a5a11;
+          border: 3px solid #e0f7fa;
+          position: relative;
+        }
+        .enhanced-avatar img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+        .info {
+          text-align: center;
+          width: 100%;
+        }
+        .name-row {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.7em;
+          margin-bottom: 0.3em;
+        }
+        .serial {
+          font-weight: 700;
+          font-size: 1.08em;
+          color: #4D96FF;
+          background: #e0f7fa;
+          border-radius: 50%;
+          width: 2em;
+          height: 2em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 0.3em;
+          box-shadow: 0 1px 4px #4D96FF22;
+        }
+        .name {
+          font-size: 1.08em;
+          font-weight: 600;
+          color: #222;
+          word-break: break-word;
+        }
+        .roll-branch-row {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.7em;
+          margin-bottom: 0.2em;
+        }
+        .roll {
+          font-family: 'Roboto Mono', monospace, monospace;
+          font-size: 0.95em;
+          color: #035a5a;
+          background: #eaf6f6;
+          border-radius: 5px;
+          padding: 2px 8px;
+          display: inline-block;
+        }
+        .branch {
+          font-size: 0.93em;
+          color: #888;
+          background: #f3f7fa;
+          border-radius: 5px;
+          padding: 2px 8px;
+          display: inline-block;
+        }
+        .role {
+          margin-top: 0.3rem;
+        }
+        .badge {
+          background: linear-gradient(90deg, #4D96FF 60%, #6BCB77 100%);
+          color: #fff;
+          padding: 3px 10px;
+          border-radius: 6px;
+          font-size: 0.9em;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          box-shadow: 0 1px 4px #035a5a11;
+          display: inline-block;
+        }
+        .social-row {
+          margin-top: 0.5em;
+          display: flex;
+          gap: 0.7em;
+          justify-content: center;
+        }
+        .social-link {
+          font-size: 1.1rem;
+          width: 2em;
+          height: 2em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.18s, box-shadow 0.18s, color 0.18s, background 0.18s;
+          box-shadow: 0 1px 4px #035a5a11;
+          border: none;
+        }
+        .social-link.linkedin { color: #0a66c2; }
+        .social-link.github { color: #181717; }
+        .social-link.instagram { color: #e1306c; }
+        .social-link.globe { color: #1eae98; }
+        .social-link.email { color: #f9a826; }
+        .social-link:hover, .social-link:focus {
+          transform: scale(1.18) translateY(-2px);
+          background: #f0f8ff;
+          box-shadow: 0 4px 16px #4D96FF33;
+          color: #035a5a;
+        }
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(24px);}
+          to { opacity: 1; transform: translateY(0);}
+        }
+        @media (max-width: 1100px) {
+          .card-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+        @media (max-width: 900px) {
+          .card-grid {
+            gap: 0.8rem;
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .enhanced-avatar { width: 48px; height: 48px; }
+          .card.enhanced-card { max-width: 220px; padding: 0.8rem 0.5rem 0.7rem 0.5rem; }
+        }
+        @media (max-width: 600px) {
+          .lead-title { font-size: 1.3rem; }
+          .year-label { font-size: 1rem; }
+          .card.enhanced-card { padding: 0.7rem 0.3rem; }
+          .enhanced-avatar { width: 36px; height: 36px; }
+          .name { font-size: 0.95rem; }
+          .serial { font-size: 1em; }
+          .badge { font-size: 0.7rem; }
+          .social-link { font-size: 0.95rem; width: 1.5em; height: 1.5em; }
+          .card-grid { grid-template-columns: 1fr; }
+        }
+      `}</style>
     </div>
   );
 };

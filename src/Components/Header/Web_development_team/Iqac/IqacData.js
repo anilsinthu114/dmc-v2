@@ -1,36 +1,58 @@
-// TeamData.js
+// IqacData.js
 
 const teamData = [
-    {
-      name: 'Bhogi Sumasri',
-      rollNumber: '20VV1A1208',
-      year: '2023-2024',
-    },
-    
-    {
-        name: 'Bontalakoti Saikiran',
-        rollNumber: '20VV1A1211',
-        year: '2023-2024',
-    },
-    
-     
-      {
-        name: 'Shaik Vali Basha',
-        rollNumber: '20VV1A1257',
-        year: '2023-2024',
-      },
-     
-      {
-        name: 'Uppala Kirtana',
-        rollNumber: '20VV1A1261',
-        year: '2023-2024',
-      },
-     
-      
+  {
+    name: "Bhogi Sumasri",
+    rollNumber: "20VV1A1208",
+    year: "2023-2024",
+    linkedin: "",
+    github: "",
+    instagram: "",
+    email: "",
+    website: "",
+    image: "",
+    position: "",
+    branch: "",
+  },
+  {
+    name: "Bontalakoti Saikiran",
+    rollNumber: "20VV1A1211",
+    year: "2023-2024",
+    linkedin: "",
+    github: "",
+    instagram: "",
+    email: "",
+    website: "",
+    image: "",
+    position: "",
+    branch: "",
+  },
+  {
+    name: "Shaik Vali Basha",
+    rollNumber: "20VV1A1257",
+    year: "2023-2024",
+    linkedin: "",
+    github: "",
+    instagram: "",
+    email: "",
+    website: "",
+    image: "",
+    position: "",
+    branch: "",
+  },
+  {
+    name: "Uppala Kirtana",
+    rollNumber: "20VV1A1261",
+    year: "2023-2024",
+    linkedin: "",
+    github: "",
+    instagram: "",
+    email: "",
+    website: "",
+    image: "",
+    position: "",
+    branch: "",
+  },
+];
 
-
-
-  ];
-  
-  export default teamData;
-  
+export default teamData;

@@ -1,5 +1,8 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import "../About.css";
 
 const facilitiesData = [
@@ -78,53 +81,88 @@ function Facilities() {
         <Typography className="Text" paragraph>
           The Digital Monitoring Cell (DMC) provides a range of facilities to ensure a secure, efficient, and productive digital environment for students, faculty, staff, and stakeholders. Below are the key facilities offered:
         </Typography>
-        <div style={{ marginTop: 24 }}>
+        <Grid
+          container
+          spacing={3}
+          style={{ marginTop: 24 }}
+          justifyContent="center"
+        >
           {facilitiesData.map((facility, idx) => (
-            <div
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
               key={facility.title}
-              style={{
-                background: "#f8f9fa",
-                borderRadius: 12,
-                marginBottom: 24,
-                padding: "20px 24px",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
-                transition: "box-shadow 0.2s",
-              }}
-              className="facility-card"
+              style={{ display: "flex" }}
             >
-              <div style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
-                <span
-                  style={{
-                    fontSize: 28,
-                    marginRight: 12,
-                    lineHeight: 1,
-                  }}
-                  aria-label="facility-icon"
-                >
-                  {facility.icon}
-                </span>
-                <Typography variant="h6" style={{ fontWeight: 600, color: "#2d3a4b" }}>
-                  {idx + 1}. {facility.title}
-                </Typography>
-              </div>
-              <ul style={{ margin: 0, paddingLeft: 28 }}>
-                {facility.points.map((point, i) => (
-                  <li
-                    key={i}
-                    style={{
-                      marginBottom: 6,
-                      fontSize: "1rem",
-                      color: "#444",
-                      lineHeight: 1.7,
-                    }}
-                  >
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <Card
+                className="facility-card"
+                style={{
+                  background: "#f8f9fa",
+                  borderRadius: 14,
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  transition: "box-shadow 0.2s",
+                  minHeight: 220,
+                }}
+                elevation={2}
+              >
+                <CardContent style={{ flex: 1 }}>
+                  <div style={{ display: "flex", alignItems: "center", marginBottom: 10 }}>
+                    <span
+                      style={{
+                        fontSize: 32,
+                        marginRight: 14,
+                        lineHeight: 1,
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        background: "#e3f2fd",
+                        borderRadius: "50%",
+                        width: 44,
+                        height: 44,
+                        boxShadow: "0 1px 4px #e3f2fd",
+                      }}
+                      aria-label="facility-icon"
+                    >
+                      {facility.icon}
+                    </span>
+                    <Typography
+                      variant="h6"
+                      style={{
+                        fontWeight: 700,
+                        color: "#0b3d91",
+                        fontSize: "1.13rem",
+                        flex: 1,
+                        lineHeight: 1.2,
+                      }}
+                    >
+                      {idx + 1}. {facility.title}
+                    </Typography>
+                  </div>
+                  <ul style={{ margin: 0, paddingLeft: 20, paddingRight: 0 }}>
+                    {facility.points.map((point, i) => (
+                      <li
+                        key={i}
+                        style={{
+                          marginBottom: 7,
+                          fontSize: "1rem",
+                          color: "#444",
+                          lineHeight: 1.7,
+                        }}
+                      >
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </Grid>
           ))}
-        </div>
+        </Grid>
       </div>
     </div>
   );

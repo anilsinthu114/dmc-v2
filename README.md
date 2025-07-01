@@ -58,8 +58,9 @@ npm start
 The app will be running at http://localhost:3000
 
 ## 📸 Screenshots
-Homepage	                                                                                                                                  About DMC
+Homepage	                                                                                                                                 
 ![image](https://github.com/user-attachments/assets/518e0766-2d92-417e-a14c-51cf8fa296ca)
+ About DMC
 ![image](https://github.com/user-attachments/assets/f680e185-f189-4514-a466-c2ad523cab4c)
 
 ## 🧑‍💻 Contributing
