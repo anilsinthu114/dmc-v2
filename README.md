@@ -21,7 +21,7 @@ This web application provides structured access to:
 - **Hosting:** Deployed on university server infrastructure
 
 ## 📂 Folder Structure
-
+```
 ├── public/ # Static files (index.html, favicon, etc.)
 ├── src/
 │ ├── Components/
@@ -35,7 +35,7 @@ This web application provides structured access to:
 ├── README.md 
 └── package.json # Project metadata and dependencies
 
-
+```
 
 ## 🚀 Getting Started
 
