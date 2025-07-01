@@ -36,7 +36,6 @@ This web application provides structured access to:
 └── package.json # Project metadata and dependencies
 ```
 
-
 ## 🚀 Getting Started
 
 To set up the project locally:
