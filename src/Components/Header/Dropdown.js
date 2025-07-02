@@ -274,12 +274,12 @@ const styles = {
     cursor: "pointer",
   },
   activeMenuItem: {
-    background: "rgba(255,255,255,0.18)",
-    color: "#ffd86b",
+    // background: "rgba(255,255,255,0.18)",
+    color: "#ff9800",
   },
   activeSubmenuItem: {
-    background: "rgba(255,255,255,0.12)",
-    color: "#ffd86b",
+    // background: "rgba(255,255,255,0.12)",
+    color: "#ff9800",
   },
 };
 

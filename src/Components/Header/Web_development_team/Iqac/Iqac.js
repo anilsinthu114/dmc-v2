@@ -2,6 +2,7 @@ import React from 'react';
 import {
   FaEnvelope,
   FaGithub,
+  FaGlobe,
   FaInstagram,
   FaLinkedin,
   FaUserFriends,
@@ -28,6 +29,109 @@ const Iqac = () => {
 
   // Sort years in descending order
   const sortedYears = Object.keys(groupedData).sort((a, b) => b.localeCompare(a));
+
+  // Always show all social links, even if empty
+  const renderSocialLinks = (member) => (
+    <div
+      className="lead-socials"
+      style={{
+        marginTop: 10,
+        display: 'flex',
+        gap: 18,
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: 32,
+      }}
+    >
+      <a
+        href={member.website || '#'}
+        className="lead-social-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Website"
+        style={{
+          color: '#4D96FF',
+          fontSize: 22,
+          fontWeight: 700,
+          textDecoration: 'none',
+          transition: 'color 0.2s',
+          opacity: member.website ? 1 : 0.35,
+          pointerEvents: member.website ? 'auto' : 'none',
+        }}
+        tabIndex={0}
+      >
+        <FaGlobe />
+      </a>
+      <a
+        href={member.linkedin || '#'}
+        className="lead-social-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+        style={{
+          color: '#0A66C2',
+          fontSize: 22,
+          transition: 'color 0.2s',
+          opacity: member.linkedin ? 1 : 0.35,
+          pointerEvents: member.linkedin ? 'auto' : 'none',
+        }}
+        tabIndex={0}
+      >
+        <FaLinkedin />
+      </a>
+      <a
+        href={member.github || '#'}
+        className="lead-social-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+        style={{
+          color: '#333',
+          fontSize: 22,
+          transition: 'color 0.2s',
+          opacity: member.github ? 1 : 0.35,
+          pointerEvents: member.github ? 'auto' : 'none',
+        }}
+        tabIndex={0}
+      >
+        <FaGithub />
+      </a>
+      <a
+        href={member.instagram || '#'}
+        className="lead-social-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        style={{
+          color: '#E1306C',
+          fontSize: 22,
+          transition: 'color 0.2s',
+          opacity: member.instagram ? 1 : 0.35,
+          pointerEvents: member.instagram ? 'auto' : 'none',
+        }}
+        tabIndex={0}
+      >
+        <FaInstagram />
+      </a>
+      <a
+        href={member.email || '#'}
+        className="lead-social-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Email"
+        style={{
+          color: '#EA4335',
+          fontSize: 22,
+          transition: 'color 0.2s',
+          opacity: member.email ? 1 : 0.35,
+          pointerEvents: member.email ? 'auto' : 'none',
+        }}
+        tabIndex={0}
+      >
+        <FaEnvelope />
+      </a>
+    </div>
+  );
 
   return (
     <div
@@ -234,122 +338,7 @@ const Iqac = () => {
                         IQAC Member
                       </span>
                     </div>
-                    <div
-                      className="lead-socials"
-                      style={{
-                        marginTop: 10,
-                        display: 'flex',
-                        gap: 18,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        minHeight: 32,
-                      }}
-                    >
-                      {member.website && (
-                        <a
-                          href={member.website}
-                          className="lead-social-link"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="Website"
-                          style={{
-                            color: '#4D96FF',
-                            fontSize: 22,
-                            fontWeight: 700,
-                            textDecoration: 'none',
-                            transition: 'color 0.2s',
-                          }}
-                          tabIndex={0}
-                        >
-                          🌐
-                        </a>
-                      )}
-                      {member.linkedin && (
-                        <a
-                          href={member.linkedin}
-                          className="lead-social-link"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="LinkedIn"
-                          style={{
-                            color: '#0A66C2',
-                            fontSize: 22,
-                            transition: 'color 0.2s',
-                          }}
-                          tabIndex={0}
-                        >
-                          <FaLinkedin />
-                        </a>
-                      )}
-                      {member.github && (
-                        <a
-                          href={member.github}
-                          className="lead-social-link"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="GitHub"
-                          style={{
-                            color: '#333',
-                            fontSize: 22,
-                            transition: 'color 0.2s',
-                          }}
-                          tabIndex={0}
-                        >
-                          <FaGithub />
-                        </a>
-                      )}
-                      {member.instagram && (
-                        <a
-                          href={member.instagram}
-                          className="lead-social-link"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="Instagram"
-                          style={{
-                            color: '#E1306C',
-                            fontSize: 22,
-                            transition: 'color 0.2s',
-                          }}
-                          tabIndex={0}
-                        >
-                          <FaInstagram />
-                        </a>
-                      )}
-                      {member.email && (
-                        <a
-                          href={member.email}
-                          className="lead-social-link"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="Email"
-                          style={{
-                            color: '#EA4335',
-                            fontSize: 22,
-                            transition: 'color 0.2s',
-                          }}
-                          tabIndex={0}
-                        >
-                          <FaEnvelope />
-                        </a>
-                      )}
-                      {/* If no socials, show a subtle placeholder */}
-                      {!member.website &&
-                        !member.linkedin &&
-                        !member.github &&
-                        !member.instagram &&
-                        !member.email && (
-                          <span
-                            style={{
-                              color: '#b0b8c1',
-                              fontSize: 15,
-                              fontStyle: 'italic',
-                              opacity: 0.7,
-                            }}
-                          >
-                            No social links
-                          </span>
-                        )}
-                    </div>
+                    {renderSocialLinks(member)}
                   </div>
                   {/* Decorative accent for card */}
                   <div

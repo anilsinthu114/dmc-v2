@@ -6,7 +6,7 @@
   /* background: linear-gradient(90deg, #e0f0ff 0%, #f4f8ff 100%); */
   padding: 14px 0;
   overflow: hidden;
-  border: 1.5px solid #b3d1f7;
+  /* border: 1.5px solid #b3d1f7; */
   border-radius: 14px;
   box-shadow: 0 2px 12px rgba(25, 118, 210, 0.07);
 }
@@ -15,6 +15,7 @@
 .notifications-container {
   width: 100%;
   overflow: hidden;
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -33,20 +34,21 @@
   align-items: center;
   white-space: nowrap;
   padding: 10px 20px;
-  background: linear-gradient(90deg, #e3f0ff 60%, #f8fbff 100%);
+  /* background: linear-gradient(90deg, #e3f0ff 60%, #f8fbff 100%); */
   color: #1a237e;
   font-size: 17px;
-  border-radius: 8px;
-  box-shadow: 0 1px 6px rgba(25, 118, 210, 0.06);
-  margin: 0 8px;
-  transition: background 0.3s, box-shadow 0.3s;
+  /* border-radius: 8px; */
+  /* box-shadow: 0 1px 6px rgba(25, 118, 210, 0.06); */
+  /* margin: 0 8px; */
+  /* transition: background 0.3s, box-shadow 0.3s; */
   cursor: pointer;
-  border-left: 4px solid #1976d2;
+  /* border-left: 4px solid #1976d2; */
 }
 
 .notification a {
-  color: #1976d2;
-  text-decoration: underline;
+  /* color: #1976d2; */
+  /* text-decoration: underline; */
+  text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
 }

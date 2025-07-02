@@ -39,9 +39,9 @@ const Header = () => {
       ? "0.5rem 0.2rem"
       : "0.5rem 2rem",
     boxSizing: "border-box",
-    boxShadow: isScrolled
-      ? "0 2px 8px rgba(25, 118, 210, 0.10)"
-      : "0 4px 16px rgba(19, 123, 226, 0.10)",
+    // boxShadow: isScrolled
+    //   ? "0 2px 8px rgba(25, 118, 210, 0.10)"
+    //   : "0 4px 16px rgba(19, 123, 226, 0.10)",
   });
 
   const getLogoStyle = () => {

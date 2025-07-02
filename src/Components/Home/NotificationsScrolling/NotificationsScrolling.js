@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const NotificationsScrolling = () => {
   const [notifications, setNotifications] = useState([]);
+  const [isHovered, setIsHovered] = useState(false);
+  const scrollRef = useRef(null);
 
   useEffect(() => {
+    let isMounted = true;
     const fetchData = async () => {
       try {
         const response = await fetch('https://api.jntugv.edu.in/api/updates/allnotifications');
@@ -12,20 +15,24 @@ const NotificationsScrolling = () => {
         }
         const data = await response.json();
 
-        // Filter for specific update types and scrolling enabled
+        // Filter for specific update types
         const filteredNotifications = data.filter(
           (notification) =>
             ["dmc", "tender", "events"].includes(notification.update_type)
         );
 
-        if (filteredNotifications.length > 0) {
-          setNotifications(filteredNotifications);
-        } else {
-          setNotifications([{ title: '🚫 No Notifications Available' }]);
+        if (isMounted) {
+          if (filteredNotifications.length > 0) {
+            setNotifications(filteredNotifications);
+          } else {
+            setNotifications([{ title: '🚫 No Notifications Available' }]);
+          }
         }
       } catch (error) {
         console.error('Failed to fetch notifications:', error);
-        setNotifications([{ title: '🚫 Failed to load notifications' }]);
+        if (isMounted) {
+          setNotifications([{ title: '🚫 Failed to load notifications' }]);
+        }
       }
     };
 
@@ -33,116 +40,123 @@ const NotificationsScrolling = () => {
 
     // Poll for new notifications every 30 seconds
     const interval = setInterval(fetchData, 30000);
-    return () => clearInterval(interval);
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+    };
   }, []);
 
-  // Duplicate for smooth scrolling effect
-  // const duplicatedNotifications = [...notifications, ...notifications];
+  // Duplicate notifications for seamless infinite scroll
+  const duplicatedNotifications = [...notifications, ...notifications];
 
-  // Internal CSS for enhanced UI, text wrap, and responsiveness
-  const styles = `
-    // .notifications-box {
-    //   width: 100%;
-    //   max-width: 900px;
-    //   margin: 0 auto;
-    //   background: #f5f8fd;
-    //   border-radius: 10px;
-    //   box-shadow: 0 2px 8px rgba(30,64,175,0.07);
-    //   padding: 0;
-    //   overflow: hidden;
-    //   position: relative;
-    // }
-    // .notifications-container {
-    //   width: 100%;
-    //   overflow: hidden;
-    //   position: relative;
-    //   // background: transparent;
-    //   padding: 0;
-    // }
-    .notification-scroll {
-      display: flex;
-      flex-direction: column;
-      animation: scroll-vertical 18s linear infinite;
-      gap: 0;
+  // Animation pause on hover/focus for accessibility
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+  const handleFocus = () => setIsHovered(true);
+  const handleBlur = () => setIsHovered(false);
+
+  // Responsive styles
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+
+  const notificationScrollStyle = {
+    display: "flex",
+    flexDirection: "column",
+    gap: isMobile ? "18px" : "32px",
+    animation: isHovered
+      ? undefined
+      : `scroll-up ${isMobile ? "10s" : "18s"} linear infinite`,
+    paddingRight: "6px",
+  };
+
+  const notificationStyle = {
+    display: "flex",
+    alignItems: "center",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "normal",
+    wordBreak: "break-word",
+    padding: isMobile ? "7px 12px" : "10px 20px",
+    color: "#0d47a1",
+    fontSize: isMobile ? "14px" : "17px",
+    cursor: "pointer",
+    transition: "background 0.3s, box-shadow 0.3s",
+    borderRadius: isMobile ? "6px" : "8px",
+    margin: isMobile ? "0 2px" : undefined,
+  };
+
+  const notificationLinkStyle = {
+    textDecoration: "none",
+    fontWeight: 500,
+    transition: "color 0.2s",
+    color: "#1976d2",
+  };
+
+  // Inject keyframes for scroll-up animation
+  useEffect(() => {
+    const styleId = "notification-scroll-keyframes-inline";
+    if (!document.getElementById(styleId)) {
+      const style = document.createElement("style");
+      style.id = styleId;
+      style.innerHTML = `
+        @keyframes scroll-up {
+          from { transform: translateY(0); }
+          to { transform: translateY(-55%); }
+        }
+      `;
+      document.head.appendChild(style);
     }
-    .notification {
-      padding: 12px 18px;
-      font-size: 1.04rem;
-      color: black;
-      background: #e3e8f0;
-      border-bottom: 1px solid #e3e8f0;
-      word-break: break-word;
-      white-space: pre-line;
-      overflow-wrap: break-word;
-      text-overflow: ellipsis;
-      transition: background 0.2s;
-      display: flex;
-      align-items: center;
-      min-height: 10px;
-    }
-    .notification:last-child {
-      border-bottom: none;
-    }
-    .notification a {
-      color: black;
-      text-decoration: none;
-      word-break: break-word;
-      overflow-wrap: break-word;
-      max-width: 100%;
-      display: inline-block;
-    }
-    .notification a:hover, .notification a:focus {
-      color: #3d67de;
-      text-decoration: none;
-      outline: none;
-    }
-    @keyframes scroll-vertical {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-50%); }
-    }
-    @media (max-width: 600px) {
-      .notifications-box {
-        max-width: 100%;
-        border-radius: 0;
-        box-shadow: none;
-      }
-      .notification {
-        font-size: 0.97rem;
-        padding: 10px 8px;
-        min-height: 20px;
-      }
-    }
-    @media (max-width: 400px) {
-      .notification {
-        font-size: 0.91rem;
-        padding: 8px 4px;
-      }
-    }
-  `;
+  }, []);
 
   return (
-    <div className="notifications-box">
-      <style>{styles}</style>
-      {/* <div className="notifications-container"> */}
-        {/* <div className="notification-scroll"> */}
-          {notifications.map((notification, index) => (
-            <div className="notification" key={index}>
-              {notification.file_link ? (
-                <a
-                  href={notification.file_link || notification.external_link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  tabIndex={0}
-                  aria-label={notification.title}
-                >
-                  {notification.title}
-                </a>
-              ) : (
-                notification.title
-              )}
-            </div>
-          ))}
-        </div>
+    <div
+      ref={scrollRef}
+      tabIndex={0}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      aria-label="Latest notifications"
+      style={{
+        width: "100%",
+        overflow: "hidden",
+      }}
+    >
+      <div
+        style={notificationScrollStyle}
+      >
+        {duplicatedNotifications.map((notification, index) => (
+          <div
+            style={notificationStyle}
+            key={index}
+            onMouseOver={e => {
+              e.currentTarget.style.background =
+                "linear-gradient(90deg, #d0e7ff 60%, #eaf3ff 100%)";
+              e.currentTarget.style.boxShadow =
+                "0 2px 12px rgba(25, 118, 210, 0.13)";
+            }}
+            onMouseOut={e => {
+              e.currentTarget.style.background = "";
+              e.currentTarget.style.boxShadow = "";
+            }}
+          >
+            {notification.file_link || notification.external_link ? (
+              <a
+                href={notification.file_link || notification.external_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                tabIndex={0}
+                aria-label={notification.title}
+                style={notificationLinkStyle}
+              >
+                {notification.title}
+              </a>
+            ) : (
+              notification.title
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

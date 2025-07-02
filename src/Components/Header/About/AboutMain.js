@@ -49,11 +49,11 @@ const menuItems = [
   },
 ];
 
-const navStyle = {
+const navStyleVertical = {
   minWidth: 200,
   background: "linear-gradient(135deg, #e3f2fd 0%, #fafdff 100%)",
   borderRadius: 18,
-  boxShadow: "0 4px 24px 0 rgba(11,61,145,0.10)",
+  boxShadow: "none", // Removed box shadow
   padding: "30px 0 24px 0",
   margin: "24px 32px 24px 0",
   display: "flex",
@@ -65,7 +65,26 @@ const navStyle = {
   border: "1.5px solid #e0e7ef",
 };
 
-const menuButtonBase = {
+const navStyleHorizontal = {
+  width: "100vw",
+  maxWidth: "100%",
+  background: "linear-gradient(90deg, #e3f2fd 0%, #fafdff 100%)",
+  borderRadius: 0,
+  boxShadow: "none",
+  padding: "0",
+  margin: "0 0 16px 0",
+  display: "flex",
+  flexDirection: "row",
+  gap: 10,
+  position: "static",
+  top: "unset",
+  alignSelf: "unset",
+  border: "none",
+  overflowX: "auto",
+  minHeight: 0,
+};
+
+const menuButtonBaseVertical = {
   display: "flex",
   alignItems: "center",
   gap: 16,
@@ -87,26 +106,70 @@ const menuButtonBase = {
   userSelect: "none",
 };
 
-const activeButton = {
+const menuButtonBaseHorizontal = {
+  display: "flex",
+  alignItems: "center",
+  gap: 10,
+  padding: "10px 12px",
+  fontWeight: 400,
+  color: "#0b3d91",
+  background: "transparent",
+  borderRadius: 0,
+  textDecoration: "none",
+  fontSize: "1.01rem",
+  transition: "background 0.18s, color 0.18s, font-weight 0.18s, box-shadow 0.18s, transform 0.13s",
+  boxShadow: "none",
+  outline: "none",
+  border: "none",
+  cursor: "pointer",
+  position: "relative",
+  letterSpacing: 0.1,
+  minHeight: 44,
+  userSelect: "none",
+  flex: "0 0 auto",
+};
+
+const activeButtonVertical = {
   fontWeight: 700,
   color: "#035a5a",
   background: "linear-gradient(90deg, #e3f2fd 60%, #e0f7fa 100%)",
-  boxShadow: "0 4px 16px 0 rgba(3,90,90,0.10)",
+  boxShadow: "none", // Removed box shadow
   border: "1.5px solid #90caf9",
   transform: "scale(1.03)",
 };
 
-const hoverButton = {
+const activeButtonHorizontal = {
+  fontWeight: 700,
+  color: "#035a5a",
+  background: "#e3f2fd",
+  borderBottom: "3px solid #90caf9",
+  transform: "scale(1.03)",
+};
+
+const hoverButtonVertical = {
   background: "#f0f7fa",
   color: "#035a5a",
   transform: "translateX(2px) scale(1.01)",
 };
 
-const focusButton = {
+const hoverButtonHorizontal = {
+  background: "#f0f7fa",
+  color: "#035a5a",
+  transform: "scale(1.01)",
+};
+
+const focusButtonVertical = {
   background: "#e3f2fd",
   color: "#035a5a",
   boxShadow: "0 0 0 3px #90caf9",
   border: "1.5px solid #90caf9",
+};
+
+const focusButtonHorizontal = {
+  background: "#e3f2fd",
+  color: "#035a5a",
+  boxShadow: "0 0 0 2px #90caf9",
+  borderBottom: "3px solid #90caf9",
 };
 
 const dividerStyle = {
@@ -121,7 +184,7 @@ const AboutMain = () => {
   const [hovered, setHovered] = React.useState(null);
   const [focused, setFocused] = React.useState(null);
 
-  // Responsive: stack nav on top for small screens
+  // Responsive: horizontal nav for small screens, vertical for large
   const [isMobile, setIsMobile] = React.useState(window.innerWidth < 700);
   React.useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 700);
@@ -138,53 +201,74 @@ const AboutMain = () => {
     <div
       className="ABOUT-Main"
       style={{
-        display: isMobile ? "block" : "flex",
-        minHeight: "70vh",
-        width: "100%",
+        display: "flex",
+        flexDirection: isMobile ? "column" : "row",
+        minHeight: isMobile ? "60vh" : "70vh",
+        width: "100vw",
+        maxWidth: "100%",
         background: mainBg,
-        padding: isMobile ? "0" : "0 0 0 0",
+        padding: 0,
+        boxSizing: "border-box",
+        overflowX: isMobile ? "hidden" : undefined,
       }}
     >
       <nav
         className="ABOUTallLeftMenu"
         aria-label="About DMC Navigation"
-        style={{
-          ...navStyle,
-          minWidth: isMobile ? "100%" : navStyle.minWidth,
-          margin: isMobile ? "0 0 24px 0" : navStyle.margin,
-          borderRadius: isMobile ? 0 : navStyle.borderRadius,
-          boxShadow: isMobile ? "none" : navStyle.boxShadow,
-          position: isMobile ? "static" : navStyle.position,
-          top: isMobile ? "unset" : navStyle.top,
-          border: isMobile ? "none" : navStyle.border,
-          background: isMobile
-            ? "linear-gradient(90deg, #e3f2fd 0%, #fafdff 100%)"
-            : navStyle.background,
-        }}
+        style={isMobile ? navStyleHorizontal : navStyleVertical}
       >
-        <div
-          style={{
-            fontWeight: 800,
-            fontSize: "1.18rem",
-            color: "#0b3d91",
-            letterSpacing: 0.5,
-            margin: "0 0 10px 0",
-            padding: "0 24px",
-            textShadow: "0 2px 8px #e3f2fd",
-            display: isMobile ? "none" : "block",
-          }}
-        >
-          DMC Navigation
-        </div>
+        {!isMobile && (
+          <div
+            style={{
+              fontWeight: 800,
+              fontSize: "1.18rem",
+              color: "#0b3d91",
+              letterSpacing: 0.5,
+              margin: "0 0 10px 0",
+              padding: "0 24px",
+              textShadow: "0 2px 8px #e3f2fd",
+              display: "block",
+            }}
+          >
+            DMC Navigation
+          </div>
+        )}
         {!isMobile && <hr style={dividerStyle} />}
         {menuItems.map((item, idx) => {
           const isActive = location.pathname === item.to;
           const isHovered = hovered === idx;
           const isFocused = focused === idx;
-          let style = { ...menuButtonBase };
-          if (isActive) style = { ...style, ...activeButton };
-          else if (isFocused) style = { ...style, ...focusButton };
-          else if (isHovered) style = { ...style, ...hoverButton };
+          let style = isMobile
+            ? { ...menuButtonBaseHorizontal }
+            : { ...menuButtonBaseVertical };
+          if (isActive)
+            style = {
+              ...style,
+              ...(isMobile ? activeButtonHorizontal : activeButtonVertical),
+            };
+          else if (isFocused)
+            style = {
+              ...style,
+              ...(isMobile ? focusButtonHorizontal : focusButtonVertical),
+            };
+          else if (isHovered)
+            style = {
+              ...style,
+              ...(isMobile ? hoverButtonHorizontal : hoverButtonVertical),
+            };
+
+          // For mobile, make sure buttons fill the nav height and are easy to tap
+          if (isMobile) {
+            style = {
+              ...style,
+              minWidth: 120,
+              minHeight: 44,
+              flex: "1 0 auto",
+              justifyContent: "center",
+              borderRadius: 0,
+              textAlign: "center",
+            };
+          }
 
           return (
             <Link
@@ -209,15 +293,16 @@ const AboutMain = () => {
             >
               <span
                 style={{
-                  fontSize: "1.32em",
+                  fontSize: isMobile ? "1.15em" : "1.32em",
                   display: "flex",
                   alignItems: "center",
-                  marginRight: 8,
+                  marginRight: isMobile ? 4 : 8,
                   filter: isActive
                     ? "drop-shadow(0 2px 6px #e3f2fd)"
                     : "none",
                   color: isActive ? "#1976d2" : "#0b3d91",
                   transition: "color 0.18s, filter 0.18s",
+                  justifyContent: "center",
                 }}
                 aria-hidden="true"
               >
@@ -231,11 +316,12 @@ const AboutMain = () => {
                   textOverflow: "ellipsis",
                   fontWeight: isActive ? 700 : 400,
                   letterSpacing: 0.1,
+                  textAlign: "center",
                 }}
               >
                 {item.label}
               </span>
-              {isActive && (
+              {isActive && !isMobile && (
                 <span
                   style={{
                     position: "absolute",
@@ -270,6 +356,8 @@ const AboutMain = () => {
           border: isMobile ? "none" : "1.5px solid #e0e7ef",
           minHeight: isMobile ? "60vh" : "70vh",
           transition: "box-shadow 0.18s, border-radius 0.18s, padding 0.18s",
+          width: "100%",
+          boxSizing: "border-box",
         }}
       >
         <Outlet />
