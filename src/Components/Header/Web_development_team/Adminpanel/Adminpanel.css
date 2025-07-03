@@ -178,3 +178,30 @@
   padding: 40px 0;
   font-weight: 500;
 }
+
+.year-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.year-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4D96FF, #6BCB77);
+  margin-right: 0.7rem;
+  box-shadow: 0 2px 8px #4D96FF33;
+}
+.year-label {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: " #2e0669";
+  margin-right: 0.7rem;
+  letter-spacing: 0.2px;
+}
+.year-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, #d0e6f9 60%, #b2e0c6 100%);
+  border-radius: 2px;
+}

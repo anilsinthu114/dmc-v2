@@ -10,8 +10,15 @@ import {
 import './Iqac.css';
 import teamData from './IqacData';
 
-// Dummy profile image URL
-const DUMMY_PROFILE_IMG = 'https://randomuser.me/api/portraits/men/76.jpg';
+// Helper to get initials from a name
+function getInitials(name) {
+  if (!name) return '';
+  const parts = name.trim().split(' ');
+  if (parts.length === 1) {
+    return parts[0][0].toUpperCase();
+  }
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
 
 const Iqac = () => {
   // Group team members by year
@@ -54,9 +61,12 @@ const Iqac = () => {
           fontSize: 22,
           fontWeight: 700,
           textDecoration: 'none',
-          transition: 'color 0.2s',
+          transition: 'color 0.2s, background 0.2s',
           opacity: member.website ? 1 : 0.35,
           pointerEvents: member.website ? 'auto' : 'none',
+          borderRadius: '50%',
+          padding: 6,
+          background: member.website ? 'transparent' : 'none',
         }}
         tabIndex={0}
       >
@@ -71,9 +81,12 @@ const Iqac = () => {
         style={{
           color: '#0A66C2',
           fontSize: 22,
-          transition: 'color 0.2s',
+          transition: 'color 0.2s, background 0.2s',
           opacity: member.linkedin ? 1 : 0.35,
           pointerEvents: member.linkedin ? 'auto' : 'none',
+          borderRadius: '50%',
+          padding: 6,
+          background: member.linkedin ? 'transparent' : 'none',
         }}
         tabIndex={0}
       >
@@ -88,9 +101,12 @@ const Iqac = () => {
         style={{
           color: '#333',
           fontSize: 22,
-          transition: 'color 0.2s',
+          transition: 'color 0.2s, background 0.2s',
           opacity: member.github ? 1 : 0.35,
           pointerEvents: member.github ? 'auto' : 'none',
+          borderRadius: '50%',
+          padding: 6,
+          background: member.github ? 'transparent' : 'none',
         }}
         tabIndex={0}
       >
@@ -105,9 +121,12 @@ const Iqac = () => {
         style={{
           color: '#E1306C',
           fontSize: 22,
-          transition: 'color 0.2s',
+          transition: 'color 0.2s, background 0.2s',
           opacity: member.instagram ? 1 : 0.35,
           pointerEvents: member.instagram ? 'auto' : 'none',
+          borderRadius: '50%',
+          padding: 6,
+          background: member.instagram ? 'transparent' : 'none',
         }}
         tabIndex={0}
       >
@@ -122,9 +141,12 @@ const Iqac = () => {
         style={{
           color: '#EA4335',
           fontSize: 22,
-          transition: 'color 0.2s',
+          transition: 'color 0.2s, background 0.2s',
           opacity: member.email ? 1 : 0.35,
           pointerEvents: member.email ? 'auto' : 'none',
+          borderRadius: '50%',
+          padding: 6,
+          background: member.email ? 'transparent' : 'none',
         }}
         tabIndex={0}
       >
@@ -219,142 +241,131 @@ const Iqac = () => {
                 marginTop: 16,
               }}
             >
-              {groupedData[year].map((member, idx) => (
-                <div
-                  className="lead-card enhanced-lead-card"
-                  key={member.rollNumber || member.name}
-                  style={{
-                    background: 'linear-gradient(120deg, #fff 60%, #f0f7ff 100%)',
-                    borderRadius: 20,
-                    boxShadow: '0 4px 24px 0 #4D96FF18',
-                    padding: 28,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    transition: 'transform 0.2s, box-shadow 0.2s',
-                    minHeight: 340,
-                    position: 'relative',
-                    cursor: 'pointer',
-                    overflow: 'hidden',
-                  }}
-                  tabIndex={0}
-                  aria-label={`IQAC Member: ${member.name}`}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.transform = 'translateY(-6px) scale(1.025)';
-                    e.currentTarget.style.boxShadow = '0 8px 32px 0 #4D96FF33';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.transform = 'none';
-                    e.currentTarget.style.boxShadow = '0 4px 24px 0 #4D96FF18';
-                  }}
-                >
+              {groupedData[year].map((member, idx) => {
+                // Instead of image, use initials
+                const initials = getInitials(member.name);
+                return (
                   <div
-                    className="lead-avatar enhanced-lead-avatar"
+                    className="lead-card enhanced-lead-card"
+                    key={member.rollNumber || member.name}
                     style={{
-                      background: 'linear-gradient(135deg, #e6f0fa 60%, #fff 100%)',
-                      boxShadow: `0 2px 12px 0 #4D96FF33`,
+                      background: 'linear-gradient(120deg, #fff 60%, #f0f7ff 100%)',
+                      borderRadius: 20,
+                      boxShadow: '0 4px 24px 0 #4D96FF18',
+                      padding: 28,
                       display: 'flex',
+                      flexDirection: 'column',
                       alignItems: 'center',
-                      justifyContent: 'center',
-                      overflow: 'hidden',
-                      width: 90,
-                      height: 90,
-                      borderRadius: '50%',
-                      marginBottom: 18,
-                      border: '3px solid #4D96FF22',
+                      transition: 'transform 0.2s, box-shadow 0.2s, background 0.2s',
+                      minHeight: 340,
                       position: 'relative',
+                      cursor: 'pointer',
+                      overflow: 'hidden',
                     }}
-                    aria-label={`Avatar for ${member.name}`}
+                    tabIndex={0}
+                    aria-label={`IQAC Member: ${member.name}`}
                   >
-                    <img
-                      src={member.Image || DUMMY_PROFILE_IMG}
-                      alt={member.name}
+                    <div
+                      className="lead-avatar enhanced-lead-avatar"
+                      style={{
+                        background: 'linear-gradient(135deg, #e6f0fa 60%, #fff 100%)',
+                        boxShadow: `0 2px 12px 0 #4D96FF33`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        overflow: 'hidden',
+                        width: 90,
+                        height: 90,
+                        borderRadius: '50%',
+                        marginBottom: 18,
+                        border: '3px solid #4D96FF22',
+                        position: 'relative',
+                        fontSize: 36,
+                        fontWeight: 700,
+                        color: '#4D96FF',
+                        letterSpacing: 1,
+                        userSelect: 'none',
+                        textTransform: 'uppercase',
+                        transition: 'background 0.2s',
+                      }}
+                      aria-label={`Avatar for ${member.name}`}
+                    >
+                      {initials}
+                    </div>
+                    <div
+                      className="lead-details enhanced-lead-details"
                       style={{
                         width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        borderRadius: '50%',
-                        display: 'block',
-                        filter: 'brightness(0.98) contrast(1.05)',
-                        transition: 'filter 0.2s',
-                      }}
-                      onMouseOver={e => (e.currentTarget.style.filter = 'brightness(1.05)')}
-                      onMouseOut={e => (e.currentTarget.style.filter = 'brightness(0.98) contrast(1.05)')}
-                    />
-                  </div>
-                  <div
-                    className="lead-details enhanced-lead-details"
-                    style={{
-                      width: '100%',
-                      textAlign: 'center',
-                      marginTop: 2,
-                    }}
-                  >
-                    <div
-                      className="lead-name enhanced-lead-name"
-                      style={{
-                        fontWeight: 700,
-                        fontSize: 20,
-                        marginBottom: 6,
-                        color: '#2d3a4a',
-                        letterSpacing: 0.2,
-                        textShadow: '0 1px 4px #4D96FF11',
+                        textAlign: 'center',
+                        marginTop: 2,
                       }}
                     >
-                      {member.name}
-                    </div>
-                    <div
-                      className="lead-roll enhanced-lead-roll"
-                      style={{
-                        fontSize: 15,
-                        color: '#4D96FF',
-                        marginBottom: 6,
-                        fontWeight: 500,
-                        letterSpacing: 0.1,
-                      }}
-                    >
-                      <span className="lead-label" style={{ fontWeight: 600 }}>
-                        Roll No:
-                      </span>{' '}
-                      <span>{member.rollNumber}</span>
-                    </div>
-                    <div
-                      className="lead-role enhanced-lead-role"
-                      style={{ marginBottom: 12 }}
-                    >
-                      <span
-                        className="role-badge contributor"
+                      <div
+                        className="lead-name enhanced-lead-name"
                         style={{
-                          background: 'linear-gradient(90deg, #6BCB77 60%, #4D96FF 100%)',
-                          color: '#fff',
-                          borderRadius: 10,
-                          padding: '4px 16px',
-                          fontSize: 14,
-                          fontWeight: 600,
-                          boxShadow: '0 2px 8px #6BCB7722',
+                          fontWeight: 700,
+                          fontSize: 20,
+                          marginBottom: 6,
+                          color: '#2d3a4a',
                           letterSpacing: 0.2,
+                          textShadow: '0 1px 4px #4D96FF11',
                         }}
                       >
-                        IQAC Member
-                      </span>
+                        {member.name}
+                      </div>
+                      <div
+                        className="lead-roll enhanced-lead-roll"
+                        style={{
+                          fontSize: 15,
+                          color: '#4D96FF',
+                          marginBottom: 6,
+                          fontWeight: 500,
+                          letterSpacing: 0.1,
+                        }}
+                      >
+                        <span className="lead-label" style={{ fontWeight: 600 }}>
+                          Roll No:
+                        </span>{' '}
+                        <span>{member.rollNumber}</span>
+                      </div>
+                      <div
+                        className="lead-role enhanced-lead-role"
+                        style={{ marginBottom: 12 }}
+                      >
+                        <span
+                          className="role-badge contributor"
+                          style={{
+                            background: 'linear-gradient(90deg, #6BCB77 60%, #4D96FF 100%)',
+                            color: '#fff',
+                            borderRadius: 10,
+                            padding: '4px 16px',
+                            fontSize: 14,
+                            fontWeight: 600,
+                            boxShadow: '0 2px 8px #6BCB7722',
+                            letterSpacing: 0.2,
+                          }}
+                        >
+                          IQAC Member
+                        </span>
+                      </div>
+                      {renderSocialLinks(member)}
                     </div>
-                    {renderSocialLinks(member)}
+                    {/* Decorative accent for card */}
+                    <div
+                      style={{
+                        position: 'absolute',
+                        bottom: -18,
+                        right: -18,
+                        width: 60,
+                        height: 60,
+                        // background: 'radial-gradient(circle at 60% 60%, #4D96FF22 0%, transparent 20%)',
+                        // borderRadius: '50%',
+                        zIndex: 0,
+                      }}
+                    />
                   </div>
-                  {/* Decorative accent for card */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      bottom: -18,
-                      right: -18,
-                      width: 60,
-                      height: 60,
-                      background: 'radial-gradient(circle at 60% 60%, #4D96FF22 0%, transparent 80%)',
-                      borderRadius: '50%',
-                      zIndex: 0,
-                    }}
-                  />
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         ))}
@@ -416,6 +427,37 @@ const Iqac = () => {
         .lead-social-link:focus {
           outline: 2px solid #4D96FF;
           border-radius: 50%;
+        }
+        /* Card hover effect */
+        .lead-card.enhanced-lead-card:hover {
+          background: linear-gradient(120deg, #e6f0fa 60%, #d0e6ff 100%);
+          transform: translateY(-6px) scale(1.025);
+          box-shadow: 0 8px 32px 0 #4D96FF33;
+        }
+        /* Avatar hover effect */
+        .lead-card.enhanced-lead-card:hover .lead-avatar.enhanced-lead-avatar {
+          background: linear-gradient(135deg, #d0e6ff 60%, #e6f0fa 100%);
+        }
+        /* Social icon hover effect */
+        .lead-social-link:hover {
+          background: #f0f7ff;
+          box-shadow: 0 2px 8px #4D96FF22;
+          opacity: 1 !important;
+        }
+        .lead-social-link[aria-label="Website"]:hover {
+          color: #2563eb;
+        }
+        .lead-social-link[aria-label="LinkedIn"]:hover {
+          color: #004182;
+        }
+        .lead-social-link[aria-label="GitHub"]:hover {
+          color: #171515;
+        }
+        .lead-social-link[aria-label="Instagram"]:hover {
+          color: #c13584;
+        }
+        .lead-social-link[aria-label="Email"]:hover {
+          color: #b23121;
         }
         `}
       </style>

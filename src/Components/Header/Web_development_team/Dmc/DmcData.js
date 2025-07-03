@@ -12,6 +12,7 @@ const teamData = [
     email: '',
     website: '',
   },
+  
   {
     name: 'Bontalakoti Saikiran',
     rollNumber: '20VV1A1211',
@@ -55,6 +56,17 @@ const teamData = [
     instagram: 'https://www.instagram.com/mr.anil_sinthu/',
     email: 'mailto:anilsinthu114@gmail.com',
     website: 'https://anilsinthu.vercel.app/',
+  },
+  {
+    name: 'Harsha Vivek',
+    rollNumber: '21VV1A1203',
+    year: '2024-2025',
+    role: 'Front End Developer',
+    linkedin: '',
+    github: '',
+    instagram: '',
+    email: '',
+    website: '',
   }
 ];
 
