@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+
+import { Analytics } from "@vercel/analytics/react"
 import Footer from "./Components/Footer/Footer";
 import AboutMain from "./Components/Header/About/AboutMain";
 import Activities from "./Components/Header/About/Activities/Activities";
